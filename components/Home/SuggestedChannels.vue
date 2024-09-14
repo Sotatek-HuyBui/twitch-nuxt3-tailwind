@@ -30,7 +30,7 @@ const channels = ref([
         name: 'RERUN: MOUZ vs. Rooster - ESL Pro League Season 20 - Group C',
         description: 'Counter-Strike',
         tag: [
-            { id: 1, name: 'English 1' },
+            { id: 1, name: 'English' },
             { id: 2, name: 'Fifa' },
         ],
     },
