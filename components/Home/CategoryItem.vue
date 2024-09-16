@@ -1,5 +1,10 @@
 <template>
-    <div class="cursor-pointer">
+    <div
+        class="cursor-pointer mb-4"
+        @click="
+            navigateTo(`/directory/category/${item.name.split(' ').join('-')}`)
+        "
+    >
         <img
             class="w-full h-[250px] object-cover mb-2 rounded-md"
             :src="item.image"
@@ -12,7 +17,7 @@
             <div
                 v-for="tag in item.tag"
                 :key="item.id"
-                class="py-1 p-2 rounded-full bg-slate-200 mr-2"
+                class="py-0.5 px-2 rounded-full bg-slate-200 mr-2"
             >
                 <p class="text-[11px]">{{ tag.name }}</p>
             </div>

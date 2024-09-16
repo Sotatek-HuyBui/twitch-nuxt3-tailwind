@@ -44,40 +44,8 @@
     </div>
 </template>
 <script setup lang="ts">
-const channels = ref([
-    {
-        id: 1,
-        avatar: 'https://images.pexels.com/photos/28167650/pexels-photo-28167650/free-photo-of-a-woman-in-traditional-clothing-standing-in-a-doorway.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Dota-1',
-        description: 'Dota 1',
-        followers: 2000,
-        active: true,
-    },
-    {
-        id: 2,
-        avatar: 'https://images.pexels.com/photos/28167650/pexels-photo-28167650/free-photo-of-a-woman-in-traditional-clothing-standing-in-a-doorway.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Dota-2',
-        description: 'Dota 2',
-        followers: 1000,
-        active: false,
-    },
-    {
-        id: 3,
-        avatar: 'https://images.pexels.com/photos/28167650/pexels-photo-28167650/free-photo-of-a-woman-in-traditional-clothing-standing-in-a-doorway.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Dota-3',
-        description: 'Dota 3',
-        followers: 2000,
-        active: true,
-    },
-    {
-        id: 4,
-        avatar: 'https://images.pexels.com/photos/28167650/pexels-photo-28167650/free-photo-of-a-woman-in-traditional-clothing-standing-in-a-doorway.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Dota-4',
-        description: 'Dota 4',
-        followers: 4000,
-        active: true,
-    },
-]);
+import { dummySidebarChannels } from '@/data/index.ts';
+const channels = ref(dummySidebarChannels);
 
 const isOpen = ref(true);
 const { toggleFromParent } = defineProps(['toggleFromParent']);

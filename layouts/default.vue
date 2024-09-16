@@ -16,7 +16,7 @@
         <div class="w-[100%] flex relative mt-[58px] overflow-hidden">
             <SideBar :toggleFromParent="toggleFromParent" />
             <div
-                class="content layout-collapsed p-2 overflow-y-auto h-full w-full pb-20"
+                class="content layout-collapsed p-1 overflow-y-auto h-full w-full pb-20"
                 :class="{ checkout: isOpen }"
             >
                 <slot />
@@ -42,7 +42,6 @@ const onShowRegisterModal = () => {
 };
 
 const toggleFromParent = () => {
-    console.log('hehe   ');
     isOpen.value = !isOpen.value;
 };
 </script>

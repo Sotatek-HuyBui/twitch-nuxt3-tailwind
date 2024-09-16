@@ -8,6 +8,7 @@
             /></NuxtLink>
             <p
                 class="mx-6 cursor-pointer font-medium hover:text-customPrimary-1 text-[14px]"
+                @click="() => navigateTo('/directory')"
             >
                 Browse
             </p>

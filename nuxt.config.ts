@@ -2,7 +2,7 @@ import {resolve} from 'path'
 
 export default defineNuxtConfig({
   alias: {
-    '@': resolve(__dirname, "/")
+    '@': resolve(__dirname, "./")
   },
 
   css: [
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt"],
+  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt", "@ant-design-vue/nuxt"],
   ui: {
     primary: 'customPrimary',
   },
