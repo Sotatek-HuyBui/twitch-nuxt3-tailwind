@@ -1,7 +1,7 @@
 <template>
     <div class="cursor-pointer relative">
         <img
-            class="w-full h-[200px] object-cover mb-2 rounded-md"
+            class="w-full h-[160px] object-cover mb-2 rounded-md"
             :src="item.image"
         />
         <div class="absolute bg-[red] rounded-sm px-2 py-1 top-2 left-2">

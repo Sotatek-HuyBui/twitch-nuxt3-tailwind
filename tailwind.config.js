@@ -13,6 +13,8 @@ export default {
       colors: {
         customPrimary: {
           1: '#9147FF',
+          2: '#5C16C5',
+          3: '#451093',
         }
       }
     },
