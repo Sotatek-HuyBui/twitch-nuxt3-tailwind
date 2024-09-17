@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-white flex justify-between px-3 py-2 border-b-2 border-gray-100 z-10"
+        class="bg-white dark:bg-black flex justify-between px-3 py-2 border-b-2 border-gray-100 z-10"
     >
         <div class="flex-1 flex items-center">
             <NuxtLink to="/"
