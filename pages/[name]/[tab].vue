@@ -9,8 +9,6 @@
 
 <script setup>
 const nuxt = useNuxtApp();
-
-console.log(nuxt);
 </script>
 
 <style>

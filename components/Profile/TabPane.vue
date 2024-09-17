@@ -1,79 +1,93 @@
 <template>
     <div class="px-8">
-        <UTabs :items="items" v-model="selected">
-            <template #default="{ item, index, selected }">
-                <span
-                    class="truncate"
-                    :class="[
-                        selected &&
-                            'text-customPrimary-1 dark:text-primary-400',
-                    ]"
-                    >{{ item.label }}</span
-                >
-            </template>
-            <template #home="{ item }">
-                <ProfileTabHome @change-tab="handleTabChange" />
-            </template>
-            <template #about="{ item }">
+        <a-tabs v-model:activeKey="activeKey" @change="changeActiveTab">
+            <a-tab-pane key="1">
+                <template #tab>
+                    <p class="text-[16px]">Home</p>
+                </template>
+                <ProfileTabHome :changeActiveTab="changeActiveTab" />
+            </a-tab-pane>
+            <a-tab-pane key="2"
+                ><template #tab>
+                    <p class="text-[16px]">About</p>
+                </template>
                 <ProfileTabAbout />
-            </template>
-            <template #video="{ item }">
+            </a-tab-pane>
+            <a-tab-pane key="3"
+                ><template #tab>
+                    <p class="text-[16px]">Schedule</p>
+                </template>
+                Schedule
+            </a-tab-pane>
+            <a-tab-pane key="4"
+                ><template #tab>
+                    <p class="text-[16px]">Videos</p>
+                </template>
                 <ProfileTabVideo />
-            </template>
-        </UTabs>
+            </a-tab-pane>
+            <a-tab-pane key="5"
+                ><template #tab>
+                    <p class="text-[16px]">Chats</p>
+                </template>
+                Chats
+            </a-tab-pane>
+        </a-tabs>
     </div>
 </template>
 
 <script setup lang="ts">
-const items = [
-    {
-        label: 'Home',
-        slot: 'home',
-    },
-    {
-        label: 'About',
-        slot: 'about',
-    },
-    {
-        label: 'Schedule',
-        content: 'Finally, this is the content for Tab3',
-    },
-    {
-        label: 'Video',
-        slot: 'video',
-    },
-    {
-        label: 'Chat',
-        content: 'Finally, this is the content for Tab3',
-    },
-];
-
 const route = useRoute();
 const router = useRouter();
-const activeTab = ref(0);
+const activeKey = ref('1');
 
-const selected = computed({
-    get() {
-        const index = items.findIndex((item) => item.label === route.query.tab);
-        if (index === -1) {
-            return 0;
-        }
+const changeActiveTab = (targetKey: string) => {
+    activeKey.value = targetKey;
 
-        return index;
-    },
-    set(value) {
-        // Hash is specified here to prevent the page from scrolling to the top
-        router.replace({
-            query: { tab: items[value].label },
-            // hash: '1',
-        });
-    },
-});
+    let url = `/${route.params.name}/`;
+    switch (targetKey) {
+        case '1':
+            url += '';
+            break;
+        case '2':
+            url += 'about';
+            break;
+        case '3':
+            url += 'schedule';
+            break;
+        case '4':
+            url += 'videos';
+            break;
+        case '5':
+            url += 'chats';
 
-const handleTabChange = (tabName) => {
-    const scheduleTab = items.findIndex((item) => item.label === tabName);
-    if (scheduleTab !== -1) {
-        selected.value = scheduleTab;
+        default:
+            break;
     }
+
+    navigateTo(url);
 };
+
+onMounted(() => {
+    const tab = route.params.tab;
+    switch (tab) {
+        case 'home':
+            activeKey.value = '1';
+            break;
+        case 'about':
+            activeKey.value = '2';
+            break;
+        case 'schedule':
+            activeKey.value = '3';
+            break;
+        case 'videos':
+            activeKey.value = '4';
+            break;
+        case 'chats':
+            activeKey.value = '5';
+            break;
+
+        default:
+            break;
+    }
+});
 </script>

@@ -186,3 +186,50 @@ export const dummySidebarChannels = [
         active: true,
     },
 ]
+
+export const dummySocialMedias = [
+    {
+        name: 'The Rules',
+        url: 'https://www.instagram.com/',
+        image: 'https://panels.twitch.tv/panel-19571641-image-3124ae4b-2275-40bd-80c0-f6a8b717e670',
+        description:
+            'Remember to replace the console.log(Component has been mounted!); line with your actual logic that you want to execute after the component is mounted.',
+        socialImage:
+            'https://panels.twitch.tv/panel-19571641-image-f3aa9b32-0002-4ead-9e53-c127bf10a9e7',
+    },
+    {
+        name: 'Twitter',
+        url: 'https://www.instagram.com/',
+        image: 'https://panels.twitch.tv/panel-19571641-image-3d9d3913-3062-4418-ba4e-706a4082b8f6',
+        description:
+            'Remember to replace the console.log(Component has been mounted!); line with your actual logic that you want to execute after the component is mounted.',
+        socialImage:
+            'https://panels.twitch.tv/panel-19571641-image-19e38686-c006-4358-9f53-ebb8e745d83f',
+    },
+    {
+        name: 'Youtube',
+        url: 'https://www.instagram.com/',
+        image: 'https://panels.twitch.tv/panel-19571641-image-8339f9d0-b05c-4674-bd74-bdf8edfed8bd',
+        description: '',
+        socialImage:
+            'https://panels.twitch.tv/panel-19571641-image-6decf972-fb50-4aaa-be80-ced680c1feb1',
+    },
+    {
+        name: 'Instagram',
+        url: 'https://www.instagram.com/',
+        image: 'https://panels.twitch.tv/panel-19571641-image-3124ae4b-2275-40bd-80c0-f6a8b717e670',
+        description:
+            'Remember to replace the console.log(Component has been mounted!); line with your actual logic that you want to execute after the component is mounted.',
+        socialImage:
+            'https://panels.twitch.tv/panel-19571641-image-17363936-1e4a-4698-99b4-12aabe53e974',
+    },
+    {
+        name: 'Discord',
+        url: 'https://www.instagram.com/',
+        image: 'https://panels.twitch.tv/panel-19571641-image-38c03534-490c-454b-be57-fb1997f27e78',
+        description:
+            'Remember to replace the console.log(Component has been mounted!); line with your actual logic that you want to execute after the component is mounted.',
+        socialImage:
+            'https://panels.twitch.tv/panel-19571641-image-feba1f2a-2b46-4835-b59a-8c92c5d149d9',
+    },
+];

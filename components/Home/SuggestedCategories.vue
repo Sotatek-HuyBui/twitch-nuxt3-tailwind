@@ -5,10 +5,10 @@
             you'll like
         </p>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-8 gap-1.5"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-8 gap-1.5"
         >
             <HomeCategoryItem
-                v-for="(item, index) in categories"
+                v-for="(item, index) in categories.slice(0, 6)"
                 :key="item.id"
                 :item="item"
             />

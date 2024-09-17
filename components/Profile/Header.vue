@@ -2,7 +2,7 @@
     <div>
         <div class="px-20 py-10 flex items-center justify-center">
             <div
-                class="w-[300px] h-[300px] p-4 bg-slate-100 mr-10 flex flex-col justify-center rounded-md"
+                class="w-[300px] h-[300px] p-4 bg-slate-100 mr-6 flex flex-col justify-center rounded-md"
             >
                 <div class="bg-black px-2 py-[2px] rounded-md w-14 mb-2">
                     <p class="text-white text-[10px]">OFFLINE</p>
@@ -26,9 +26,8 @@
                     v-slot="{ item }"
                     :items="items"
                     :ui="{ item: 'basis-full' }"
-                    class="rounded-lg overflow-hidden"
+                    class="rounded-md overflow-hidden"
                     draggable
-                    indicators
                     @change="onChange"
                 >
                     <img

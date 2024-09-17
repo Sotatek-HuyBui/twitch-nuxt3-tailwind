@@ -2,18 +2,17 @@
     <div class="mt-6">
         <div class="flex h-[240px]">
             <div
-                class="rounded-md p-4 bg-customPrimary-1 h-full flex flex-col justify-between w-[160px]"
+                class="rounded-md p-4 bg-customPrimary-1 h-full flex flex-col justify-between w-[150px]"
             >
                 <p></p>
                 <p class="text-white text-[26px] leading-8">Featured Clips</p>
                 <UButton
                     color="white"
                     variant="solid"
-                    icon="i-heroicons-arrow-up-right-16-solid"
-                    class="w-[110px]"
-                    @click="changeActiveTab"
+                    class="w-[80px]"
+                    @click="changeActiveTab('4')"
                     >Show All</UButton
-                >N
+                >
             </div>
             <div class="h-full overflow-hidden ml-4 flex-1">
                 <UCarousel
@@ -22,7 +21,7 @@
                     class="rounded-lg flex flex-col"
                     arrows
                 >
-                    <div class="w-[240px] mr-6">
+                    <div class="w-[280px] mr-2">
                         <img
                             :src="item"
                             class="w-full h-[170px] object-cover mr-2 rounded-md"
@@ -33,8 +32,24 @@
                                 :src="item"
                                 class="w-[40px] h-[60px] object-cover mr-2 rounded-md"
                             />
-                            <div>
-                                <p class="font-medium">10 out of 10</p>
+                            <div class="flex-1">
+                                <div
+                                    class="flex justify-between items-center w-full"
+                                >
+                                    <p class="font-medium">10 out of 10</p>
+                                    <UDropdown
+                                        :items="videoItems"
+                                        :popper="{ placement: 'bottom-start' }"
+                                    >
+                                        <UTooltip text="More options">
+                                            <img
+                                                src="~/assets/three-dot-menu.png"
+                                                class="w-3 h-3 cursor-pointer"
+                                                alt="Three dot menu"
+                                            />
+                                        </UTooltip>
+                                    </UDropdown>
+                                </div>
                                 <div class="flex items-center">
                                     <p class="text-[12px] text-gray-500">
                                         Ninja
@@ -136,10 +151,13 @@ const suggestedStreamers = [
     },
 ];
 
-const emits = defineEmits(['change-tab']);
+const videoItems = [
+    [
+        {
+            label: 'Report video',
+        },
+    ],
+];
 
-const changeActiveTab = () => {
-    console.log(11);
-    emits('change-tab', 'Video'); // Emit an event to change the active tab to index 4
-};
+const { changeActiveTab } = defineProps(['changeActiveTab']);
 </script>
