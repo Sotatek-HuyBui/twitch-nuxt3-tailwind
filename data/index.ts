@@ -233,3 +233,114 @@ export const dummySocialMedias = [
             'https://panels.twitch.tv/panel-19571641-image-feba1f2a-2b46-4835-b59a-8c92c5d149d9',
     },
 ];
+
+export const dummySearchedChannels = [
+    {
+        id: 1,
+        name: 'kinapopo',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/41657c1a-3b79-44ce-855e-3fa5c2067700-profile_image-150x150.png',
+        followers: 12000,
+        description: 'Wanna support the channel? Patreon is only $2 a month! Over 100 uncut album reactions, Discord access and all livestreams!https://www.patreon.com/bobthepoppophttps://www.youtube.com/@bobthepoppop',
+        latestVideos: [
+            {
+                id: 1,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Top Clip'
+            },
+            {
+                id: 2,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Last stream'
+            },
+        ],
+         nextStream: {
+           
+        }
+    },
+    {
+        id: 2,
+        name: 'BopBi',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/b08f25a2-7fc7-4357-adce-c2e22a252902-profile_image-150x150.png',
+        followers: 12000,
+        description: 'Wanna support the channel? Patreon is only $2 a month! Over 100 uncut album reactions, Discord access and all livestreams!https://www.patreon.com/bobthepoppophttps://www.youtube.com/@bobthepoppop',
+        latestVideos: [
+            {
+                id: 1,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Top Clip'
+            },
+            {
+                id: 2,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Last stream'
+            },
+        ],
+        nextStream: {
+            time: '2:00 AM - 3:30 AM',
+            name: 'Bob\'s Underground Artist Gauntlet',
+            date: '19-07-2024'
+        }
+    },
+    {
+        id: 3,
+        name: 'kinapopo',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/41657c1a-3b79-44ce-855e-3fa5c2067700-profile_image-150x150.png',
+        followers: 12000,
+        description: 'Wanna support the channel? Patreon is only $2 a month! Over 100 uncut album reactions, Discord access and all livestreams!https://www.patreon.com/bobthepoppophttps://www.youtube.com/@bobthepoppop',
+        latestVideos: [
+            {
+                id: 1,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Top Clip'
+            },
+            {
+                id: 2,
+                image: 'https://static-cdn.jtvnw.net/twitch-clips-thumbnails-prod/SnappyHilariousNarwhalDerp-6LVUt1xFgBl8LAqh/6d3d8f9e-dfaf-4007-b604-2bfb25884be7/preview.jpg',
+                name: 'Last stream'
+            },
+        ]
+    },
+]
+
+export const dummySearchedVideos = [
+    {
+        id: 1,
+        image: 'https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/3bf6e34df671fb9152fe_yuzupoppoo_44826901707_1726574282//thumb/thumb0-214x120.jpg',
+        name: 'Fifa Online 4',
+        description: 'Have a good time with me!',
+        views: 200,
+        date: '19-07-2024'
+    },
+    {
+        id: 2,
+        image: 'https://static-cdn.jtvnw.net/cf_vods/d3vd9lfkzbru3h/696506a818dbbc642b01_yuzupoppoo_41599367079_1726485999//thumb/thumb0-214x120.jpg',
+        name: 'Fifa Online 4',
+        description: 'Have a good time with me!',
+        views: 200,
+        date: '19-07-2024'
+    },
+    {
+        id: 3,
+        image: 'https://static-cdn.jtvnw.net/cf_vods/d3vd9lfkzbru3h/b0f4a8d16118a3b215f5_yuzupoppoo_41596189847_1726379916//thumb/thumb0-214x120.jpg',
+        name: 'Fifa Online 4',
+        description: 'Have a good time with me!',
+        views: 200,
+        date: '19-07-2024'
+    },
+    {
+        id: 4,
+        image: 'https://static-cdn.jtvnw.net/cf_vods/d3vd9lfkzbru3h/91d10681a7f9046bc423_yuzupoppoo_41593151399_1726275783//thumb/thumb0-214x120.jpg',
+        name: 'Fifa Online 4',
+        description: 'Have a good time with me!',
+        views: 200,
+        date: '19-07-2024'
+    },
+    {
+        id: 5,
+        image: 'https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/3bf6e34df671fb9152fe_yuzupoppoo_44826901707_1726574282//thumb/thumb0-214x120.jpg',
+        name: 'Fifa Online 4',
+        description: 'Have a good time with me!',
+        views: 200,
+        date: '19-07-2024'
+    },
+]

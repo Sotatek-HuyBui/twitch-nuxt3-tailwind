@@ -17,6 +17,7 @@
             class="mt-10 cursor-pointer"
             :label="isShowMore ? 'Show less' : 'Show more'"
             @click="toggleShowMore"
+            :ui="{ label: 'text-customPrimary-1' }"
         />
     </div>
 </template>

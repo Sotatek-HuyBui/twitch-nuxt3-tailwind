@@ -20,5 +20,5 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt", "@ant-design-vue/nuxt"],
   ui: {
     primary: 'customPrimary',
-  },
+  }
 })
