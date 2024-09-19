@@ -37,6 +37,7 @@
             label="Show all"
             @click="navigateTo(url)"
             v-if="!isFromVideoTab"
+            :ui="{ label: 'text-customPrimary-1' }"
         />
     </div>
 </template>

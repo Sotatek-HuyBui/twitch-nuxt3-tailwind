@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <div class="border-b-2 border-gray-100 pb-4 mb-4">
+            <p class="font-medium text-[20px]">Categories</p>
+        </div>
+        <SearchCategoriesItem
+            v-for="item in searchedCategories"
+            :key="item.id"
+            :item="item"
+        />
+        <UDivider
+            class="mt-10 cursor-pointer"
+            :label="isShowMore ? 'Show less' : 'Show more'"
+            @click="toggleShowMore"
+            :ui="{ label: 'text-customPrimary-1' }"
+        />
+    </div>
+</template>
+
+<script setup>
+import { dummyCategories } from '~/data/index.ts';
+const isShowMore = ref(false);
+
+const toggleShowMore = () => {
+    isShowMore.value = !isShowMore.value;
+};
+
+const searchedCategories = computed(() => {
+    if (isShowMore.value) return dummyCategories;
+    return dummyCategories.slice(0, 2);
+});
+</script>

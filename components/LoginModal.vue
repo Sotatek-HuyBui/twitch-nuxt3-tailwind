@@ -59,6 +59,8 @@
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from '#ui/types';
+//@ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 
 const schema = object({
     email: string().email('Invalid email').required('Required'),
@@ -78,6 +80,12 @@ const state = reactive({
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
     // Do something with event.data
-    console.log(event.data);
+    try {
+        console.log(event.data);
+        localStorage.setItem('token', uuidv4());
+        window.location.reload();
+    } catch (error) {
+        console.error(error);
+    }
 }
 </script>
