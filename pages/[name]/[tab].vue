@@ -1,9 +1,13 @@
 <template>
-    <div class="w-[100%] flex relative overflow-hidden">
-        <div class="overflow-y-auto h-full w-full">
+    <div class="w-[100%] flex relative overflow-hidden pl-4 sm:pl-10">
+        <div
+            v-if="$route.params.tab !== 'chats'"
+            class="overflow-y-auto h-full w-full"
+        >
             <ProfileHeader />
             <ProfileTabPane />
         </div>
+        <ProfileChat v-else />
     </div>
 </template>
 

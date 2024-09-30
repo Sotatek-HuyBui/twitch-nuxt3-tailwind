@@ -1,10 +1,10 @@
 <template>
     <div>
-        <p class="mt-6 text-[18px] font-medium mb-1">
+        <p class="mt-6 text-[10px] sm:text-[18px] font-medium mb-1">
             {{ header || 'Default Items' }}
         </p>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 2xl:grid-cols-10 gap-2"
+            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-8 gap-1 sm:gap-1.5"
         >
             <HomeCategoryItem
                 v-for="(item, index) in items.slice(0, 6)"

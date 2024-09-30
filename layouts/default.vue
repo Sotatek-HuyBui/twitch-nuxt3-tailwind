@@ -13,8 +13,14 @@
             :onShowLoginModal="onShowLoginModal"
             :onShowRegisterModal="onShowRegisterModal"
         />
-        <div class="w-[100%] flex relative mt-[58px] overflow-hidden">
-            <SideBar :toggleFromParent="toggleFromParent" />
+        <div
+            class="w-[100%] flex relative mt-[40px] sm:mt-[58px] overflow-hidden"
+        >
+            <SideBar
+                :toggleFromParent="toggleFromParent"
+                class="hidden sm:block"
+            />
+            <MobileSideBar class="block sm:hidden" />
             <div
                 class="content layout-collapsed p-1 overflow-y-auto h-full w-full pb-20"
                 :class="{ checkout: isOpen }"
@@ -22,7 +28,7 @@
                 <slot />
             </div>
         </div>
-        <SignUpBanner :onShowLoginModal="onShowLoginModal" />
+        <SignUpBanner v-if="!token" :onShowLoginModal="onShowLoginModal" />
     </div>
 </template>
 
@@ -30,6 +36,9 @@
 const isShowLoginModal = ref(false);
 const isShowRegisterModal = ref(false);
 const isOpen = ref(true);
+
+const { $locally }: any = useNuxtApp();
+const token = $locally.getItem('token');
 
 const onShowLoginModal = () => {
     isShowLoginModal.value = true;
@@ -53,10 +62,17 @@ const toggleFromParent = () => {
 }
 
 .layout-collapsed {
-    margin-left: 60px !important;
+    margin-left: 40px !important;
 }
 
-.checkout {
-    margin-left: 240px !important;
+@media screen and (min-width: 640px) {
+    .checkout {
+        margin-left: 240px !important;
+    }
+}
+@media screen and (max-width: 640px) {
+    .layout-collapsed {
+        margin-left: 20px !important;
+    }
 }
 </style>

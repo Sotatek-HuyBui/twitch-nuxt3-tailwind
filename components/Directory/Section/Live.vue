@@ -10,21 +10,21 @@
         </nuxt-link>
         <div v-else class="flex items-center mt-6 mb-1">
             <p
-                class="text-[18px] font-medium mr-4"
+                class="text-[12px] sm:text-[18px] font-medium mr-2 sm:mr-4"
                 :class="{ 'text-customPrimary-1': !isFromVideoTab }"
             >
                 {{ header || 'Default Items' }}
             </p>
             <p
                 v-if="isFromVideoTab"
-                class="text-customPrimary-1 text-[12px] cursor-pointer"
+                class="text-customPrimary-1 text-[8px] sm:text-[12px] cursor-pointer"
                 @click="viewAll"
             >
                 View all >
             </p>
         </div>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-4"
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-1 sm:gap-4"
         >
             <HomeChannelItem
                 v-for="(item, index) in items.slice(0, 3)"
@@ -37,7 +37,7 @@
             label="Show all"
             @click="navigateTo(url)"
             v-if="!isFromVideoTab"
-            :ui="{ label: 'text-customPrimary-1' }"
+            :ui="{ label: 'text-customPrimary-1 text-[8px] sm:text-[14px]' }"
         />
     </div>
 </template>

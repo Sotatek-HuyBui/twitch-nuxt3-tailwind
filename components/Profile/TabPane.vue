@@ -1,35 +1,17 @@
 <template>
-    <div class="px-8">
+    <div class="px-2 sm:px-8">
         <a-tabs v-model:activeKey="activeKey" @change="changeActiveTab">
-            <a-tab-pane key="1">
+            <a-tab-pane v-for="item in tabs" :key="item.key">
                 <template #tab>
-                    <p class="text-[16px]">Home</p>
+                    <p class="text-[8px] sm:text-[16px]">{{ item.name }}</p>
                 </template>
-                <ProfileTabHome :changeActiveTab="changeActiveTab" />
-            </a-tab-pane>
-            <a-tab-pane key="2"
-                ><template #tab>
-                    <p class="text-[16px]">About</p>
-                </template>
-                <ProfileTabAbout />
-            </a-tab-pane>
-            <a-tab-pane key="3"
-                ><template #tab>
-                    <p class="text-[16px]">Schedule</p>
-                </template>
-                Schedule
-            </a-tab-pane>
-            <a-tab-pane key="4"
-                ><template #tab>
-                    <p class="text-[16px]">Videos</p>
-                </template>
-                <ProfileTabVideo />
-            </a-tab-pane>
-            <a-tab-pane key="5"
-                ><template #tab>
-                    <p class="text-[16px]">Chats</p>
-                </template>
-                Chats
+
+                <ProfileTabHome
+                    v-if="item.key === '1'"
+                    :changeActiveTab="changeActiveTab"
+                />
+                <ProfileTabAbout v-if="item.key === '2'" />
+                <ProfileTabVideo v-if="item.key === '4'" />
             </a-tab-pane>
         </a-tabs>
     </div>
@@ -39,6 +21,29 @@
 const route = useRoute();
 const router = useRouter();
 const activeKey = ref('1');
+
+const tabs = [
+    {
+        key: '1',
+        name: 'Home',
+    },
+    {
+        key: '2',
+        name: 'About',
+    },
+    {
+        key: '3',
+        name: 'Schedule',
+    },
+    {
+        key: '4',
+        name: 'Videos',
+    },
+    {
+        key: '5',
+        name: 'Chats',
+    },
+];
 
 const changeActiveTab = (targetKey: string) => {
     activeKey.value = targetKey;

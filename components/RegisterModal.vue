@@ -58,7 +58,7 @@
                     <div class="flex justify-center">
                         <UButton
                             type="submit"
-                            class="mt-2 bg-customPrimary-1 w-full items-center justify-center"
+                            class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2"
                         >
                             Sign up
                         </UButton>
@@ -104,7 +104,7 @@ const months = [
 const monthSelected = ref(months[0]);
 
 type Schema = InferType<typeof schema>;
-const isOpen = defineModel();
+const isOpen: any = defineModel();
 const props = defineProps(['onShowLoginModal']);
 
 const state = reactive({

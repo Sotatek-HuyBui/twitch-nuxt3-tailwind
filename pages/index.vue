@@ -4,7 +4,7 @@ const store = useCounterStore();
 </script>
 
 <template>
-    <div class="flex-1 p-4">
+    <div class="flex-1 p-1 sm:p-4">
         <HomeSlider />
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />

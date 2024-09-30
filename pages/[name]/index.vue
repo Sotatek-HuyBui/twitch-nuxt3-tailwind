@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[100%] flex relative overflow-hidden">
+    <div class="w-[100%] flex relative overflow-hidden pl-4 sm:pl-10">
         <div class="overflow-y-auto h-full w-full">
             <ProfileHeader />
             <ProfileTabPane />

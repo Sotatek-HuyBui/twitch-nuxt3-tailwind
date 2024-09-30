@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[400px] flex items-center justify-center">
+    <div class="h-[200px] sm:h-[400px] flex items-center justify-center">
         <!-- <UCarousel
             v-slot="{ item }"
             :items="items"
