@@ -2,10 +2,11 @@
     <div class="flex items-center justify-between mt-2 mb-8">
         <div class="flex">
             <USelect
+                size="sm"
                 v-model="selectedLanguage"
                 :options="languages"
                 placeholder="Language"
-                class="mr-2"
+                class="mr-2 text-[6px] w-[100px]"
                 v-if="activeTab === '2'"
             />
             <UInput
@@ -18,12 +19,12 @@
             />
         </div>
         <div class="flex items-center justify-center">
-            <p class="font-medium mr-2">Sort by</p>
+            <p class="hidden sm:-text[14px] font-medium">Sort by</p>
             <USelect
                 v-model="selectedOption"
                 :options="options"
                 placeholder="Options"
-                class="mr-2"
+                class="mx-2"
                 option-attribute="name"
             />
         </div>

@@ -1,6 +1,9 @@
 <template>
-    <div class="flex-1 p-4">
-        <DirectoryHeader :currentDirectoryPath="$route.params.directory" />
+    <div class="flex-1 pl-5 sm:p-4">
+        <DirectoryHeader
+            v-if="$route.params.directory !== 'following'"
+            :currentDirectoryPath="$route.params.directory"
+        />
         <div v-if="$route.params.directory === 'gaming'">
             <DirectoryGame :directorySection="$route.params.directory" />
         </div>
@@ -12,6 +15,9 @@
         </div>
         <div v-else-if="$route.params.directory === 'creative'">
             <DirectoryCreative :directorySection="$route.params.directory" />
+        </div>
+        <div v-else-if="$route.params.directory === 'following'">
+            <DirectoryFollowing :directorySection="$route.params.directory" />
         </div>
         <div v-else>
             <DirectoryEsports :directorySection="$route.params.directory" />

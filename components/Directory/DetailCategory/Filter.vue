@@ -26,12 +26,12 @@
             />
         </div>
         <div class="flex items-center justify-center">
-            <p class="font-medium mr-2">Sort by</p>
+            <p class="hidden sm:block font-medium">Sort by</p>
             <USelect
                 v-model="selectedOption"
                 :options="options"
                 placeholder="Options"
-                class="mr-2"
+                class="ml-2"
                 option-attribute="name"
             />
         </div>

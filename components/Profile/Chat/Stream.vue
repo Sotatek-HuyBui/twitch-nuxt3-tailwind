@@ -1,7 +1,12 @@
 <template>
-    <div class="flex flex-col items-center">
-        <div class="sm:w-[1200px] mb-4">
-            <p class="text-[14px] sm:text-[20px]"><b>About Ninja</b></p>
+    <div class="overflow-y-auto w-full">
+        <div
+            class="bg-black h-[200px] sm:h-[700px] flex items-center justify-center"
+        >
+            <p class="text-white">Currently Offline</p>
+        </div>
+        <div class="w-[1200px] mt-10">
+            <p class="text-[12px] sm:text-[20px]"><b>About you</b></p>
             <div
                 class="rounded-md py-2 sm:py-4 flex justify-between items-center w-full"
             >
@@ -15,20 +20,10 @@
                         W/ NINJA
                     </p>
                 </div>
-                <!-- <div>
-                    <div v-for="item in socialMedias" class="flex">
-                        <a
-                            :href="item.url"
-                            target="_blank"
-                            class="hover:text-green-400"
-                            >{{ item.name }}</a
-                        >
-                    </div>
-                </div> -->
             </div>
         </div>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 w-full"
+            class="mt-2 sm:mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 w-full"
         >
             <div v-for="(item, index) in dummySocialMedias" :key="index">
                 <img :src="item.image" class="w-full mb-4 sm:mb-8" />

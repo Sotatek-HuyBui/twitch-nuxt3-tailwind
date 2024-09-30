@@ -43,7 +43,7 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
+<script setup>
 import { dummySidebarChannels } from '@/data/index.ts';
 const channels = ref(dummySidebarChannels);
 
@@ -69,8 +69,7 @@ const toggleSideBar = () => {
     top: 46px; /* Adjust the top position to accommodate the header */
     left: 0;
     bottom: 0;
-    background-color: #f8f8f8; /* Sidebar background color */
-    background-color: #f8f8f8;
+    background-color: #623535; /* Sidebar background color */
     transition: all 0.5s ease; /* Smooth transition effect on width change */
 }
 </style>

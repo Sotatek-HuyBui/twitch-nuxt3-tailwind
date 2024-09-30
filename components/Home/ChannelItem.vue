@@ -1,30 +1,34 @@
 <template>
-    <div class="cursor-pointer relative">
+    <div class="cursor-pointer relative mb-2">
         <img
-            class="w-full h-[160px] object-cover mb-2 rounded-md"
+            class="w-full h-[100px] sm:h-[200px] object-cover mb-2 rounded-md"
             :src="item.image"
         />
         <div class="absolute bg-[red] rounded-sm px-2 py-1 top-2 left-2">
-            <p class="text-[10px] text-white"><b>LIVE</b></p>
+            <p class="text-[6px] sm:text-[10px] text-white"><b>LIVE</b></p>
         </div>
         <div>
             <div class="flex justify-between items-center">
                 <img
-                    class="w-10 h-10 mr-4 object-cover rounded-full"
+                    class="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 object-cover rounded-full"
                     :src="item.avatar"
                 />
                 <div class="flex-1">
-                    <p class="line-clamp-1">{{ item.name }}</p>
-                    <p class="text-gray-400 text-[12px]">
+                    <p class="line-clamp-1 text-[8px] sm:text-[14px]">
+                        {{ item.name }}
+                    </p>
+                    <p class="text-gray-400 text-[6px] sm:text-[12px]">
                         {{ item.description }}
                     </p>
-                    <div class="flex items-center mt-2">
+                    <div class="flex items-center mt-1 sm:mt-2">
                         <div
                             v-for="tag in item.tag"
                             :key="item.id"
-                            class="py-1 p-2 rounded-full bg-slate-200 mr-2"
+                            class="p-1 py-[1px] sm:p-2 rounded-full bg-slate-200 mr-1 sm:mr-2"
                         >
-                            <p class="text-[11px]">{{ tag.name }}</p>
+                            <p class="text-[6px] sm:text-[11px]">
+                                {{ tag.name }}
+                            </p>
                         </div>
                     </div>
                 </div>

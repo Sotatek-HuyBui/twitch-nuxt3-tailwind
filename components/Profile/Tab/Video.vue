@@ -2,7 +2,7 @@
     <div class="mt-6">
         <div class="mb-6 flex items-center justify-between">
             <div v-if="queries?.filter" class="flex items-center">
-                <p class="font-medium mr-2">Filtered by</p>
+                <p class="hidden sm:block font-medium mr-2">Filtered by</p>
                 <USelect
                     v-model="selectedOption"
                     :options="options"
@@ -17,7 +17,7 @@
                 />
             </div>
             <div class="flex items-center">
-                <p class="font-medium mr-2">Sorted by</p>
+                <p class="hidden sm:block font-medium mr-2">Sorted by</p>
                 <USelect
                     v-model="selectedOption"
                     :options="options"
@@ -27,43 +27,51 @@
                 />
             </div>
         </div>
-        <div v-if="!queries?.filter" class="flex h-[240px]">
+        <div v-if="!queries?.filter" class="flex h-[110px] sm:h-[240px]">
             <div
-                class="rounded-md p-4 bg-customPrimary-1 h-full flex flex-col justify-between w-[150px]"
+                class="rounded-md p-1.5 sm:p-4 bg-customPrimary-1 h-full flex flex-col justify-between w-[64px] sm:w-[150px]"
             >
                 <p></p>
-                <p class="text-white text-[26px] leading-8">Featured Clips</p>
+                <p
+                    class="text-white text-[10px] sm:text-[26px] leading-4 sm:leading-8"
+                >
+                    Featured Clips
+                </p>
                 <UButton
                     color="white"
                     variant="solid"
-                    class="w-[80px]"
+                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1"
                     @click="showAll"
                     >Show All</UButton
                 >
             </div>
-            <div class="h-full overflow-hidden ml-4 flex-1">
+            <div class="h-full overflow-hidden ml-1 sm:ml-4 flex-1">
                 <UCarousel
                     v-slot="{ item }"
                     :items="items"
                     class="rounded-lg flex flex-col"
                     arrows
                 >
-                    <div class="w-[280px] mr-2">
+                    <div class="w-[120px] sm:w-[280px] mr-2">
                         <img
                             :src="item"
-                            class="w-full h-[170px] object-cover mr-2 rounded-md"
+                            class="w-full h-[76px] sm:h-[170px] object-cover mr-2 rounded-md"
                             draggable="false"
                         />
-                        <div class="mt-2 flex">
+                        <div class="mt-1 sm:mt-2 flex">
                             <img
                                 :src="item"
-                                class="w-[40px] h-[60px] object-cover mr-2 rounded-md"
+                                class="w-[20px] h-[30px] sm:w-[40px] sm:h-[60px] object-cover mr-2 rounded-md"
                             />
                             <div class="flex-1">
                                 <div
                                     class="flex justify-between items-center w-full"
                                 >
-                                    <p class="font-medium">10 out of 10</p>
+                                    <p
+                                        class="text-[8px] sm:text-sm font-medium"
+                                    >
+                                        10 out of 10
+                                    </p>
                                     <UDropdown
                                         :items="videoItems"
                                         :popper="{ placement: 'bottom-start' }"
@@ -71,22 +79,26 @@
                                         <UTooltip text="More options">
                                             <img
                                                 src="~/assets/three-dot-menu.png"
-                                                class="w-3 h-3 cursor-pointer"
+                                                class="w-1.5 h-1.5 sm:w-3 sm:h-3 cursor-pointer"
                                                 alt="Three dot menu"
                                             />
                                         </UTooltip>
                                     </UDropdown>
                                 </div>
                                 <div class="flex items-center">
-                                    <p class="text-[12px] text-gray-500">
+                                    <p
+                                        class="text-[6px] sm:text-[12px] text-gray-500"
+                                    >
                                         Ninja
                                     </p>
                                     <img
                                         src="~/assets/check.png"
-                                        class="w-3 h-3 ml-1"
+                                        class="w-1.5 h-1.5 sm:w-3 sm:h-3 ml-1"
                                     />
                                 </div>
-                                <p class="text-[12px] text-gray-500">
+                                <p
+                                    class="text-[6px] sm:text-[12px] text-gray-500"
+                                >
                                     Clip by Ja Morant
                                 </p>
                             </div>
@@ -103,7 +115,7 @@
         />
         <div
             v-else
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-4"
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-1.5 sm:gap-4"
         >
             <HomeChannelItem
                 v-for="(item, index) in dummySuggestedChannels"

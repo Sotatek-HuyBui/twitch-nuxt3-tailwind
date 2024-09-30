@@ -4,12 +4,12 @@
         :popper="{ arrow: true, placement: 'right' }"
     >
         <div
-            class="flex justify-between p-2 items-center cursor-pointer w-full hover:bg-[#f4f4f4]"
+            class="flex justify-between p-1 mb-1 sm:p-2 items-center cursor-pointer w-full hover:bg-[#f4f4f4]"
             @click="goToDetailPage(item?.name)"
         >
             <img
                 :src="item.avatar"
-                class="w-8 h-8 cursor-pointer rounded-full"
+                class="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer rounded-full object-cover"
                 :alt="item.name"
             />
             <div v-if="isOpen" class="flex-1 ms-2">
