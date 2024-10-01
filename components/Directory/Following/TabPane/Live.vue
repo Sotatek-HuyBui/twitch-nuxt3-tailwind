@@ -5,7 +5,7 @@
             <div
                 v-for="item in items"
                 :key="item.name"
-                class="mr-2 py-2 px-1 sm:p-4 border-[1px] border-gray-200 rounded-md flex-1 sm:w-[250px] pb-2 sm:pb-6"
+                class="mr-2 py-2 px-1 sm:p-4 border-[1px] border-gray-200 rounded-md sm:w-[250px] pb-2 sm:pb-6"
             >
                 <img
                     :src="item.image"

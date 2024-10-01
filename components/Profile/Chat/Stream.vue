@@ -3,7 +3,13 @@
         <div
             class="bg-black h-[200px] sm:h-[700px] flex items-center justify-center"
         >
-            <p class="text-white">Currently Offline</p>
+            <!-- <p class="text-white">Currently Offline</p> -->
+            <video class="w-full h-full" controls autoplay>
+                <source
+                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                />
+                Your browser does not support HTML video.
+            </video>
         </div>
         <div class="w-[1200px] mt-10">
             <p class="text-[12px] sm:text-[20px]"><b>About you</b></p>

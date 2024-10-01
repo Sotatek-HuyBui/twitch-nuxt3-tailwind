@@ -1,7 +1,7 @@
 <template>
     <div class="cursor-pointer relative mb-2">
         <img
-            class="w-full h-[100px] sm:h-[200px] object-cover mb-2 rounded-md"
+            class="w-full h-[100px] sm:h-[180px] object-cover mb-2 rounded-md"
             :src="item.image"
         />
         <div class="absolute bg-[red] rounded-sm px-2 py-1 top-2 left-2">
@@ -20,13 +20,13 @@
                     <p class="text-gray-400 text-[6px] sm:text-[12px]">
                         {{ item.description }}
                     </p>
-                    <div class="flex items-center mt-1 sm:mt-2">
+                    <div class="flex items-center mt-2">
                         <div
                             v-for="tag in item.tag"
                             :key="item.id"
-                            class="p-1 py-[1px] sm:p-2 rounded-full bg-slate-200 mr-1 sm:mr-2"
+                            class="p-1 py-[1px] sm:p-1 rounded-full bg-slate-200 mr-2"
                         >
-                            <p class="text-[6px] sm:text-[11px]">
+                            <p class="text-[6px] sm:text-[10px]">
                                 {{ tag.name }}
                             </p>
                         </div>

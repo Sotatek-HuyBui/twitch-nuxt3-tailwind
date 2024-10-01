@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[100%] flex relative overflow-hidden pl-4 sm:pl-10">
+    <div class="w-[100%] flex relative overflow-hidden pl-4">
         <div
             v-if="$route.params.tab !== 'chats'"
             class="overflow-y-auto h-full w-full"

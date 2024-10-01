@@ -9,7 +9,7 @@
         >
             <img
                 :src="item.avatar"
-                class="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer rounded-full object-cover"
+                class="w-5 h-5 sm:w-8 sm:h-8 cursor-pointer rounded-full object-cover"
                 :alt="item.name"
             />
             <div v-if="isOpen" class="flex-1 ms-2">

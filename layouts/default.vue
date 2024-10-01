@@ -61,8 +61,12 @@ const toggleFromParent = () => {
     transition: all 0.5s ease; /* Smooth transition effect on width change */
 }
 
+.ant-modal .ant-modal-content {
+    padding: 0;
+}
+
 .layout-collapsed {
-    margin-left: 40px !important;
+    margin-left: 50px !important;
 }
 
 @media screen and (min-width: 640px) {

@@ -1,14 +1,33 @@
 <template>
     <div class="w-[100%] flex relative overflow-hidden pl-4 sm:pl-10">
         <div class="overflow-y-auto h-full w-full">
-            <ProfileHeader />
+            <ProfileHeader :onShowLoginModal="onShowLoginModal" />
             <ProfileTabPane />
+            <LoginModal
+                v-model="isShowLoginModal"
+                :onShowRegisterModal="onShowRegisterModal"
+            />
+            <RegisterModal
+                v-model="isShowRegisterModal"
+                :onShowLoginModal="onShowLoginModal"
+            />
         </div>
     </div>
 </template>
 
-<script setup>
-const nuxt = useNuxtApp();
+<script setup lang="ts">
+const isShowLoginModal = ref(false);
+const isShowRegisterModal = ref(false);
+
+const onShowLoginModal = () => {
+    isShowLoginModal.value = true;
+    isShowRegisterModal.value = false;
+};
+
+const onShowRegisterModal = () => {
+    isShowRegisterModal.value = true;
+    isShowLoginModal.value = false;
+};
 </script>
 
 <style>

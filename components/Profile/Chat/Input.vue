@@ -6,7 +6,7 @@
         <div
             class="flex justify-between items-center p-3 border border-b-[1px] border-l-0"
         >
-            <UTooltip
+            <!-- <UTooltip
                 v-if="isOpen"
                 text="Collapse"
                 :popper="{ arrow: true, placement: 'right' }"
@@ -17,21 +17,30 @@
                     alt="Collapse"
                     @click="toggleSideBar"
                 />
-            </UTooltip>
+            </UTooltip> -->
             <p class="text-[14px] font-medium">STREAM CHAT</p>
             <img
                 src="~/assets/user.png"
                 class="w-4 h-4 cursor-pointer"
                 alt="Collapse"
-                @click="toggleSideBar"
             />
         </div>
-        <div class="flex-1 p-4">Welcome to the chat room!</div>
+        <div class="flex-1 p-4 message-list overflow-auto">
+            <p v-if="!messages.length">Welcome to the chat!</p>
+            <ProfileChatMessageItem
+                v-for="item in messages"
+                :key="item.id"
+                :item="item"
+            />
+        </div>
         <div class="p-4">
-            <UInput
-                class="w-full focus:outline-none"
+            <input
+                type="search"
+                class="block py-1 px-2 w-full z-20 text-[8px] sm:text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-customPrimary-1 focus:ring-customPrimary-1 focus:border-customPrimary-1 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                 placeholder="Enter something.."
-                icon="i-heroicons-camera-solid"
+                v-model="messageInput"
+                @keyup.enter="handleEnterKey"
+                autocomplete="off"
             />
             <div class="flex justify-end items-center mt-4">
                 <UTooltip
@@ -79,6 +88,8 @@
                     />
                 </UTooltip>
                 <UButton
+                    :disabled="!messageInput"
+                    @click="onSendMessage(true)"
                     variant="solid"
                     class="bg-customPrimary-1 text-white w-[70px] items-center justify-center"
                     >Chat</UButton
@@ -89,13 +100,60 @@
 </template>
 
 <script setup>
-const isOpen = ref(true);
-const { toggleFromParent } = defineProps(['toggleFromParent']);
+import { dummyAvatars } from '@/data/index';
+const { isOpen, toggleSideBar } = defineProps(['isOpen', 'toggleSideBar']);
 
-const toggleSideBar = () => {
-    isOpen.value = !isOpen.value;
-    toggleFromParent();
+const messageInput = ref('');
+const messages = ref([
+    {
+        id: 1,
+        avatar: 'https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        message: 'Hello every body!',
+        isMe: true,
+    },
+]);
+
+const handleEnterKey = (event) => {
+    if (event.key === 'Enter' && messageInput.value) {
+        onSendMessage(true);
+    }
 };
+
+const generateRandomString = () => {
+    const characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+
+    const length = Math.floor(Math.random() * 30) + 1;
+
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(
+            Math.floor(Math.random() * charactersLength)
+        );
+    }
+
+    return result;
+};
+
+const onSendMessage = (isMe, message) => {
+    messages.value = [
+        ...messages.value,
+        {
+            id: messages.value.length + 1,
+            avatar: dummyAvatars[Math.floor(Math.random() * 5)],
+            message: message || messageInput.value,
+            isMe: isMe,
+        },
+    ];
+    messageInput.value = '';
+};
+
+onMounted(() => {
+    setInterval(() => {
+        onSendMessage(false, generateRandomString());
+    }, 15000);
+});
 </script>
 
 <style>
@@ -112,5 +170,9 @@ const toggleSideBar = () => {
     right: 0;
     bottom: 0;
     transition: all 0.5s ease; /* Smooth transition effect on width change */
+}
+.message-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 </style>

@@ -19,9 +19,9 @@
             <div
                 v-for="tag in item.tag"
                 :key="item.id"
-                class="p-1 py-[1px] sm:p-2 rounded-full bg-slate-200 mr-2"
+                class="p-1 py-[1px] sm:p-1 rounded-full bg-slate-200 mr-2"
             >
-                <p class="text-[6px] sm:text-[11px]">{{ tag.name }}</p>
+                <p class="text-[6px] sm:text-[10px]">{{ tag.name }}</p>
             </div>
         </div>
     </div>

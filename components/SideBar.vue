@@ -1,5 +1,8 @@
 <template>
-    <div class="sidebar collapsed fixed h-full" :class="{ expanded: isOpen }">
+    <div
+        class="p-1 sidebar collapsed fixed h-full"
+        :class="{ expanded: isOpen }"
+    >
         <div
             class="flex items-center p-2"
             :class="{
@@ -57,7 +60,7 @@ const toggleSideBar = () => {
 </script>
 <style>
 .collapsed {
-    width: 50px !important;
+    width: 54px !important;
 }
 
 .expanded {

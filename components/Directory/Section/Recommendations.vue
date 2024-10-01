@@ -4,7 +4,7 @@
             {{ header || 'Default Items' }}
         </p>
         <div
-            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-8 gap-1 sm:gap-1.5"
+            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-10 gap-1 sm:gap-1.5"
         >
             <HomeCategoryItem
                 v-for="(item, index) in items.slice(0, 6)"

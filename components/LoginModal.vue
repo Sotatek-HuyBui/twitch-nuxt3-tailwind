@@ -1,58 +1,70 @@
 <template>
     <div>
-        <UModal v-model="isOpen">
-            <div class="p-8 relative">
-                <div class="absolute right-6 top-6">
-                    <img
-                        src="~/assets/close.png"
-                        class="w-4 h-4 cursor-pointer"
-                        @click="
-                            () => {
-                                isOpen = false;
-                            }
-                        "
-                    />
-                </div>
-                <div class="flex items-center justify-center">
-                    <img src="~/assets/twitch.png" class="w-6 h-6" alt="Logo" />
-                    <p class="ml-4 text-[24px] font-medium">Login to Twicth</p>
-                </div>
-                <UForm
-                    :state="state"
-                    class="space-y-2 mt-8 flex flex-col justify-center"
-                    @submit="onSubmit"
-                >
-                    <UFormGroup label="Username" name="email">
-                        <UInput
-                            v-model="state.email"
-                            class="w-full focus:outline-none"
+        <a-modal centered v-model:open="isOpen" :width="800" :footer="null">
+            <div class="flex">
+                <div class="relative flex-1 p-8">
+                    <div class="flex items-center justify-center">
+                        <img
+                            src="~/assets/twitch.png"
+                            class="w-6 h-6"
+                            alt="Logo"
                         />
-                    </UFormGroup>
-
-                    <UFormGroup label="Password" name="password">
-                        <UInput v-model="state.password" type="password" />
-                    </UFormGroup>
-                    <p class="text-[12px] text-customPrimary-1">
-                        Trouble logging in?
-                    </p>
-
-                    <div class="flex justify-center">
-                        <UButton
-                            type="submit"
-                            class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2"
-                        >
-                            Log in
-                        </UButton>
+                        <p class="ml-4 text-[24px] font-medium">
+                            Login to Twicth
+                        </p>
                     </div>
-                </UForm>
-                <p
-                    class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
-                    @click="onShowRegisterModal"
+                    <UForm
+                        :state="state"
+                        class="space-y-2 mt-8 flex flex-col justify-center"
+                        @submit="onSubmit"
+                    >
+                        <UFormGroup label="Username" name="email">
+                            <UInput
+                                v-model="state.email"
+                                class="w-full focus:outline-none"
+                            />
+                        </UFormGroup>
+
+                        <UFormGroup label="Password" name="password">
+                            <UInput v-model="state.password" type="password" />
+                        </UFormGroup>
+                        <p class="text-[12px] text-customPrimary-1">
+                            Trouble logging in?
+                        </p>
+
+                        <div class="flex justify-center">
+                            <UButton
+                                type="submit"
+                                class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2"
+                            >
+                                Log in
+                            </UButton>
+                        </div>
+                    </UForm>
+                    <p
+                        class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
+                        @click="onShowRegisterModal"
+                    >
+                        Don't have an account? Sign up
+                    </p>
+                </div>
+                <div
+                    class="hidden sm:flex flex-1 bg-slate-50 rounded-md flex-col items-center justify-center px-10"
                 >
-                    Don't have an account? Sign up
-                </p>
+                    <img
+                        src="~/assets/notification.png"
+                        class="w-24 h-24 mb-3"
+                    />
+                    <p class="font-medium mb-2 text-[18px]">
+                        Plan ahead for the hype
+                    </p>
+                    <p class="text-center text-[12px]">
+                        Get notified about upcoming streams ahead of time so you
+                        can plan your snacks accordingly 😏
+                    </p>
+                </div>
             </div>
-        </UModal>
+        </a-modal>
     </div>
 </template>
 
@@ -81,7 +93,6 @@ const state = reactive({
 async function onSubmit(event: FormSubmitEvent<Schema>) {
     // Do something with event.data
     try {
-        console.log(event.data);
         localStorage.setItem('token', uuidv4());
         window.location.reload();
     } catch (error) {
@@ -89,3 +100,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     }
 }
 </script>
+
+<style>
+.ant-modal .ant-modal-content {
+    padding: 0;
+}
+</style>

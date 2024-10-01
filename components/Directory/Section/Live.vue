@@ -24,7 +24,7 @@
             </p>
         </div>
         <div
-            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-1 sm:gap-4"
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-1 sm:gap-4"
         >
             <HomeChannelItem
                 v-for="(item, index) in items.slice(0, 3)"

@@ -11,15 +11,14 @@
             /></NuxtLink>
             <p
                 v-if="token"
-                class="cursor-pointer ml-3 sm:mx-8 font-medium hover:text-customPrimary-1 text-[18px]"
+                class="cursor-pointer ml-4 font-medium hover:text-customPrimary-1 text-[18px]"
                 :class="{
-                    'text-customPrimary-1': $route.path.includes(
-                        '/directory/following'
-                    ),
+                    'text-customPrimary-1 border-b border-customPrimary-1':
+                        $route.path.includes('/directory/following'),
                 }"
                 @click="() => navigateTo('/directory/following')"
             >
-                <span class="hidden sm:inline">Following</span>
+                <span class="hidden sm:inline text-[14px]">Following</span>
                 <UTooltip text="Following">
                     <img
                         src="~/assets/heart.png"
@@ -29,15 +28,15 @@
                 </UTooltip>
             </p>
             <p
-                class="mx-3 sm:mx-8 cursor-pointer font-medium hover:text-customPrimary-1 text-[18px]"
+                class="mx-4 cursor-pointer font-medium hover:text-customPrimary-1 text-[18px]"
                 @click="() => navigateTo('/directory')"
                 :class="{
-                    'text-customPrimary-1':
+                    'text-customPrimary-1 border-b border-customPrimary-1':
                         $route.path.includes('/directory') &&
                         $route.params.directory !== 'following',
                 }"
             >
-                <span class="hidden sm:inline">Browse</span>
+                <span class="hidden sm:inline text-[14px]">Browse</span>
                 <UTooltip text="Directory">
                     <img
                         src="~/assets/copy-document.png"
@@ -53,7 +52,7 @@
                 <UTooltip text="More options">
                     <img
                         src="~/assets/three-dot-menu.png"
-                        class="w-2 h-2 sm:w-4 sm:h-4 cursor-pointer"
+                        class="w-2 h-2 sm:w-3 sm:h-3 cursor-pointer"
                         alt="Three dot menu"
                     />
                 </UTooltip>
