@@ -4,7 +4,7 @@
         :popper="{ arrow: true, placement: 'right' }"
     >
         <div
-            class="flex justify-between p-1 mb-1 sm:p-2 items-center cursor-pointer w-full hover:bg-[#f4f4f4]"
+            class="flex justify-between p-1 mb-1 sm:px-1.5 sm:py-1 items-center cursor-pointer w-full hover:bg-[#f4f4f4] dark:hover:bg-[#2a2a2a]"
             @click="goToDetailPage(item?.name)"
         >
             <img

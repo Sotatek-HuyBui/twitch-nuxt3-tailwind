@@ -1,5 +1,5 @@
 <template>
-    <div class="default_layout relative overflow-hidden">
+    <div class="default_layout relative overflow-hidden bg-red">
         <LoginModal
             v-model="isShowLoginModal"
             :onShowRegisterModal="onShowRegisterModal"
@@ -14,7 +14,7 @@
             :onShowRegisterModal="onShowRegisterModal"
         />
         <div
-            class="w-[100%] flex relative mt-[40px] sm:mt-[58px] overflow-hidden"
+            class="w-[100%] flex relative mt-[40px] sm:mt-[50px] overflow-hidden"
         >
             <SideBar
                 :toggleFromParent="toggleFromParent"
@@ -55,7 +55,7 @@ const toggleFromParent = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .content {
     margin-left: 240px; /* Adjust margin to accommodate the sidebar width */
     transition: all 0.5s ease; /* Smooth transition effect on width change */

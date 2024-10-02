@@ -1,18 +1,20 @@
 <template>
     <div>
-        <p class="font-medium text-[12px] sm:text-[18px] mb-2">Live channels</p>
+        <p class="font-medium text-[12px] sm:text-[18px] mb-2 dark:text-white">
+            Live channels
+        </p>
         <div class="flex">
             <div
                 v-for="item in items"
                 :key="item.name"
-                class="mr-2 py-2 px-1 sm:p-4 border-[1px] border-gray-200 rounded-md sm:w-[250px] pb-2 sm:pb-6"
+                class="mr-2 py-2 px-1 sm:p-4 border-[1px] border-gray-200 rounded-md sm:w-[250px] pb-2 sm:pb-6 dark:border-slate-800"
             >
                 <img
                     :src="item.image"
                     class="w-[30px] h-[30px] sm:w-[100px] sm:h-[100px] object-cover"
                 />
                 <p
-                    class="font-medium text-[12px] sm:text-[18px] mx-1 sm:mx-2 mt-1 sm:mt-2"
+                    class="font-medium text-[12px] sm:text-[18px] mx-1 sm:mx-2 mt-1 sm:mt-2 dark:text-white"
                 >
                     {{ item.name }}
                 </p>

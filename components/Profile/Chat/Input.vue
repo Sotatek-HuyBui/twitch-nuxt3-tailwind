@@ -1,10 +1,10 @@
 <template>
     <div
-        class="hidden input-bar fixed bg-white border border-l-[1px] sm:flex flex-col expanded-input"
+        class="hidden input-bar fixed bg-white border border-l-[1px] sm:flex flex-col expanded-input dark:border-gray-800"
         v-if="isOpen"
     >
         <div
-            class="flex justify-between items-center p-3 border border-b-[1px] border-l-0"
+            class="flex justify-between items-center p-3 border border-b-[1px] border-l-0 dark:bg-slate-900 dark:border-gray-800"
         >
             <!-- <UTooltip
                 v-if="isOpen"
@@ -25,7 +25,7 @@
                 alt="Collapse"
             />
         </div>
-        <div class="flex-1 p-4 message-list overflow-auto">
+        <div class="flex-1 p-4 message-list overflow-auto dark:bg-slate-900">
             <p v-if="!messages.length">Welcome to the chat!</p>
             <ProfileChatMessageItem
                 v-for="item in messages"
@@ -33,7 +33,7 @@
                 :item="item"
             />
         </div>
-        <div class="p-4">
+        <div class="p-4 dark:bg-slate-900" :class="{ 'pb-20': !token }">
             <input
                 type="search"
                 class="block py-1 px-2 w-full z-20 text-[8px] sm:text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-customPrimary-1 focus:ring-customPrimary-1 focus:border-customPrimary-1 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
@@ -91,7 +91,7 @@
                     :disabled="!messageInput"
                     @click="onSendMessage(true)"
                     variant="solid"
-                    class="bg-customPrimary-1 text-white w-[70px] items-center justify-center"
+                    class="bg-customPrimary-1 text-white w-[70px] items-center justify-center dark:text-white"
                     >Chat</UButton
                 >
             </div>
@@ -102,6 +102,8 @@
 <script setup>
 import { dummyAvatars } from '@/data/index';
 const { isOpen, toggleSideBar } = defineProps(['isOpen', 'toggleSideBar']);
+const { $locally } = useNuxtApp();
+const token = $locally.getItem('token');
 
 const messageInput = ref('');
 const messages = ref([

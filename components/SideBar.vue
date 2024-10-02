@@ -1,6 +1,6 @@
 <template>
     <div
-        class="p-1 sidebar collapsed fixed h-full"
+        class="p-1 sidebar collapsed fixed h-full dark:bg-[#1c1c1c]"
         :class="{ expanded: isOpen }"
     >
         <div

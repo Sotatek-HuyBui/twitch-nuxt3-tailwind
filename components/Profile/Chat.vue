@@ -1,8 +1,6 @@
 <template>
     <div class="relative w-full">
-        <div
-            class="content-chat layout-collapsed overflow-y-auto h-full w-full pb-20"
-        >
+        <div class="content-chat overflow-y-auto h-full w-full pb-20">
             <ProfileChatStream />
         </div>
         <ProfileChatInput :isOpen="isOpen" :toggleSideBar="toggleSideBar" />
@@ -16,9 +14,8 @@ const toggleSideBar = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .content-chat {
-    margin-right: 360px;
-    transition: all 0.5s ease;
+    padding-right: 360px;
 }
 </style>

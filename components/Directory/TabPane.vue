@@ -51,3 +51,9 @@ const tabs = [
     },
 ];
 </script>
+<style scoped>
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn p {
+    /* color: #9147ff !important; */
+    font-weight: 500;
+}
+</style>

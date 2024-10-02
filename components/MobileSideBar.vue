@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar fixed h-full">
+    <div class="sidebar fixed h-full dark:bg-[#1c1c1c]">
         <div class="flex flex-col items-center">
             <UTooltip
                 text="Recommended Channels"

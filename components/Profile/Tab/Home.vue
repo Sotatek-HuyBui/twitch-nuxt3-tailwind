@@ -13,7 +13,7 @@
                 <UButton
                     color="white"
                     variant="solid"
-                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1"
+                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1 dark:bg-white dark:text-black"
                     @click="changeActiveTab('4')"
                     >Show All</UButton
                 >
@@ -41,7 +41,7 @@
                                     class="flex justify-between items-center w-full"
                                 >
                                     <p
-                                        class="text-[8px] sm:text-sm font-medium"
+                                        class="text-[8px] sm:text-sm font-medium dark:text-white"
                                     >
                                         10 out of 10
                                     </p>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="flex items-center">
                                     <p
-                                        class="text-[6px] sm:text-[12px] text-gray-500"
+                                        class="text-[6px] sm:text-[12px] text-gray-500 dark:text-white"
                                     >
                                         Ninja
                                     </p>
@@ -72,7 +72,7 @@
                                 <p
                                     class="text-[6px] sm:text-[12px] text-gray-500"
                                 >
-                                    Clip by Ja Morant
+                                    Clip by {{ $route.params.name }}
                                 </p>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
             </div>
         </div>
         <div class="mt-12">
-            <p class="text-[12px] sm:text-[20px] font-medium">
-                Ninja's recently streamed Categories
+            <p class="text-[12px] sm:text-[20px] font-medium dark:text-white">
+                {{ $route.params.name }}'s recently streamed categories
             </p>
             <div class="flex mt-4">
                 <div
@@ -94,15 +94,17 @@
                         :src="item.url"
                         class="h-[120px] sm:w-[180px] sm:h-[250px] rounded-md"
                     />
-                    <p class="text-[8px] sm:text-[14px] mt-2">
+                    <p
+                        class="text-[8px] sm:text-[14px] mt-2 dark:text-slate-300"
+                    >
                         <b>{{ item.name }}</b>
                     </p>
                 </div>
             </div>
         </div>
         <div class="mt-12">
-            <p class="text-[12px] sm:text-[20px] font-medium">
-                Ninja suggests these streamers
+            <p class="text-[12px] sm:text-[20px] font-medium dark:text-white">
+                {{ $route.params.name }} suggests these streamers
             </p>
             <div class="flex mt-2 sm:mt-4">
                 <div
@@ -119,9 +121,10 @@
                         />
                     </div>
                     <p class="mt-0 sm:mt-2">
-                        <b class="text-[8px] sm:text-[14px] mt-2">{{
-                            item.name
-                        }}</b>
+                        <b
+                            class="text-[8px] sm:text-[14px] mt-2 dark:text-white"
+                            >{{ item.name }}</b
+                        >
                     </p>
                     <p class="text-[6px] sm:text-[12px] text-gray-500">
                         {{ item.active ? 'Online' : 'Offline' }}

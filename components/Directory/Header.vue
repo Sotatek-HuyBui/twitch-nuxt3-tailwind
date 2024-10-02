@@ -12,7 +12,7 @@
             <template v-for="(item, index) in categories" :key="index">
                 <div
                     v-if="currentDirectoryPath === item.path"
-                    class="border-2 border-black p-0.5 rounded-md"
+                    class="border-2 border-black p-0.5 rounded-md dark:border-slate-300"
                 >
                     <div
                         class="bg-customPrimary-2 rounded-md flex px-1 sm:px-2 py-[1px] sm:py-1 w-full justify-between items-center relative hover:bg-customPrimary-1 cursor-pointer"

@@ -16,7 +16,7 @@
         <button
             :class="{ 'cursor-not-allowed': !search }"
             @click="onSearch"
-            class="absolute top-0 end-0 py-1 px-1.5 text-sm font-medium h-full text-white bg-customPrimary-1 rounded-e-lg border border-customPrimary- hover:bg-customPrimary- focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="absolute top-0 end-0 py-1 px-1.5 text-sm font-medium h-full text-white bg-customPrimary-1 dark:bg-slate-800 rounded-e-lg border border-customPrimary-1 dark:border-slate-800 hover:bg-customPrimary- focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:bg-slate-900 dark:focus:ring-blue-800"
         >
             <svg
                 class="w-2 h-2 sm:w-4 sm:h-4"
@@ -37,10 +37,10 @@
         </button>
         <div
             v-if="isShowSearchHistory"
-            class="absolute pt-[30px] sm:pt-[40px] px-1 rounded-md w-[210px] sm:w-[410px] bg-slate-50 top-[-5px] left-[-5px] right-0 z-[-1]"
+            class="absolute pt-[30px] sm:pt-[40px] px-1 rounded-md w-[210px] sm:w-[410px] bg-slate-50 dark:bg-slate-800 top-[-5px] left-[-5px] right-0 z-[-1]"
         >
             <div
-                class="flex items-center justify-between bg-slate-100 hover:bg-slate-200 mb-1 cursor-pointer p-2 rounded-md"
+                class="flex items-center justify-between bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-950 hover:bg-slate-200 mb-1 cursor-pointer p-2 rounded-md"
                 v-for="item in searchHistory"
                 :key="item"
                 @mousedown="onSelectSearchItem(item)"

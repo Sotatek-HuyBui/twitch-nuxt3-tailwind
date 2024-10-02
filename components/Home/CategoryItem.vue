@@ -6,10 +6,12 @@
         "
     >
         <img
-            class="w-full h-[120px] sm:h-[250px] object-cover mb-2 rounded-md"
+            class="w-full h-[120px] sm:h-[180px] xl:h-[200px] 2xl:h-[250px] object-cover mb-2 rounded-md"
             :src="item.image"
         />
-        <p class="line-clamp-1 text-[8px] sm:text-[14px] font-medium">
+        <p
+            class="line-clamp-1 text-[8px] sm:text-[14px] font-medium dark:text-white"
+        >
             {{ item.name }}
         </p>
         <p class="text-gray-400 text-[6px] sm:text-[12px]">
@@ -19,9 +21,11 @@
             <div
                 v-for="tag in item.tag"
                 :key="item.id"
-                class="p-1 py-[1px] sm:p-1 rounded-full bg-slate-200 mr-2"
+                class="p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2"
             >
-                <p class="text-[6px] sm:text-[10px]">{{ tag.name }}</p>
+                <p class="text-[6px] sm:text-[10px] dark:text-white">
+                    {{ tag.name }}
+                </p>
             </div>
         </div>
     </div>

@@ -1,19 +1,24 @@
 <template>
     <div class="h-[150px] sm:h-[400px] flex items-center justify-center">
-        <div class="w-[90%] sm:w-[1200px] relative">
+        <div class="w-[90%] sm:w-[900px] xl:w-[1000px] 2lg:w-[1200px] relative">
             <Carousel
                 :itemsToShow="2.95"
                 :wrapAround="true"
                 :transition="500"
-                :autoplay="5000"
                 v-model="currentSlide"
             >
                 <Slide v-for="(slide, index) in dummySliders" :key="index">
-                    <div class="carousel__item">
-                        <img
-                            :src="slide"
-                            class="w-[400px] h-[100px] sm:w-[600px] sm:h-[250px] object-cover"
-                        />
+                    <div
+                        class="carousel__item w-[400px] h-[100px] sm:w-[300px] sm:h-[250px]"
+                    >
+                        <video
+                            class="w-full h-full"
+                            :poster="slide.thumb"
+                            controls
+                        >
+                            <source :src="slide.sources[0]" />
+                            Your browser does not support HTML video.
+                        </video>
                     </div>
                 </Slide>
             </Carousel>
@@ -22,13 +27,25 @@
             >
                 <button @click="prev">
                     <img
+                        v-if="colorMode.value === 'light'"
                         src="~/assets/chevron.png"
+                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/chevron-white.png"
                         class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
                     />
                 </button>
                 <button @click="next">
                     <img
+                        v-if="colorMode.value === 'light'"
                         src="~/assets/next-button.png"
+                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/next-button-white.png"
                         class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
                     />
                 </button>
@@ -43,6 +60,7 @@ import { dummySliders } from '@/data/index';
 import 'vue3-carousel/dist/carousel.css';
 
 const currentSlide = ref(0);
+const colorMode = useColorMode();
 
 const next = () => {
     currentSlide.value += 1;

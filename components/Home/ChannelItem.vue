@@ -1,5 +1,5 @@
 <template>
-    <div class="cursor-pointer relative mb-2">
+    <div class="cursor-pointer relative mb-2" @click="onClick">
         <img
             class="w-full h-[100px] sm:h-[180px] object-cover mb-2 rounded-md"
             :src="item.image"
@@ -14,7 +14,9 @@
                     :src="item.avatar"
                 />
                 <div class="flex-1">
-                    <p class="line-clamp-1 text-[8px] sm:text-[14px]">
+                    <p
+                        class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-white"
+                    >
                         {{ item.name }}
                     </p>
                     <p class="text-gray-400 text-[6px] sm:text-[12px]">
@@ -24,9 +26,11 @@
                         <div
                             v-for="tag in item.tag"
                             :key="item.id"
-                            class="p-1 py-[1px] sm:p-1 rounded-full bg-slate-200 mr-2"
+                            class="p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2"
                         >
-                            <p class="text-[6px] sm:text-[10px]">
+                            <p
+                                class="text-[6px] sm:text-[10px] dark:text-white"
+                            >
                                 {{ tag.name }}
                             </p>
                         </div>
@@ -38,5 +42,9 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps(['item']);
+const { item } = defineProps(['item']);
+
+const onClick = () => {
+    navigateTo(`/${item.streamer}/chats`);
+};
 </script>

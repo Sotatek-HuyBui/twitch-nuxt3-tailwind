@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div class="border-b-2 border-gray-100 pb-4 mb-4">
+        <div class="border-b-2 border-gray-100 dark:border-gray-800 pb-4 mb-4">
             <p class="font-medium text-[14px] sm:text-[20px]">Channels</p>
         </div>
         <SearchChannelsItem

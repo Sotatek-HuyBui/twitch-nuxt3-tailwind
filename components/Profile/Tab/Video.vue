@@ -17,7 +17,9 @@
                 />
             </div>
             <div class="flex items-center">
-                <p class="hidden sm:block font-medium mr-2">Sorted by</p>
+                <p class="hidden sm:block font-medium mr-2 dark:text-slate-300">
+                    Sorted by
+                </p>
                 <USelect
                     v-model="selectedOption"
                     :options="options"
@@ -40,7 +42,7 @@
                 <UButton
                     color="white"
                     variant="solid"
-                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1"
+                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1 dark:bg-white dark:text-black"
                     @click="showAll"
                     >Show All</UButton
                 >
@@ -68,7 +70,7 @@
                                     class="flex justify-between items-center w-full"
                                 >
                                     <p
-                                        class="text-[8px] sm:text-sm font-medium"
+                                        class="text-[8px] sm:text-sm font-medium dark:text-slate-300"
                                     >
                                         10 out of 10
                                     </p>

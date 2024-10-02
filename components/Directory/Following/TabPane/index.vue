@@ -47,3 +47,15 @@ const tabs = [
     },
 ];
 </script>
+
+<style scoped>
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn p {
+    /* color: #9147ff !important; */
+}
+
+.ant-tabs .ant-tabs-ink-bar {
+    position: absolute !important;
+    background-color: #b05050 !important;
+    pointer-events: none;
+}
+</style>

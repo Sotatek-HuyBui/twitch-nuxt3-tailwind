@@ -2,7 +2,7 @@
     <div class="mb-8">
         <nuxt-link v-if="!isFromVideoTab" :to="url">
             <p
-                class="text-[18px] font-medium mt-6 mb-2"
+                class="text-[18px] font-medium mt-6 mb-2 dark:text-slate-300"
                 :class="{ 'text-customPrimary-1': !isFromVideoTab }"
             >
                 {{ header || 'Default Items' }}
@@ -10,7 +10,7 @@
         </nuxt-link>
         <div v-else class="flex items-center mt-6 mb-1">
             <p
-                class="text-[12px] sm:text-[18px] font-medium mr-2 sm:mr-4"
+                class="text-[12px] sm:text-[18px] font-medium mr-2 sm:mr-4 dark:text-slate-300"
                 :class="{ 'text-customPrimary-1': !isFromVideoTab }"
             >
                 {{ header || 'Default Items' }}

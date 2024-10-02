@@ -17,7 +17,18 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt", "@ant-design-vue/nuxt"],
+  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt", "@ant-design-vue/nuxt", "@nuxtjs/color-mode"],
+  colorMode: {
+    classPrefix: ''
+  },
+  tailwindcss: {
+    cssPath: '~/assets/main.scss',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    config: {},
+    injectPosition: 0,
+    viewer: true
+  },
   ui: {
     primary: 'customPrimary',
   }

@@ -22,7 +22,7 @@
                 </div>
                 <UButton
                     variant="solid"
-                    class="bg-customPrimary-1 text-white w-[70px] sm:w-[90px] mt-6 text-[8px] sm:text-[14px] flex justify-center p-1"
+                    class="bg-customPrimary-1 text-white w-[70px] sm:w-[90px] mt-6 text-[8px] sm:text-[14px] flex justify-center p-1 dark:text-white"
                     icon="i-heroicons-heart"
                     >Follow</UButton
                 >

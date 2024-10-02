@@ -1,6 +1,8 @@
 <template>
     <div class="mt-4">
-        <p class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium">
+        <p
+            class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium dark:text-white"
+        >
             <a href="/" class="text-customPrimary-1">Live channels</a> we think
             you'll like
         </p>
