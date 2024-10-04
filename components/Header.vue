@@ -100,7 +100,10 @@
             </UTooltip>
             <UTooltip text="Notifications" v-if="token">
                 <img
-                    v-if="colorMode.value === 'light'"
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/bell.png"
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                     alt="Logo"
@@ -114,7 +117,10 @@
             </UTooltip>
             <UTooltip text="Whispers" v-if="token">
                 <img
-                    v-if="colorMode.value === 'light'"
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/conversation.png"
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                     alt="Logo"
@@ -140,7 +146,10 @@
                 class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
                 <img
-                    v-if="token && colorMode.value === 'light'"
+                    v-if="
+                        (token && colorMode.value === 'light') ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/low-battery.png"
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                     alt="Logo"
@@ -218,18 +227,33 @@ const generalItems = [
     [
         {
             label: 'About',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
         {
             label: 'Advertisers',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
         {
             label: 'Blogs',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
         {
             label: 'Developers',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
         {
             label: 'Download Apps',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
     ],
     [
@@ -241,6 +265,9 @@ const generalItems = [
         },
         {
             label: 'Ad Choices',
+            click: () => {
+                message.info('Function is in progress!');
+            },
         },
     ],
 ];
@@ -259,14 +286,26 @@ let configItems = computed(() => {
               [
                   {
                       label: 'Video Producer',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon: 'material-symbols:auto-videocam-rounded',
                   },
                   {
                       label: 'Creator Dashboard',
+                      icon: 'material-symbols:dashboard',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
                   },
               ],
               [
                   {
                       label: 'Language',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon: 'material-symbols:globe',
                   },
                   {
                       label:
@@ -283,19 +322,21 @@ let configItems = computed(() => {
                   },
                   {
                       label: 'Labeled Content',
+                      icon: 'material-symbols:earthquake',
+
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
                   },
               ],
               [
                   {
-                      label: token ? 'Log out' : 'Log in',
+                      label: 'Log out',
                       click: () => {
-                          if (token) {
-                              $locally.removeItem('token');
-                              window.location.reload();
-                          } else {
-                              onShowLoginModal();
-                          }
+                          $locally.removeItem('token');
+                          window.location.reload();
                       },
+                      icon: 'tabler:login',
                   },
               ],
           ]
@@ -303,25 +344,39 @@ let configItems = computed(() => {
               [
                   {
                       label: 'Language',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon: 'material-symbols:globe',
                   },
                   {
-                      label: 'Dark Theme',
+                      label:
+                          colorMode.value === 'light'
+                              ? 'Dark Theme'
+                              : 'Light Theme',
+                      click: () => {
+                          onToggleMode();
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'material-symbols:dark-mode-outline'
+                              : 'material-symbols-light:sunny',
                   },
                   {
                       label: 'Labeled Content',
+                      icon: 'material-symbols:earthquake',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
                   },
               ],
               [
                   {
-                      label: token ? 'Log out' : 'Log in',
+                      label: 'Log in',
                       click: () => {
-                          if (token) {
-                              $locally.removeItem('token');
-                              window.location.reload();
-                          } else {
-                              onShowLoginModal();
-                          }
+                          onShowLoginModal();
                       },
+                      icon: 'ic:baseline-log-in',
                   },
               ],
           ];

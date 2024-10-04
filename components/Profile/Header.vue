@@ -76,7 +76,7 @@
                     <Slide v-for="(slide, index) in dummySliders" :key="index">
                         <div class="carousel__item">
                             <video
-                                class="w-[400px] h-[100px] sm:w-[300px] sm:h-[250px] object-fill"
+                                class="w-[400px] h-[100px] sm:w-[300px] sm:h-[250px] max-w-full"
                                 :poster="slide.thumb"
                                 controls
                             >

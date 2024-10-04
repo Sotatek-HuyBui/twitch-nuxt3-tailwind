@@ -4,36 +4,85 @@
         v-if="isOpen"
     >
         <div
-            class="flex justify-between items-center p-3 border border-b-[1px] border-l-0 dark:bg-slate-900 dark:border-gray-800"
+            class="flex justify-between p-3 items-center border border-b-[1px] border-l-0 dark:bg-slate-900 dark:border-gray-800"
         >
-            <!-- <UTooltip
+            <UTooltip
                 v-if="isOpen"
                 text="Collapse"
                 :popper="{ arrow: true, placement: 'right' }"
             >
                 <img
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/collapse-open.png"
                     class="w-4 h-4 cursor-pointer"
                     alt="Collapse"
                     @click="toggleSideBar"
                 />
-            </UTooltip> -->
+                <img
+                    v-else
+                    src="~/assets/collapse-open-white.png"
+                    class="w-4 h-4 cursor-pointer"
+                    alt="Collapse"
+                    @click="toggleSideBar"
+                />
+            </UTooltip>
             <p class="text-[14px] font-medium">STREAM CHAT</p>
-            <img
-                src="~/assets/user.png"
-                class="w-4 h-4 cursor-pointer"
-                alt="Collapse"
-            />
+            <div v-if="isShowMessages">
+                <img
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
+                    src="~/assets/user.png"
+                    class="w-4 h-4 cursor-pointer"
+                    @click="toggleShowMessage"
+                />
+                <img
+                    v-else
+                    src="~/assets/user-white.png"
+                    class="w-4 h-4 cursor-pointer"
+                    @click="toggleShowMessage"
+                />
+            </div>
+            <div v-else>
+                <img
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
+                    src="~/assets/conversation.png"
+                    class="w-4 h-4 cursor-pointer"
+                    @click="toggleShowMessage"
+                />
+                <img
+                    v-else
+                    src="~/assets/conversation-white.png"
+                    class="w-4 h-4 cursor-pointer"
+                    @click="toggleShowMessage"
+                />
+            </div>
         </div>
-        <div class="flex-1 p-4 message-list overflow-auto dark:bg-slate-900">
+        <div
+            class="flex-1 p-0 message-list overflow-auto dark:bg-slate-900"
+            :class="{ 'p-4': isShowMessages }"
+        >
             <p v-if="!messages.length">Welcome to the chat!</p>
             <ProfileChatMessageItem
+                v-if="isShowMessages"
                 v-for="item in messages"
                 :key="item.id"
                 :item="item"
             />
+            <ProfileChatGroup v-else />
         </div>
-        <div class="p-4 dark:bg-slate-900" :class="{ 'pb-20': !token }">
+        <div
+            v-if="isShowMessages"
+            class="p-4 dark:bg-slate-900"
+            :class="{ 'pb-20': !token }"
+        >
             <input
                 type="search"
                 class="block py-1 px-2 w-full z-20 text-[8px] sm:text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-customPrimary-1 focus:ring-customPrimary-1 focus:border-customPrimary-1 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
@@ -100,12 +149,18 @@
 </template>
 
 <script setup>
-import { dummyAvatars } from '@/data/index';
-const { isOpen, toggleSideBar } = defineProps(['isOpen', 'toggleSideBar']);
+import { dummyAvatars, dummyComments } from '@/data/index';
+const { isOpen, onShowLoginModal, toggleSideBar } = defineProps([
+    'isOpen',
+    'onShowLoginModal',
+    'toggleSideBar',
+]);
 const { $locally } = useNuxtApp();
 const token = $locally.getItem('token');
+const colorMode = useColorMode();
 
 const messageInput = ref('');
+const isShowMessages = ref(true);
 const messages = ref([
     {
         id: 1,
@@ -115,46 +170,44 @@ const messages = ref([
     },
 ]);
 
+const toggleShowMessage = () => {
+    isShowMessages.value = !isShowMessages.value;
+};
+
 const handleEnterKey = (event) => {
     if (event.key === 'Enter' && messageInput.value) {
         onSendMessage(true);
     }
 };
 
-const generateRandomString = () => {
-    const characters =
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    const charactersLength = characters.length;
-
-    const length = Math.floor(Math.random() * 30) + 1;
-
-    for (let i = 0; i < length; i++) {
-        result += characters.charAt(
-            Math.floor(Math.random() * charactersLength)
-        );
-    }
-
-    return result;
-};
-
 const onSendMessage = (isMe, message) => {
-    messages.value = [
-        ...messages.value,
-        {
-            id: messages.value.length + 1,
-            avatar: dummyAvatars[Math.floor(Math.random() * 5)],
-            message: message || messageInput.value,
-            isMe: isMe,
-        },
-    ];
+    if (token) {
+        messages.value = [
+            ...messages.value,
+            {
+                id: messages.value.length + 1,
+                avatar: isMe
+                    ? 'https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                    : dummyAvatars[Math.floor(Math.random() * 5)],
+                message: message || messageInput.value,
+                isMe: isMe,
+            },
+        ];
+    } else {
+        onShowLoginModal();
+    }
     messageInput.value = '';
 };
 
 onMounted(() => {
-    setInterval(() => {
-        onSendMessage(false, generateRandomString());
-    }, 15000);
+    if (token) {
+        setInterval(() => {
+            onSendMessage(
+                false,
+                dummyComments[Math.floor(Math.random() * 100)]
+            );
+        }, 15000);
+    }
 });
 </script>
 

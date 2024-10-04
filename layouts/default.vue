@@ -1,5 +1,5 @@
 <template>
-    <div class="default_layout relative overflow-hidden bg-red">
+    <div class="default_layout relative overflow-hidden">
         <LoginModal
             v-model="isShowLoginModal"
             :onShowRegisterModal="onShowRegisterModal"
@@ -28,7 +28,10 @@
                 <slot />
             </div>
         </div>
-        <SignUpBanner v-if="!token" :onShowLoginModal="onShowLoginModal" />
+        <SignUpBanner
+            v-if="!token"
+            :onShowRegisterModal="onShowRegisterModal"
+        />
     </div>
 </template>
 

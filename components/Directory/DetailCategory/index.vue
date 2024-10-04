@@ -24,6 +24,7 @@
                     variant="solid"
                     class="bg-customPrimary-1 text-white w-[70px] sm:w-[90px] mt-6 text-[8px] sm:text-[14px] flex justify-center p-1 dark:text-white"
                     icon="i-heroicons-heart"
+                    @click="onFollow"
                     >Follow</UButton
                 >
             </div>
@@ -31,3 +32,9 @@
         <DirectoryDetailCategoryTabPane />
     </div>
 </template>
+
+<script setup>
+const onFollow = () => {
+    message.info('Function is in progress!');
+};
+</script>

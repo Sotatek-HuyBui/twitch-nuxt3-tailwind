@@ -14,10 +14,22 @@
             <UTooltip
                 v-if="isOpen"
                 text="Collapse"
-                :popper="{ arrow: true, placement: 'right' }"
+                :popper="{ arrow: true, placement: 'bottom' }"
+                class="z-50"
             >
                 <img
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/collapse-close.png"
+                    class="w-4 h-4 cursor-pointer"
+                    alt="Collapse"
+                    @click="toggleSideBar"
+                />
+                <img
+                    v-else
+                    src="~/assets/collapse-close-white.png"
                     class="w-4 h-4 cursor-pointer"
                     alt="Collapse"
                     @click="toggleSideBar"
@@ -26,10 +38,21 @@
             <UTooltip
                 v-if="!isOpen"
                 text="Collapse"
-                :popper="{ arrow: true, placement: 'right' }"
+                :popper="{ arrow: true, placement: 'bottom' }"
             >
                 <img
+                    v-if="
+                        colorMode.value === 'light' ||
+                        colorMode.value === 'system'
+                    "
                     src="~/assets/collapse-open.png"
+                    class="w-4 h-4 cursor-pointer"
+                    alt="Collapse"
+                    @click="toggleSideBar"
+                />
+                <img
+                    v-else
+                    src="~/assets/collapse-open-white.png"
                     class="w-4 h-4 cursor-pointer"
                     alt="Collapse"
                     @click="toggleSideBar"
@@ -52,6 +75,7 @@ const channels = ref(dummySidebarChannels);
 
 const isOpen = ref(true);
 const { toggleFromParent } = defineProps(['toggleFromParent']);
+const colorMode = useColorMode();
 
 const toggleSideBar = () => {
     isOpen.value = !isOpen.value;

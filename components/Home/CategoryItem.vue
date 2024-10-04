@@ -6,7 +6,7 @@
         "
     >
         <img
-            class="w-full h-[120px] sm:h-[180px] xl:h-[200px] 2xl:h-[250px] object-cover mb-2 rounded-md"
+            class="w-full h-[120px] sm:h-[180px] 2xl:h-[250px] object-cover mb-2 rounded-md"
             :src="item.image"
         />
         <p

@@ -389,7 +389,9 @@ export const dummySliders =[
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
           ],
           "subtitle": "By Blender Foundation",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
+          name: 'Ja Morant',
+          tags: ['Competitive', 'Funny'],
+          "thumb": "https://images.pexels.com/photos/9071735/pexels-photo-9071735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           "title": "Big Buck Bunny"
         },
         {
@@ -398,7 +400,9 @@ export const dummySliders =[
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
           ],
           "subtitle": "By Blender Foundation",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
+          name: 'Jemail',
+          tags: ['Aggressive', 'Star'],
+          "thumb": "https://images.pexels.com/photos/9071459/pexels-photo-9071459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           "title": "Elephant Dream"
         },
         {
@@ -407,7 +411,9 @@ export const dummySliders =[
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
           ],
           "subtitle": "By Google",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
+          name: 'Enden',
+          tags: ['Hilarious', 'Aggressive'],
+          "thumb": "https://images.pexels.com/photos/7773543/pexels-photo-7773543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           "title": "For Bigger Blazes"
         },
         {
@@ -416,88 +422,226 @@ export const dummySliders =[
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
           ],
           "subtitle": "By Google",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg",
+          name: 'Ninja',
+          tags: ['Competitive', 'Funny'],
+          "thumb": "https://images.pexels.com/photos/20459164/pexels-photo-20459164/free-photo-of-a-couple-sitting-on-a-bed-and-playing-a-video-game.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           "title": "For Bigger Escape"
         },
-        {
-          "description": "Introducing Chromecast. The easiest way to enjoy online video and music on your TV. For $35.  Find out more at google.com/chromecast.",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
-          ],
-          "subtitle": "By Google",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
-          "title": "For Bigger Fun"
-        },
-        {
-          "description": "Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for the times that call for bigger joyrides. For $35. Learn how to use Chromecast with YouTube and more at google.com/chromecast.",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-          ],
-          "subtitle": "By Google",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",
-          "title": "For Bigger Joyrides"
-        },
-        {
-          "description": "Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when you want to make Buster's big meltdowns even bigger. For $35. Learn how to use Chromecast with Netflix and more at google.com/chromecast.",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
-          ],
-          "subtitle": "By Google",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
-          "title": "For Bigger Meltdowns"
-        },
-        {
-          "description": "Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender. With initial funding provided by 1000s of donations via the internet community, it has again proven to be a viable development model for both open 3D technology as for independent animation film.\nThis 15 minute film has been realized in the studio of the Amsterdam Blender Institute, by an international team of artists and developers. In addition to that, several crucial technical and creative targets have been realized online, by developers and artists and teams all over the world.\nwww.sintel.org",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-          ],
-          "subtitle": "By Blender Foundation",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
-          "title": "Sintel"
-        },
-        {
-          "description": "Smoking Tire takes the all-new Subaru Outback to the highest point we can find in hopes our customer-appreciation Balloon Launch will get some free T-shirts into the hands of our viewers.",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
-          ],
-          "subtitle": "By Garage419",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutbackOnStreetAndDirt.jpg",
-          "title": "Subaru Outback On Street And Dirt"
-        },
-        {
-          "description": "Tears of Steel was realized with crowd-funding by users of the open source 3D creation tool Blender. Target was to improve and test a complete open and free pipeline for visual effects in film - and to make a compelling sci-fi film in Amsterdam, the Netherlands.  The film itself, and all raw material used for making it, have been released under the Creatieve Commons 3.0 Attribution license. Visit the tearsofsteel.org website to find out more about this, or to purchase the 4-DVD box with a lot of extras.  (CC) Blender Foundation - http://www.tearsofsteel.org",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
-          ],
-          "subtitle": "By Blender Foundation",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg",
-          "title": "Tears of Steel"
-        },
-        {
-          "description": "The Smoking Tire heads out to Adams Motorsports Park in Riverside, CA to test the most requested car of 2010, the Volkswagen GTI. Will it beat the Mazdaspeed3's standard-setting lap time? Watch and see...",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4"
-          ],
-          "subtitle": "By Garage419",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/VolkswagenGTIReview.jpg",
-          "title": "Volkswagen GTI Review"
-        },
-        {
-          "description": "The Smoking Tire is going on the 2010 Bullrun Live Rally in a 2011 Shelby GT500, and posting a video from the road every single day! The only place to watch them is by subscribing to The Smoking Tire or watching at BlackMagicShine.com",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
-          ],
-          "subtitle": "By Garage419",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WeAreGoingOnBullrun.jpg",
-          "title": "We Are Going On Bullrun"
-        },
-        {
-          "description": "The Smoking Tire meets up with Chris and Jorge from CarsForAGrand.com to see just how far $1,000 can go when looking for a car.The Smoking Tire meets up with Chris and Jorge from CarsForAGrand.com to see just how far $1,000 can go when looking for a car.",
-          "sources": [
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
-          ],
-          "subtitle": "By Garage419",
-          "thumb": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg",
-          "title": "What care can you get for a grand?"
-        }
       ]
+
+export const dummyGroups = [
+    {
+        id: 1,
+        icon: 'https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2',
+        name: 'Broadcaster',
+        tooltip: 'The host of this channel, serving you the freshest content.',
+         avatar: 'https://images.pexels.com/photos/27872945/pexels-photo-27872945/free-photo-of-woman-standing-in-coat-and-with-bag.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        background_image: 'https://images.pexels.com/photos/28569420/pexels-photo-28569420/free-photo-of-woman-walking-under-bridge-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        isShowChildren: true,
+        children: [
+            {
+                id: 1,
+                name: 'Just old prime',
+                isShowingDetail: false,
+                badges: [
+                    {
+                        id: 1,
+                        name: 'Moderator',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2'
+                    },
+                    {
+                        id: 2,
+                        name: '3-month subcriber',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/f5c4ff27-adf5-4145-9cf5-9057d9d2ca6d/2'
+                    },
+                    {
+                        id: 3,
+                        name: 'Destiny 2',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/e79ee64f-31f1-4485-9c81-b93957e69f8a/2'
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2',
+        name: 'Moderators',
+        tooltip: 'The host of this channel, serving you the freshest content.',
+        avatar: 'https://images.pexels.com/photos/27872945/pexels-photo-27872945/free-photo-of-woman-standing-in-coat-and-with-bag.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        background_image: 'https://images.pexels.com/photos/28569420/pexels-photo-28569420/free-photo-of-woman-walking-under-bridge-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        isShowChildren: true,
+        children: [
+            {
+                id: 1,
+                name: 'Seven Galaxy',
+                isShowingDetail: false,
+                badges: [
+                    {
+                        id: 1,
+                        name: 'Moderator',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2'
+                    },
+                    {
+                        id: 2,
+                        name: '3-month subcriber',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/f5c4ff27-adf5-4145-9cf5-9057d9d2ca6d/2'
+                    },
+                    {
+                        id: 3,
+                        name: 'Destiny 2',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/e79ee64f-31f1-4485-9c81-b93957e69f8a/2'
+                    },
+                ]
+            },
+            {
+                id: 2,
+                name: 'Crazy Mod',
+                isShowingDetail: false,
+                badges: [
+                    {
+                        id: 1,
+                        isShowingDetail: true,
+                        name: 'Moderator',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2'
+                    },
+                    {
+                        id: 2,
+                        isShowingDetail: true,
+                        name: '3-month subcriber',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/f5c4ff27-adf5-4145-9cf5-9057d9d2ca6d/2'
+                    },
+                    
+                ]
+            },
+        ]
+    },
+]
+
+export const dummyComments = [
+    "Let's play a game!",
+    "Who's up for a round?",
+    "I challenge you to a game.",
+    "Are you ready to play?",
+    "Game on!",
+    "It's your move.",
+    "Your turn!",
+    "Roll the dice.",
+    "Shuffle the cards.",
+    "Pick a card, any card.",
+    "Checkmate!",
+    "You sunk my battleship!",
+    "Time to duel.",
+    "It's a tie!",
+    "Winner takes all.",
+    "Do you surrender?",
+    "Good game!",
+    "Nice move!",
+    "That was close!",
+    "I'm winning!",
+    "One more round?",
+    "Next round's on me.",
+    "I'm on a winning streak.",
+    "Let's keep score.",
+    "I need to strategize.",
+    "What's your strategy?",
+    "This game is intense!",
+    "This is getting interesting.",
+    "I can't believe I lost.",
+    "Beginner's luck!",
+    "This game is so much fun!",
+    "Let's play fair.",
+    "No cheating allowed.",
+    "You're cheating!",
+    "That was a risky move.",
+    "I'm gaining the upper hand.",
+    "Time to make a move.",
+    "I'm in it to win it.",
+    "This game is so addictive.",
+    "I'm improving with each round.",
+    "I'm getting the hang of this.",
+    "It's all about strategy.",
+    "Let's play by the rules.",
+    "Practice makes perfect.",
+    "I need to concentrate.",
+    "I'm feeling lucky.",
+    "This game is a real challenge.",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing.",
+    "I'm on a winning streak!",
+    "I'm on fire!",
+    "This game is so much fun!",
+    "I'm getting better at this.",
+    "I'm getting the hang of it.",
+    "This game is so addictive!",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing.",
+    "I'm on a winning streak!",
+    "I'm on fire!",
+    "This game is so much fun!",
+    "I'm getting better at this.",
+    "I'm getting the hang of it.",
+    "This game is so addictive!",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing.",
+    "I'm on a winning streak!",
+    "I'm on fire!",
+    "This game is so much fun!",
+    "I'm getting better at this.",
+    "I'm getting the hang of it.",
+    "This game is so addictive!",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing.",
+    "I'm on a winning streak!",
+    "I'm on fire!",
+    "This game is so much fun!",
+    "I'm getting better at this.",
+    "I'm getting the hang of it.",
+    "This game is so addictive!",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing.",
+    "I'm on a winning streak!",
+    "I'm on fire!",
+    "This game is so much fun!",
+    "I'm getting better at this.",
+    "I'm getting the hang of it.",
+    "This game is so addictive!",
+    "I'm getting the hang of this game.",
+    "I can't wait to play again.",
+    "This game is so exciting!",
+    "I need a rematch.",
+    "I want a rematch!",
+    "This game is so competitive.",
+    "I'm on the edge of my seat.",
+    "I can't stop playing."
+]

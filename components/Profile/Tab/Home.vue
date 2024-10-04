@@ -25,7 +25,12 @@
                     class="rounded-lg flex flex-col"
                     arrows
                 >
-                    <div class="w-[120px] sm:w-[280px] mr-2">
+                    <div
+                        class="w-[120px] sm:w-[280px] mr-2 cursor-pointer"
+                        @click="
+                            () => navigateTo(`/${$route.params.name}/chats`)
+                        "
+                    >
                         <img
                             :src="item"
                             class="w-full h-[76px] sm:h-[170px] object-cover mr-2 rounded-md"
@@ -62,7 +67,7 @@
                                     <p
                                         class="text-[6px] sm:text-[12px] text-gray-500 dark:text-white"
                                     >
-                                        Ninja
+                                        {{ $route.params.name }}
                                     </p>
                                     <img
                                         src="~/assets/check.png"
