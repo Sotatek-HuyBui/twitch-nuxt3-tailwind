@@ -15,7 +15,7 @@
                 <div
                     v-for="tag in item.tag"
                     :key="item.id"
-                    class="py-0.5 px-2 rounded-full bg-slate-200 mr-2 dark:bg-slate-700"
+                    class="cursor-pointer py-0.5 px-2 rounded-full bg-slate-200 mr-2 dark:bg-slate-700"
                 >
                     <p class="text-[6px] sm:text-[10px] dark:text-white">
                         {{ tag.name }}

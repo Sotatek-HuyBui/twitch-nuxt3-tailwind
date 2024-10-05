@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-white flex justify-between px-3 py-1 sm:py-2 border-b-2 border-gray-100 dark:border-gray-800 z-10 dark:bg-black"
+        class="bg-white flex justify-between px-3 py-1 sm:py-2 border-b-2 border-gray-100 dark:border-gray-800 z-50 dark:bg-black"
     >
         <div class="flex-1 flex items-center">
             <NuxtLink to="/"
@@ -142,7 +142,6 @@
             <button
                 v-if="token"
                 type="button"
-                @click="onShowLoginModal"
                 class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
                 <img
@@ -182,19 +181,27 @@
                 :items="configItems"
                 :popper="{ placement: 'bottom-start' }"
             >
-                <img
-                    v-if="
-                        colorMode.value === 'light' ||
-                        colorMode.value === 'system'
-                    "
-                    src="~/assets/profile-user.png"
-                    class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
-                    alt="Logo"
-                />
+                <div v-if="!token">
+                    <img
+                        v-if="
+                            colorMode.value === 'light' ||
+                            colorMode.value === 'system'
+                        "
+                        src="~/assets/profile-user.png"
+                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
+                        alt="Logo"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/profile-user-white.png"
+                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
+                        alt="Logo"
+                    />
+                </div>
                 <img
                     v-else
-                    src="~/assets/profile-user-white.png"
-                    class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
+                    src="https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer object-cover rounded-full"
                     alt="Logo"
                 />
             </UDropdown>

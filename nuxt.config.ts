@@ -17,9 +17,12 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',"@pinia/nuxt", "@ant-design-vue/nuxt", "@nuxtjs/color-mode"],
+  modules: ["@nuxt/ui", '@nuxtjs/tailwindcss',["@pinia/nuxt", {autoImports: ['defineStore', 'acceptHMRUpdate']}], "@ant-design-vue/nuxt", "@nuxtjs/color-mode"],
   colorMode: {
     classPrefix: ''
+  },
+  imports: {
+    dirs: ['stores']
   },
   tailwindcss: {
     cssPath: '~/assets/main.scss',

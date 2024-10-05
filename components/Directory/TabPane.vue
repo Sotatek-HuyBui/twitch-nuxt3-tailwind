@@ -3,7 +3,12 @@
         <a-tabs v-model:activeKey="activeKey" class="w-full">
             <a-tab-pane v-for="item in tabs" :key="item.key"
                 ><template #tab>
-                    <p class="text-[8px] sm:text-[16px]">{{ item.label }}</p>
+                    <p
+                        class="text-[8px] sm:text-[16px]"
+                        @click="onClickTab(item)"
+                    >
+                        {{ item.label }}
+                    </p>
                 </template>
                 <DirectoryTabFilter :activeTab="activeKey" />
                 <div
@@ -21,7 +26,7 @@
                 </div>
                 <div
                     v-else
-                    class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-1 sm:gap-1.5"
+                    class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-10 gap-1 sm:gap-2"
                 >
                     <HomeCategoryItem
                         v-for="(item, index) in categories"
@@ -36,9 +41,13 @@
 
 <script setup>
 import { dummyCategories, dummySuggestedChannels } from '@/data/index.ts';
-const activeKey = ref('1');
+
+const route = useRoute();
+const activeKey = ref(route.params?.directory === 'all' ? '2' : '1');
 const categories = ref(dummyCategories);
 const channels = ref(dummySuggestedChannels);
+
+console.log(route.params);
 
 const tabs = [
     {
@@ -50,6 +59,14 @@ const tabs = [
         label: 'Live Channels',
     },
 ];
+
+const onClickTab = (item) => {
+    if (item.key === '2') {
+        navigateTo('/directory/all');
+    } else {
+        navigateTo('/directory');
+    }
+};
 </script>
 <style scoped>
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn p {

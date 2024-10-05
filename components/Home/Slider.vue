@@ -10,7 +10,7 @@
         class="h-[150px] sm:h-[300px] flex items-center justify-center my-10"
     >
         <div
-            class="w-[90%] sm:w-[900px] xl:w-[1100px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"
+            class="w-[90%] sm:w-[900px] xl:w-[1000px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"
         >
             <Carousel
                 :itemsToShow="2.95"
@@ -78,7 +78,14 @@
                             <div
                                 v-for="tag in slide.tags"
                                 :key="tag"
-                                class="py-0.5 px-1 rounded-full bg-slate-200 mr-1 dark:bg-slate-700"
+                                class="py-0.5 px-1 rounded-full bg-slate-200 mr-1 dark:bg-slate-700 cursor-pointer"
+                                @click="
+                                    navigateTo(
+                                        `/directory/all/tags?tag=${tag
+                                            .split(' ')
+                                            .join('-')}`
+                                    )
+                                "
                             >
                                 <p class="text-[5px] dark:text-white">
                                     {{ tag }}

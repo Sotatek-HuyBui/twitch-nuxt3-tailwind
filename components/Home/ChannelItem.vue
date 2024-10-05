@@ -28,7 +28,14 @@
                         <div
                             v-for="tag in item.tag"
                             :key="item.id"
-                            class="p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2"
+                            @click="
+                                navigateTo(
+                                    `/directory/all/tags?tag=${tag.name
+                                        .split(' ')
+                                        .join('-')}`
+                                )
+                            "
+                            class="cursor-pointer p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2"
                         >
                             <p
                                 class="text-[6px] sm:text-[10px] dark:text-white"

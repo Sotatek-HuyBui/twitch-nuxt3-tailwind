@@ -3,8 +3,12 @@
         <p
             class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium dark:text-white"
         >
-            <a href="/" class="text-customPrimary-1">Live channels</a> we think
-            you'll like
+            <a
+                href="/directory/all"
+                class="text-customPrimary-2 hover:underline"
+                >Live channels</a
+            >
+            we think you'll like
         </p>
         <div
             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-1 sm:gap-4"

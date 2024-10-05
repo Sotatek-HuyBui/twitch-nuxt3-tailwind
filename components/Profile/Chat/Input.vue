@@ -4,7 +4,7 @@
         v-if="isOpen"
     >
         <div
-            class="flex justify-between p-3 items-center border border-b-[1px] border-l-0 dark:bg-slate-900 dark:border-gray-800"
+            class="flex justify-between p-3 items-center border border-b-[1px] border-l-0 dark:bg-[#1c1c1c] dark:border-gray-800"
         >
             <UTooltip
                 v-if="isOpen"
@@ -31,56 +31,70 @@
             </UTooltip>
             <p class="text-[14px] font-medium">STREAM CHAT</p>
             <div v-if="isShowMessages">
-                <img
-                    v-if="
-                        colorMode.value === 'light' ||
-                        colorMode.value === 'system'
-                    "
-                    src="~/assets/user.png"
-                    class="w-4 h-4 cursor-pointer"
-                    @click="toggleShowMessage"
-                />
-                <img
-                    v-else
-                    src="~/assets/user-white.png"
-                    class="w-4 h-4 cursor-pointer"
-                    @click="toggleShowMessage"
-                />
+                <UTooltip
+                    text="Commnunity"
+                    :popper="{ arrow: true, placement: 'right' }"
+                >
+                    <img
+                        v-if="
+                            colorMode.value === 'light' ||
+                            colorMode.value === 'system'
+                        "
+                        src="~/assets/user.png"
+                        class="w-4 h-4 cursor-pointer"
+                        @click="toggleShowMessage"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/user-white.png"
+                        class="w-4 h-4 cursor-pointer"
+                        @click="toggleShowMessage"
+                    />
+                </UTooltip>
             </div>
             <div v-else>
-                <img
-                    v-if="
-                        colorMode.value === 'light' ||
-                        colorMode.value === 'system'
-                    "
-                    src="~/assets/conversation.png"
-                    class="w-4 h-4 cursor-pointer"
-                    @click="toggleShowMessage"
-                />
-                <img
-                    v-else
-                    src="~/assets/conversation-white.png"
-                    class="w-4 h-4 cursor-pointer"
-                    @click="toggleShowMessage"
-                />
+                <UTooltip
+                    text="Go back to chat"
+                    :popper="{ arrow: true, placement: 'right' }"
+                >
+                    <img
+                        v-if="
+                            colorMode.value === 'light' ||
+                            colorMode.value === 'system'
+                        "
+                        src="~/assets/conversation.png"
+                        class="w-4 h-4 cursor-pointer"
+                        @click="toggleShowMessage"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/conversation-white.png"
+                        class="w-4 h-4 cursor-pointer"
+                        @click="toggleShowMessage"
+                    />
+                </UTooltip>
             </div>
         </div>
         <div
-            class="flex-1 p-0 message-list overflow-auto dark:bg-slate-900"
+            class="flex-1 p-0 message-list overflow-auto dark:bg-[#1c1c1c]"
             :class="{ 'p-4': isShowMessages }"
         >
-            <p v-if="!messages.length">Welcome to the chat!</p>
+            <p v-if="!messages.length && isShowMessages">
+                Welcome to the chat!
+            </p>
             <ProfileChatMessageItem
                 v-if="isShowMessages"
                 v-for="item in messages"
                 :key="item.id"
                 :item="item"
+                :onToggleShowDetail="onToggleShowDetail"
+                :onCloseShowingDetail="onCloseShowingDetail"
             />
             <ProfileChatGroup v-else />
         </div>
         <div
             v-if="isShowMessages"
-            class="p-4 dark:bg-slate-900"
+            class="p-4 dark:bg-[#1c1c1c]"
             :class="{ 'pb-20': !token }"
         >
             <input
@@ -98,7 +112,14 @@
                     :popper="{ arrow: true, placement: 'right' }"
                 >
                     <img
+                        v-if="colorMode.value !== 'dark'"
                         src="~/assets/shield.png"
+                        class="w-4 h-4 cursor-pointer mr-3"
+                        alt="Collapse"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/shield-white.png"
                         class="w-4 h-4 cursor-pointer mr-3"
                         alt="Collapse"
                     />
@@ -109,7 +130,14 @@
                     :popper="{ arrow: true, placement: 'right' }"
                 >
                     <img
+                        v-if="colorMode.value !== 'dark'"
                         src="~/assets/sword.png"
+                        class="w-4 h-4 cursor-pointer mr-3"
+                        alt="Collapse"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/sword-white.png"
                         class="w-4 h-4 cursor-pointer mr-3"
                         alt="Collapse"
                     />
@@ -120,7 +148,14 @@
                     :popper="{ arrow: true, placement: 'right' }"
                 >
                     <img
+                        v-if="colorMode.value !== 'dark'"
                         src="~/assets/favorite.png"
+                        class="w-4 h-4 cursor-pointer mr-3"
+                        alt="Collapse"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/favourites-white.png"
                         class="w-4 h-4 cursor-pointer mr-3"
                         alt="Collapse"
                     />
@@ -131,7 +166,14 @@
                     :popper="{ arrow: true, placement: 'right' }"
                 >
                     <img
+                        v-if="colorMode.value !== 'dark'"
                         src="~/assets/settings.png"
+                        class="w-4 h-4 cursor-pointer mr-3"
+                        alt="Collapse"
+                    />
+                    <img
+                        v-else
+                        src="~/assets/settings-white.png"
                         class="w-4 h-4 cursor-pointer mr-3"
                         alt="Collapse"
                     />
@@ -149,7 +191,8 @@
 </template>
 
 <script setup>
-import { dummyAvatars, dummyComments } from '@/data/index';
+import { dummySidebarChannels, dummyComments } from '@/data/index';
+import { v4 as uuidv4 } from 'uuid';
 const { isOpen, onShowLoginModal, toggleSideBar } = defineProps([
     'isOpen',
     'onShowLoginModal',
@@ -161,14 +204,7 @@ const colorMode = useColorMode();
 
 const messageInput = ref('');
 const isShowMessages = ref(true);
-const messages = ref([
-    {
-        id: 1,
-        avatar: 'https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        message: 'Hello every body!',
-        isMe: true,
-    },
-]);
+const messages = ref([]);
 
 const toggleShowMessage = () => {
     isShowMessages.value = !isShowMessages.value;
@@ -181,14 +217,17 @@ const handleEnterKey = (event) => {
 };
 
 const onSendMessage = (isMe, message) => {
-    if (token) {
+    if (token || (!token && !isMe)) {
+        const randomIndex = Math.floor(Math.random() * 6);
         messages.value = [
             ...messages.value,
             {
-                id: messages.value.length + 1,
+                id: uuidv4(),
+                isShowingDetail: false,
                 avatar: isMe
                     ? 'https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                    : dummyAvatars[Math.floor(Math.random() * 5)],
+                    : dummySidebarChannels[randomIndex].avatar,
+                sender: dummySidebarChannels[randomIndex],
                 message: message || messageInput.value,
                 isMe: isMe,
             },
@@ -199,15 +238,27 @@ const onSendMessage = (isMe, message) => {
     messageInput.value = '';
 };
 
+const onToggleShowDetail = (id) => {
+    messages.value = messages.value.map((item) => {
+        if (item.id === id) {
+            return { ...item, id: uuidv4(), isShowingDetail: true };
+        }
+        return { ...item, id: uuidv4(), isShowingDetail: false };
+    });
+};
+
+const onCloseShowingDetail = () => {
+    messages.value = messages.value.map((item) => ({
+        ...item,
+        id: uuidv4(),
+        isShowingDetail: false,
+    }));
+};
+
 onMounted(() => {
-    if (token) {
-        setInterval(() => {
-            onSendMessage(
-                false,
-                dummyComments[Math.floor(Math.random() * 100)]
-            );
-        }, 15000);
-    }
+    setInterval(() => {
+        onSendMessage(false, dummyComments[Math.floor(Math.random() * 100)]);
+    }, 15000);
 });
 </script>
 

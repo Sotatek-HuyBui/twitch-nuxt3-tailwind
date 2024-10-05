@@ -2,11 +2,14 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useCounterStore = defineStore('counter', () => {
-    const count = ref(0)
-    const name = ref('Ja')
-    const increase = () => count.value ++
+export const useNavigateStore = defineStore('navigation', () => {
 
+    const isShowingVideoCorner = ref(false)
+    const showVideoCorner = () => {
+        isShowingVideoCorner.value  = true
+    }
+    const hideVideoCorner = () => isShowingVideoCorner.value  = false
+    
 
-    return {count, name, increase}
+    return {isShowingVideoCorner, showVideoCorner, hideVideoCorner}
 })

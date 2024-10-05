@@ -19,8 +19,16 @@
         <div v-else-if="$route.params.directory === 'following'">
             <DirectoryFollowing :directorySection="$route.params.directory" />
         </div>
-        <div v-else>
+        <div v-else-if="$route.params.directory === 'esports'">
             <DirectoryEsports :directorySection="$route.params.directory" />
+        </div>
+        <div v-else>
+            <DirectoryTabPane />
         </div>
     </div>
 </template>
+
+<script>
+const route = useRoute();
+console.log('🚀 ~ route:', route);
+</script>

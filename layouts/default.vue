@@ -22,10 +22,16 @@
             />
             <MobileSideBar class="block sm:hidden" />
             <div
-                class="content layout-collapsed p-1 overflow-y-auto h-full w-full pb-20"
+                class="content layout-collapsed p-1 overflow-y-auto h-full w-full pb-20 relative"
                 :class="{ checkout: isOpen }"
             >
                 <slot />
+                <div
+                    v-if="isShowingVideoCorner"
+                    class="w-10 h-10 bg-red-700 absolute l-10 b-10"
+                >
+                    hehe
+                </div>
             </div>
         </div>
         <SignUpBanner
@@ -36,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute();
+const { isShowingVideoCorner } = useNavigateStore();
 const isShowLoginModal = ref(false);
 const isShowRegisterModal = ref(false);
 const isOpen = ref(true);
@@ -56,6 +64,17 @@ const onShowRegisterModal = () => {
 const toggleFromParent = () => {
     isOpen.value = !isOpen.value;
 };
+
+watch(
+    () => route.name,
+    () => {
+        console.log(
+            '🚀 ~ watch ~ isShowingVideoCorner:',
+            isShowingVideoCorner,
+            route
+        );
+    }
+);
 </script>
 
 <style scoped>

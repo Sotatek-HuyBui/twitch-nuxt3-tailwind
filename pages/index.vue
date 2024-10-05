@@ -1,7 +1,4 @@
-<script setup lang="ts">
-import { useCounterStore } from '~/stores/myStore';
-const store = useCounterStore();
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="flex-1 p-1 sm:p-4 home-container">

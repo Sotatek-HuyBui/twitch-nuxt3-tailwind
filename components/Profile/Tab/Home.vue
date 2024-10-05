@@ -22,20 +22,24 @@
                 <UCarousel
                     v-slot="{ item }"
                     :items="items"
-                    class="rounded-lg flex flex-col"
+                    class="rounded-lg"
                     arrows
                 >
                     <div
-                        class="w-[120px] sm:w-[280px] mr-2 cursor-pointer"
+                        class="w-[120px] sm:w-[280px] mr-3 cursor-pointer"
                         @click="
                             () => navigateTo(`/${$route.params.name}/chats`)
                         "
                     >
-                        <img
-                            :src="item"
-                            class="w-full h-[76px] sm:h-[170px] object-cover mr-2 rounded-md"
-                            draggable="false"
-                        />
+                        <div
+                            class="stream rounded-md w-full h-[76px] sm:h-[170px] mr-2"
+                        >
+                            <img
+                                :src="item"
+                                class="stream__thumbnail object-cover rounded-md w-full h-full"
+                                draggable="false"
+                            />
+                        </div>
                         <div class="mt-1 sm:mt-2 flex">
                             <img
                                 :src="item"
@@ -183,3 +187,57 @@ const videoItems = [
 
 const { changeActiveTab } = defineProps(['changeActiveTab']);
 </script>
+
+<style scoped>
+.stream {
+    position: relative;
+    display: inline-block;
+    background-color: #9147ff;
+    width: 100%;
+}
+
+.stream:before,
+.stream:after {
+    content: '';
+    display: block;
+    background-color: #9147ff;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    transition: all 0.15s ease;
+}
+
+.stream:before {
+    top: 3px;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg) scale(0);
+}
+
+.stream:after {
+    right: 4px;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0);
+}
+
+.stream__thumbnail {
+    display: block;
+    transform: translate(0, 0);
+    transition: all 0.15s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.stream:hover .stream__thumbnail {
+    transform: translate(6px, -6px);
+}
+
+.stream:hover:before {
+    transform: rotate(-45deg) scale(1);
+}
+
+.stream:hover:after {
+    transform: rotate(45deg) scale(1);
+}
+</style>

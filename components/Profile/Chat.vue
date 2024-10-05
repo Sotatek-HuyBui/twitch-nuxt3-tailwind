@@ -12,7 +12,7 @@
             class="content relative w-full overflow-y-auto h-full pb-20 bg-slate=900"
             :class="{ 'layout-collapsed': !isOpen }"
         >
-            <ProfileChatStream />
+            <ProfileChatStream :onShowLoginModal="onShowLoginModal" />
         </div>
         <div v-if="!isOpen" class="absolute top-2 right-2 z-50">
             <img
@@ -59,5 +59,11 @@ const toggleSideBar = () => {
 
 .layout-collapsed {
     padding-right: 0px !important;
+}
+
+@media screen and (max-width: 640px) {
+    .content {
+        padding-right: 0; /* Adjust margin to accommodate the sidebar width */
+    }
 }
 </style>

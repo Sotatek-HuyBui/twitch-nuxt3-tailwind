@@ -1,5 +1,5 @@
 <template>
-    <div class="px-2 sm:px-8">
+    <div class="px-2">
         <a-tabs v-model:activeKey="activeKey" @change="changeActiveTab">
             <a-tab-pane v-for="item in tabs" :key="item.key">
                 <template #tab>

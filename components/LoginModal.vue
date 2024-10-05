@@ -2,7 +2,7 @@
     <div>
         <a-modal centered v-model:open="isOpen" :width="800" :footer="null">
             <div class="flex">
-                <div class="relative flex-1 p-8 dark:bg-[#1d1d1d]">
+                <div class="relative flex-1 p-8 dark:bg-[#1d1d1d] rounded-l-md">
                     <div class="flex items-center justify-center">
                         <img
                             src="~/assets/twitch.png"
@@ -17,7 +17,7 @@
                         @click="() => (isOpen = false)"
                         src="~/assets/close-white.png"
                         v-if="colorMode.value === 'dark'"
-                        class="cursor-pointer absolute top-4 right-4 w-4 h-4 block sm:hidden"
+                        class="cursor-pointer absolute top-5 right-4 w-4 h-4 block sm:hidden"
                     />
                     <UForm
                         :state="state"
@@ -73,14 +73,13 @@
                                 />
                             </div>
                         </UFormGroup>
-                        <p
-                            class="text-[12px] text-customPrimary-1 cursor-pointer"
-                            @click="
-                                () => message.info('Function is in progress!')
-                            "
+                        <a
+                            href="https://www.twitch.tv/user/account-recovery"
+                            target="_blank"
+                            class="text-[12px] text-customPrimary-1 cursor-pointer hover:text-customPrimary-2"
                         >
                             Trouble logging in?
-                        </p>
+                        </a>
 
                         <div class="flex justify-center">
                             <UButton
@@ -100,7 +99,7 @@
                     </p>
                 </div>
                 <div
-                    class="relative hidden sm:flex flex-1 bg-slate-50 rounded-md flex-col items-center justify-center px-10 dark:bg-[#000000] dark:rounded-none"
+                    class="rounded-r-md relative hidden sm:flex flex-1 bg-slate-50 rounded-md flex-col items-center justify-center px-10 dark:bg-[#000000] dark:rounded-l-none"
                 >
                     <img
                         src="~/assets/notification.png"
@@ -164,6 +163,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
 <style>
 .ant-modal .ant-modal-content {
-    padding: 0;
+    padding: 6px;
 }
 </style>

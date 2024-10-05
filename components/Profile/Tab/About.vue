@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col items-center">
-        <div class="sm:w-[1200px] mb-4">
+    <div class="">
+        <div class="mb-4">
             <p class="text-[14px] sm:text-[20px] dark:text-white">
                 <b>About {{ $route.params.name }}</b>
             </p>
@@ -17,37 +17,41 @@
                         W/ NINJA
                     </p>
                 </div>
-                <!-- <div>
-                    <div v-for="item in socialMedias" class="flex">
-                        <a
-                            :href="item.url"
-                            target="_blank"
-                            class="hover:text-green-400"
-                            >{{ item.name }}</a
-                        >
-                    </div>
-                </div> -->
+            </div>
+            <div class="flex mb-4">
+                <a
+                    v-for="(item, index) in dummySocialMedias"
+                    :key="index"
+                    :href="item.url"
+                    class="flex items-center mr-3"
+                >
+                    <img
+                        :src="item.image"
+                        class="w-4 h-4 mr-1 object-cover rounded-full"
+                    />
+                    <p class="text-[8px] sm:text-sm">{{ item.name }}</p>
+                </a>
             </div>
         </div>
         <div
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 w-full"
         >
-            <div v-for="(item, index) in dummySocialMedias" :key="index">
+            <a
+                href="https://www.youtube.com/watch?v=sC1_7GDADRU&list=RDsC1_7GDADRU&start_radio=1"
+                target="_blank"
+                v-for="(item, index) in dummySocialMedias"
+                :key="index"
+                class="cursor-pointer"
+            >
                 <img :src="item.image" class="w-full mb-4 sm:mb-8" />
-                <p
-                    class="text-[8px] sm:text-[14px] dark:text-slate-300"
-                    v-if="index % 2 === 0"
-                >
+                <p class="text-[8px] sm:text-[14px]" v-if="index % 2 === 0">
                     {{ item.description }}
                 </p>
                 <img :src="item.socialImage" class="w-[full] my-2 sm:my-4" />
-                <p
-                    class="text-[8px] sm:text-[14px] dark:text-slate-300"
-                    v-if="index % 2 !== 0"
-                >
+                <p class="text-[8px] sm:text-[14px]" v-if="index % 2 !== 0">
                     {{ item.description }}
                 </p>
-            </div>
+            </a>
         </div>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-between mt-2 mb-8">
-        <div class="flex">
+        <div class="flex items-center">
             <USelect
                 size="sm"
                 v-model="selectedLanguage"
@@ -17,6 +17,29 @@
                 placeholder="Search category tag..."
                 v-model="search"
             />
+
+            <div
+                v-if="$route.query.tag"
+                class="rounded-full bg-slate-200 mr-1 dark:bg-slate-700 ml-2 h-[24px] flex items-center px-2"
+            >
+                <p
+                    class="text-[8px] sm:text-[10px] dark:text-white font-medium m-0"
+                >
+                    {{ $route.query.tag }}
+                </p>
+                <img
+                    v-if="colorMode.value !== 'dark'"
+                    class="w-2 h-2 ml-2 cursor-pointer"
+                    @click="onRemoveTag"
+                    src="@/assets/close.png"
+                />
+                <img
+                    v-else
+                    class="w-2 h-2 ml-2 cursor-pointer"
+                    @click="onRemoveTag"
+                    src="@/assets/close-white.png"
+                />
+            </div>
         </div>
         <div class="flex items-center justify-center">
             <p class="hidden sm:-text[14px] font-medium">Sort by</p>
@@ -56,4 +79,10 @@ const selectedLanguage = ref();
 const selectedOption = ref(1);
 const search = ref('');
 const { activeTab } = defineProps(['activeTab']);
+const colorMode = useColorMode();
+const route = useRoute();
+
+const onRemoveTag = () => {
+    navigateTo(`/directory/${route.params.directory}`);
+};
 </script>

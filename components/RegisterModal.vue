@@ -2,7 +2,7 @@
     <div>
         <a-modal centered v-model:open="isOpen" :width="800" :footer="null">
             <div class="relative flex">
-                <div class="relative flex-1 p-8 dark:bg-[#1d1d1d]">
+                <div class="relative flex-1 p-8 dark:bg-[#1d1d1d] rounded-l-md">
                     <div class="flex items-center justify-center">
                         <img
                             src="~/assets/twitch.png"
@@ -84,7 +84,7 @@
                     </p>
                 </div>
                 <div
-                    class="dark:bg-[#000000] dark:rounded-none flex-1 bg-slate-50 rounded-md hidden sm:flex flex-col items-center justify-center px-10"
+                    class="dark:bg-[#000000] rounded-r-md dark:rounded-l-none flex-1 bg-slate-50 rounded-md hidden sm:flex flex-col items-center justify-center px-10"
                 >
                     <img
                         src="~/assets/notification.png"
@@ -161,3 +161,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     console.log(event.data);
 }
 </script>
+
+<style scoped>
+.ant-modal .ant-modal-content {
+    padding: 0;
+}
+</style>

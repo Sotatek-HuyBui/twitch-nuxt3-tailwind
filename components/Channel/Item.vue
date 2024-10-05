@@ -1,6 +1,6 @@
 <template>
     <UTooltip
-        text="Description will be displayed here!"
+        :text="item.tooltip"
         :popper="{ arrow: true, placement: 'bottom' }"
     >
         <div
