@@ -5,7 +5,7 @@
         >
             <a
                 href="/directory/all"
-                class="text-customPrimary-2 hover:underline"
+                class="text-customPrimary-2 hover:underline dark:text-customPrimary-0"
                 >Live channels</a
             >
             we think you'll like
@@ -23,7 +23,9 @@
             class="mt-4 sm:mt-10 cursor-pointer"
             :label="isShowMore ? 'Show less' : 'Show more'"
             @click="toggleShowMore"
-            :ui="{ label: 'text-customPrimary-1 text-[8px] sm:text-[14px]' }"
+            :ui="{
+                label: 'text-customPrimary-1 text-[8px] sm:text-[14px] dark:text-customPrimary-0',
+            }"
         />
     </div>
 </template>

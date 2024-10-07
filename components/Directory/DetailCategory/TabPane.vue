@@ -3,7 +3,9 @@
         <a-tabs v-model:activeKey="activeKey">
             <a-tab-pane v-for="item in tabs" :key="item.key">
                 <template #tab>
-                    <p class="text-[10px] sm:text-[16px]">{{ item.name }}</p>
+                    <p class="text-[10px] sm:text-[16px] dark:text-white">
+                        {{ item.name }}
+                    </p>
                 </template>
                 <DirectoryDetailCategoryFilter :activeTab="activeKey" />
                 <div

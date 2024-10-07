@@ -5,7 +5,7 @@
         >
             <!-- <p class="text-white">Currently Offline</p> -->
             <video
-                class="w-full h-full"
+                class="w-full h-full object-cover"
                 :poster="dummySliders[0].thumb"
                 controls
                 autoplay
@@ -16,9 +16,15 @@
         </div>
         <ProfileInteractionBar :onShowLoginModal="onShowLoginModal" />
         <div class="mt-10 overflow-x-hidden">
-            <p class="text-[12px] sm:text-[20px]">
-                <b>About {{ $route.params.name }}</b>
-            </p>
+            <div class="flex items-center">
+                <p class="text-[12px] sm:text-[20px]">
+                    <b>About {{ $route.params.name }}</b>
+                </p>
+                <img
+                    src="~/assets/checklist-purple.png"
+                    class="w-2 h-2 sm:w-4 sm:h-4 ml-2"
+                />
+            </div>
             <div
                 class="rounded-md py-2 sm:py-4 flex justify-between items-center w-full"
             >
@@ -72,19 +78,7 @@
 </template>
 
 <script setup>
-import {
-    dummySocialMedias,
-    dummySidebarChannels,
-    dummySliders,
-} from '~/data/index.ts';
+import { dummySliders, dummySocialMedias } from '~/data/index.ts';
 
 const { onShowLoginModal } = defineProps(['onShowLoginModal']);
-
-const configItems = [
-    [
-        {
-            label: 'Report video',
-        },
-    ],
-];
 </script>

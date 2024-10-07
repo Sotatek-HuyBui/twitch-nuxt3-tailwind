@@ -4,3 +4,10 @@
         <DirectoryTabPane />
     </div>
 </template>
+<script setup>
+const route = useRoute();
+
+useHead({
+    title: 'All Categories -  Twitch',
+});
+</script>

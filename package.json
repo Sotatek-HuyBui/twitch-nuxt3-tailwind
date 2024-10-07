@@ -13,6 +13,7 @@
     "@ant-design-vue/nuxt": "^1.4.2",
     "@nuxt/ui": "^2.18.4",
     "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxtjs/i18n": "^8.5.5",
     "@pinia/nuxt": "^0.5.4",
     "@types/uuid": "^10.0.0",
     "ant-design-vue": "^4.2.4",

@@ -31,8 +31,8 @@
                             {{ $route.params.name }}
                         </p>
                         <img
-                            src="~/assets/check.png"
-                            class="w-2 h-2 sm:w-4 sm:h-4 ml-1"
+                            src="~/assets/checklist-purple.png"
+                            class="w-2 h-2 sm:w-4 sm:h-4 ml-2"
                         />
                     </div>
 
@@ -74,8 +74,8 @@
                             @click="onClickFollowButton"
                             variant="solid"
                             size="2xs"
-                            icon="i-heroicons-star"
-                            class="dark:text-white text-[6px] sm:text-[12px] sm:py-2 sm:w-[80px] w-[60px] bg-customPrimary-1 hover:bg-customPrimary-2 flex justify-center"
+                            icon="i-heroicons-heart"
+                            class="dark:text-white text-[6px] sm:text-[12px] sm:py-2 sm:w-[80px] w-[60px] bg-customPrimary-1 dark:bg-customPrimary-1 hover:bg-customPrimary-2 dark:hover:bg-customPrimary-2 flex justify-center"
                             >Follow</UButton
                         >
                         <UButton
@@ -84,18 +84,34 @@
                             variant="solid"
                             size="2xs"
                             icon="ic:outline-favorite"
-                            class="dark:text-white text-[6px] sm:text-[14px] sm:py-2 w-[40px] bg-customPrimary-1 hover:bg-customPrimary-2 flex justify-center"
+                            class="dark:text-white text-[6px] sm:text-[14px] sm:py-2 w-[40px] bg-customPrimary-1 hover:bg-customPrimary-2 dark:hover:bg-customPrimary-2 flex justify-center dark:bg-customPrimary-1"
                         ></UButton>
+                        <UButton
+                            v-if="token"
+                            @click="message.info('Function is in progress!')"
+                            color="white"
+                            size="2xs"
+                            variant="solid"
+                            class="text-[6px] sm:text-[12px] sm:py-2 ml-2 flex justify-center bg-slate-200 dark:bg-slate-800 hover:bg-slate-100"
+                            icon="material-symbols:featured-seasonal-and-gifts"
+                            >Gift a Sub
+                            <img
+                                src="~/assets/arrow-down.png"
+                                class="h-2 w-2 ml-1 sm:w-[10px] sm:h-[10px] cursor-pointer"
+                        /></UButton>
                         <UButton
                             v-if="!isSubcribing"
                             @click="onClickSubcribeButton"
                             color="white"
                             size="2xs"
                             variant="solid"
-                            class="text-[6px] sm:text-[12px] sm:py-2 ml-2 flex justify-center"
-                            icon="i-heroicons-pencil-square"
-                            >Subcribe</UButton
-                        >
+                            class="text-[6px] sm:text-[12px] sm:py-2 ml-2 flex justify-center bg-slate-200 dark:bg-slate-800 hover:bg-slate-100"
+                            icon="i-heroicons-star"
+                            >Subcribe
+                            <img
+                                src="~/assets/arrow-down.png"
+                                class="h-2 w-2 ml-1 sm:w-[10px] sm:h-[10px] cursor-pointer"
+                        /></UButton>
                         <UButton
                             v-else
                             @click="onClickSubcribeButton"
@@ -135,7 +151,7 @@
                         {{ user.tooltip }}
                     </p>
                     <p v-else class="text-[8px] sm:text-sm">
-                        {{ user.followers }} followers
+                        {{ user.followers }}K followers
                     </p>
                     <div
                         v-if="$route.params.tab === 'chats'"
@@ -143,7 +159,7 @@
                     >
                         <div class="flex items-center">
                             <p
-                                class="text-[8px] sm:text-sm text-customPrimary-1"
+                                class="text-[8px] sm:text-sm text-customPrimary-1 dark:text-customPrimary-0"
                             >
                                 {{ user.description }}
                             </p>
@@ -158,7 +174,7 @@
                                                 .join('-')}`
                                         )
                                     "
-                                    class="cursor-pointer py-0.5 px-2 rounded-full bg-slate-200 mr-1 dark:bg-slate-700"
+                                    class="cursor-pointer py-0.5 px-2 rounded-full bg-slate-200 mr-1 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-800"
                                 >
                                     <p
                                         class="text-[8px] sm:text-[10px] dark:text-white font-medium"
@@ -170,12 +186,12 @@
                         </div>
                         <div class="flex items-center">
                             <p class="text-[8px] sm:text-sm mr-2">
-                                {{ user.followers }} followers
+                                {{ user.followers }}K followers
                             </p>
-                            <UTooltip text="Share">
+                            <UTooltip text="Share" class="p-2 rounded-md">
                                 <UButton
                                     type="submit"
-                                    class="bg-slate-400 items-center justify-center hover:bg-customPrimary-2 dark:text-white"
+                                    class="bg-white items-center justify-center dark:text-white text-black dark:bg-slate-900 dark:hover:bg-slate-800 hover:bg-slate-200"
                                     icon="ph:upload-simple-fill"
                                     @click="
                                         message.info('Function is in progress!')
@@ -187,6 +203,7 @@
                                 <UDropdown
                                     :items="configItems"
                                     :popper="{ placement: 'bottom-start' }"
+                                    class="dark:bg-slate-900 dark:hover:bg-slate-800 p-2 rounded-md"
                                 >
                                     <img
                                         v-if="colorMode.value !== 'dark'"
@@ -245,11 +262,11 @@ const onUnsubcribe = () => {
 
 const onClickFollowButton = () => {
     if (token) {
-        if (!isFollowing.value) {
-            isFollowing.value = !isFollowing.value;
-        } else {
-            isOpen.value = true;
-        }
+        isFollowing.value = !isFollowing.value;
+        // if (!isFollowing.value) {
+        // } else {
+        //     isOpen.value = true;
+        // }
     } else {
         onShowLoginModal();
     }
@@ -257,11 +274,11 @@ const onClickFollowButton = () => {
 
 const onClickSubcribeButton = () => {
     if (token) {
-        if (!isSubcribing.value) {
-            isSubcribing.value = !isSubcribing.value;
-        } else {
-            isOpenUnsubcribe.value = true;
-        }
+        isSubcribing.value = !isSubcribing.value;
+        // if (!isSubcribing.value) {
+        // } else {
+        //     isOpenUnsubcribe.value = true;
+        // }
     } else {
         onShowLoginModal();
     }

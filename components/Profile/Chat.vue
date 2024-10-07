@@ -14,13 +14,19 @@
         >
             <ProfileChatStream :onShowLoginModal="onShowLoginModal" />
         </div>
-        <div v-if="!isOpen" class="absolute top-2 right-2 z-50">
-            <img
-                src="~/assets/collapse-close-white.png"
-                class="w-4 h-4 cursor-pointer z-50"
-                alt="Collapse"
-                @click="toggleSideBar"
-            />
+        <div v-if="!isOpen" class="absolute top-2 right-2 z-50 p-2">
+            <UTooltip
+                text="Expand"
+                :popper="{ arrow: true, placement: 'right' }"
+                class="p-2 rounded-md hover:bg-slate-800"
+            >
+                <img
+                    src="~/assets/collapse-close-white.png"
+                    class="w-4 h-4 cursor-pointer z-50"
+                    alt="Collapse"
+                    @click="toggleSideBar"
+                />
+            </UTooltip>
         </div>
         <ProfileChatInput
             :isOpen="isOpen"

@@ -159,14 +159,13 @@ export const dummySuggestedChannels = [
     },
 ]
 
-
-export const dummySidebarChannels = [
+export const followedChannels = [
     {
         id: 1,
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d6f9193-7b21-4933-bf91-402eb32f22ea-profile_image-70x70.png',
         name: 'Zemie',
         description: 'Fornite',
-        followers: 2000,
+        followers: 1.2,
         active: true,
         background_image: 'https://images.pexels.com/photos/28569420/pexels-photo-28569420/free-photo-of-woman-walking-under-bridge-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -194,7 +193,67 @@ export const dummySidebarChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/ced31775-5eb0-458a-b3c2-bd94b3587ec1-profile_image-70x70.png',
         name: 'Sommerset',
         description: 'Dota',
-        followers: 1000,
+        followers: 3.4,
+        active: false,
+         background_image: 'https://images.pexels.com/photos/96857/pexels-photo-96857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        isShowChildren: false,
+        badges: [
+                    {
+                        id: 1,
+                        name: 'Moderator',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2'
+                    },
+                    {
+                        id: 2,
+                        name: '3-month subcriber',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/f5c4ff27-adf5-4145-9cf5-9057d9d2ca6d/2'
+                    },
+                    {
+                        id: 3,
+                        name: 'Destiny 2',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/e79ee64f-31f1-4485-9c81-b93957e69f8a/2'
+                    },
+                ],
+        tooltip: 'Girly scrims yippie!! 🎁 LAST DAYS OF SUBTEMBER | !vid'
+    },
+]
+
+
+export const dummySidebarChannels = [
+    {
+        id: 1,
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d6f9193-7b21-4933-bf91-402eb32f22ea-profile_image-70x70.png',
+        name: 'Zemie',
+        description: 'Fornite',
+        followers: 1.2,
+        active: true,
+        background_image: 'https://images.pexels.com/photos/28569420/pexels-photo-28569420/free-photo-of-woman-walking-under-bridge-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        isShowChildren: false,
+        badges: [
+                    {
+                        id: 1,
+                        name: 'Moderator',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2'
+                    },
+                    {
+                        id: 2,
+                        name: '3-month subcriber',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/f5c4ff27-adf5-4145-9cf5-9057d9d2ca6d/2'
+                    },
+                    {
+                        id: 3,
+                        name: 'Destiny 2',
+                        icon: 'https://static-cdn.jtvnw.net/badges/v1/e79ee64f-31f1-4485-9c81-b93957e69f8a/2'
+                    },
+                ],
+        tooltip:'Solo ZB Cash Cup Finals Viewing Party | !SUBATHON DAY 4 !goals | USE CODE ZEMIE 🌵 #EPICPARTNER'
+    },
+    {
+        id: 2,
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/ced31775-5eb0-458a-b3c2-bd94b3587ec1-profile_image-70x70.png',
+        name: 'Sommerset',
+        description: 'Dota',
+        followers: 3.4,
         active: true,
          background_image: 'https://images.pexels.com/photos/96857/pexels-photo-96857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -222,7 +281,7 @@ export const dummySidebarChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/df3fe25c-7f82-419e-8e91-82d117015912-profile_image-70x70.jpeg',
         name: 'JaMorant',
         description: 'FC Online',
-        followers: 2000,
+        followers: 10.2,
         active: true,
          background_image: 'https://images.pexels.com/photos/1171384/pexels-photo-1171384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -240,7 +299,7 @@ export const dummySidebarChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
         name: 'Feinberg',
         description: 'Pico Park 4',
-        followers: 4000,
+        followers: 3.4,
         active: true,
          background_image: 'https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -263,7 +322,7 @@ export const dummySidebarChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
         name: 'Replays',
         description: 'Fornite',
-        followers: 9000,
+        followers: 6.2,
         active: true,
          background_image: 'https://images.pexels.com/photos/681467/pexels-photo-681467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -291,7 +350,7 @@ export const dummySidebarChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
         name: 'Thiefs',
         description: 'Fornite',
-        followers: 10000,
+        followers: 6.8,
         active: true,
          background_image: 'https://images.pexels.com/photos/1555177/pexels-photo-1555177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -319,7 +378,7 @@ export const dummySidebarChannels = [
         avatar: 'https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: 'Me',
         description: 'Fornite',
-        followers: 10000,
+        followers: 2.1,
         active: true,
          background_image: 'https://images.pexels.com/photos/1555177/pexels-photo-1555177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         isShowChildren: false,
@@ -646,6 +705,7 @@ export const dummyGroups = [
         ]
     },
 ]
+
 
 export const dummyComments = [
     "Let's play a game!",

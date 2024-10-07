@@ -3,7 +3,9 @@
         <a-tabs v-model:activeKey="activeKey">
             <a-tab-pane v-for="item in tabs" :key="item.key"
                 ><template #tab>
-                    <p class="text-[8px] sm:text-[16px]">{{ item.label }}</p>
+                    <p class="text-[8px] sm:text-[16px] dakr:text-white">
+                        {{ item.label }}
+                    </p>
                 </template>
                 <DirectoryFollowingTabPaneOverview
                     v-if="item.key === 'overview'"

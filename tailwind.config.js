@@ -12,6 +12,7 @@ export default {
     extend: {
       colors: {
         customPrimary: {
+          0: '#B28AED',
           1: '#9147FF',
           2: '#5C16C5',
           3: '#451093',

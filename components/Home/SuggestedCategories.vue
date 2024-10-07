@@ -1,7 +1,9 @@
 <template>
     <div class="mt-4 sm:mt-0">
         <p class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium">
-            <a href="/directory" class="text-customPrimary-2 hover:underline"
+            <a
+                href="/directory"
+                class="text-customPrimary-2 hover:underline dark:text-customPrimary-0"
                 >Categories</a
             >
             we think you'll like

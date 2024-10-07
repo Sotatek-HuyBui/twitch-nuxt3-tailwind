@@ -42,7 +42,7 @@
                 <UButton
                     color="white"
                     variant="solid"
-                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1 dark:bg-white dark:text-black"
+                    class="w-[50px] sm:w-[80px] text-[8px] sm:text-[14px] flex justify-center p-1 dark:bg-white dark:text-black dark:hover:text-white"
                     @click="showAll"
                     >Show All</UButton
                 >

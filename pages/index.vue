@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
     <div class="flex-1 p-1 sm:p-4 home-container">
         <HomeSlider />
@@ -14,3 +12,9 @@
     }
 }
 </style>
+
+<script setup lang="ts">
+useHead({
+    title: 'Twitch',
+});
+</script>

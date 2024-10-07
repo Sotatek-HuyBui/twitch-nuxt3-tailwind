@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div
+        <!-- <div
             v-if="item.isMe"
             class="flex items-center mb-1 justify-end hover:bg-slate-50 cursor-pointer dark:hover:bg-slate-800 rounded-md p-1"
             @click="onToggleShowDetail(item.id)"
@@ -11,20 +11,20 @@
                 {{ item.message }}
             </p>
             <img :src="item.avatar" class="w-8 h-8 rounded-full ml-2" />
-        </div>
+        </div> -->
         <div
-            v-else
             class="flex items-center mb-1 hover:bg-slate-50 cursor-pointer dark:hover:bg-slate-800 p-1 rounded-md"
             @click="onToggleShowDetail(item.id)"
         >
-            <img
+            <!-- <img
                 :src="item.avatar"
                 class="w-8 h-8 rounded-full mr-2 object-cover"
-            />
-            <p class="text-[12px]">
-                <span class="font-medium text-customPrimary-1">{{
-                    item.sender.name
-                }}</span
+            /> -->
+            <p class="text-[14px]">
+                <span
+                    class="font-medium text-customPrimary-1"
+                    :style="{ color: randomColor }"
+                    >{{ item?.isMe ? username : item.sender.name }}</span
                 >: {{ item.message }}
             </p>
         </div>
@@ -43,7 +43,9 @@
                         :src="item.avatar"
                     />
                     <div class="flex justify-between flex-1">
-                        <p class="text-white">{{ item.sender.name }}</p>
+                        <p class="text-white">
+                            {{ item?.isMe ? username : item.sender.name }}
+                        </p>
                         <img
                             src="~/assets/close-white.png"
                             class="w-4 h-4 mr-2 cursor-pointer"
@@ -77,9 +79,27 @@
 </template>
 
 <script setup>
+const { $locally } = useNuxtApp();
+const username = $locally.getItem('username');
 const { item, onToggleShowDetail } = defineProps([
     'item',
     'onToggleShowDetail',
     'onCloseShowingDetail',
 ]);
+
+const colors = [
+    '#8A2BE2',
+    '#3CB371',
+    '#FF4500',
+    '#4169E1',
+    '#FF1493',
+    '#00FFFF',
+    '#DC143C',
+    '#8B008B',
+    '#DAA520',
+    '#FFD700',
+];
+
+const randomIndex = Math.floor(Math.random() * colors.length);
+const randomColor = colors[randomIndex];
 </script>

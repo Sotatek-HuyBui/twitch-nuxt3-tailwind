@@ -40,7 +40,7 @@
                     color="purple"
                     variant="solid"
                     icon="i-heroicons-bell"
-                    class="text-[8px] py-1 sm:text-[14px] sm:w-[180px] w-[130px] bg-slate-100 text-customPrimary-1 hover:bg-slate-200 hover:text-black dark:dark:bg-[#282828] dark:text-customPromary-1"
+                    class="text-[8px] py-1 sm:text-[14px] sm:w-[180px] w-[130px] dark:hover:text-white bg-slate-100 text-customPrimary-1 hover:bg-slate-200 hover:text-black dark:dark:bg-[#282828] dark:text-customPromary-1"
                 >
                     Turn on notifications
                 </UButton>

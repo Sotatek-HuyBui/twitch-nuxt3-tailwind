@@ -1,10 +1,11 @@
 <template>
     <div class="flex-1 pl-5 sm:p-4">
+        <p>{{ $route.params.directory }}</p>
         <DirectoryHeader
             v-if="$route.params.directory !== 'following'"
             :currentDirectoryPath="$route.params.directory"
         />
-        <div v-if="$route.params.directory === 'gaming'">
+        <div v-if="$route.params.directory === 'games'">
             <DirectoryGame :directorySection="$route.params.directory" />
         </div>
         <div v-else-if="$route.params.directory === 'irl'">
@@ -30,5 +31,9 @@
 
 <script>
 const route = useRoute();
-console.log('🚀 ~ route:', route);
+const directory = ref(route.params.directory);
+
+useHead({
+    title: `${directory.value} -  Twitch`,
+});
 </script>

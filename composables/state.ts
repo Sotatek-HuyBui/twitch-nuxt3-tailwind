@@ -1,3 +1,3 @@
 import { useState } from "nuxt/app";
 
-export const useCounter = () => useState<number>("counter", () => 0)
+export const useCounter = () => useState<number>("counter", () => 1000)

@@ -1,8 +1,10 @@
 <template>
     <div>
-        <p class="text-[24px] sm:text-[50px] font-bold">Browse</p>
+        <p class="text-[24px] sm:text-[50px] font-bold capitalize">
+            {{ $route.params.directory || 'Browse' }}
+        </p>
         <p
-            class="text-[12px] sm:text-[20px] font-medium text-gray-600 mt-1 mb-4"
+            class="text-[12px] sm:text-[20px] font-medium text-gray-600 mt-1 mb-4 dark:text-slate-300"
         >
             {{ renderDescription() }}
         </p>
@@ -53,7 +55,7 @@
 const categories = ref([
     {
         label: 'Games',
-        path: 'gaming',
+        path: 'games',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/gaming.svg',
     },
     {
@@ -63,7 +65,7 @@ const categories = ref([
     },
     {
         label: 'Music & DJs',
-        path: 'music',
+        path: 'music & DJs',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/music.svg',
     },
     {
@@ -79,28 +81,27 @@ const categories = ref([
 ]);
 
 const goToDirectoryPath = (path: string) => {
-    navigateTo(`/directory/${path}`);
+    navigateTo(`/directory/${path.split(' ').join('-')}`);
 };
 
 const { currentDirectoryPath } = defineProps(['currentDirectoryPath']);
 
 const renderDescription = () => {
     switch (currentDirectoryPath) {
-        case 'gaming':
+        case 'games':
             return 'Live streams of all your favorite games, from shooters to platformers and everything in between!';
-            break;
+
         case 'irl':
             return 'The home for everything from working out to exploring the world to chatting and beyond!';
-            break;
-        case 'music':
+
+        case 'music-&-DJs':
             return 'Your favorite DJs, live artist performances, music production, and special events!';
-            break;
+
         case 'creative':
             return 'A place to share creativity through painting, cooking, programming, and more!';
-            break;
+
         case 'esports':
             return 'Live tournaments, match highlights, and your favorite pro players all in one place!';
-            break;
 
         default:
             return '';

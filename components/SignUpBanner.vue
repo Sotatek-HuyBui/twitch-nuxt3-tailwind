@@ -1,6 +1,6 @@
 <template>
     <div
-        class="fixed bottom-0 left-0 flex justify-between items-center p-1 sm:p-3 right-0 bg-customPrimary-3"
+        class="fixed bottom-0 left-0 flex justify-between items-center p-1 sm:px-10 sm:py-5 right-0 bg-customPrimary-3 z-50"
     >
         <p
             v-if="$route.params.name"
@@ -16,7 +16,7 @@
             variant="solid"
             color="white"
             @click="onShowRegisterModal"
-            class="text-[8px] py-1 sm:text-[14px]"
+            class="text-[8px] py-1 sm:text-[14px] dark:bg-white dark:text-black hover:bg-slate-100 dark:hover:bg-slate-100"
             >Sign up</UButton
         >
     </div>

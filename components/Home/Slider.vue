@@ -7,10 +7,10 @@
     </div>
     <div
         v-else
-        class="h-[150px] sm:h-[300px] flex items-center justify-center my-10"
+        class="h-[150px] sm:h-[220px] flex items-center justify-center my-10"
     >
         <div
-            class="w-[90%] sm:w-[900px] xl:w-[1000px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"
+            class="w-[90%] sm:w-[600px] lg:w-[900px] xl:w-[900px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"
         >
             <Carousel
                 :itemsToShow="2.95"
@@ -34,7 +34,7 @@
                             </p>
                         </div>
                         <video
-                            class="w-full h-[300px]"
+                            class="w-full h-[300px] object-cover"
                             :poster="slide.thumb"
                             controls
                         >

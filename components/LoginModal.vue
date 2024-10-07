@@ -154,6 +154,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     // Do something with event.data
     try {
         localStorage.setItem('token', uuidv4());
+        localStorage.setItem('username', state.email);
         window.location.reload();
     } catch (error) {
         console.error(error);
@@ -163,6 +164,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
 <style>
 .ant-modal .ant-modal-content {
-    padding: 6px;
+    padding: 0px !important;
 }
 </style>

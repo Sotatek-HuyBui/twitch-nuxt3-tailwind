@@ -10,12 +10,10 @@
                 v-if="isOpen"
                 text="Collapse"
                 :popper="{ arrow: true, placement: 'right' }"
+                class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
             >
                 <img
-                    v-if="
-                        colorMode.value === 'light' ||
-                        colorMode.value === 'system'
-                    "
+                    v-if="colorMode.value !== 'dark'"
                     src="~/assets/collapse-open.png"
                     class="w-4 h-4 cursor-pointer"
                     alt="Collapse"
@@ -34,6 +32,7 @@
                 <UTooltip
                     text="Commnunity"
                     :popper="{ arrow: true, placement: 'right' }"
+                    class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
                 >
                     <img
                         v-if="

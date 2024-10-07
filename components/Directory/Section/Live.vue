@@ -37,7 +37,9 @@
             label="Show all"
             @click="navigateTo(url)"
             v-if="!isFromVideoTab"
-            :ui="{ label: 'text-customPrimary-1 text-[8px] sm:text-[14px]' }"
+            :ui="{
+                label: 'text-customPrimary-1 text-[8px] sm:text-[14px] dark:text-customPrimary-0',
+            }"
         />
     </div>
 </template>

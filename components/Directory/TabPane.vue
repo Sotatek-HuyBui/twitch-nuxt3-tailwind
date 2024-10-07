@@ -4,7 +4,7 @@
             <a-tab-pane v-for="item in tabs" :key="item.key"
                 ><template #tab>
                     <p
-                        class="text-[8px] sm:text-[16px]"
+                        class="text-[8px] sm:text-[16px] dark:text-white"
                         @click="onClickTab(item)"
                     >
                         {{ item.label }}
