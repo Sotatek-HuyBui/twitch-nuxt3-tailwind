@@ -34,11 +34,13 @@
                     :src="item.avatar"
                 />
                 <div class="flex-1">
-                    <p
-                        class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
-                    >
-                        {{ item.name }}
-                    </p>
+                    <UTooltip :text="item.name">
+                        <p
+                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-2 dark:hover:text-customPrimary-0"
+                        >
+                            {{ item.name }}
+                        </p>
+                    </UTooltip>
                     <div class="flex items-center">
                         <p
                             class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949] cursor-pointer"
@@ -47,7 +49,13 @@
                             {{ item.streamer }}
                         </p>
                         <img
+                            v-if="colorMode.value !== 'dark'"
                             src="~/assets/checklist-purple.png"
+                            class="w-2 h-2 sm:w-3 sm:h-3 ml-[3px]"
+                        />
+                        <img
+                            v-else
+                            src="~/assets/checklist-black.png"
                             class="w-2 h-2 sm:w-3 sm:h-3 ml-[3px]"
                         />
                     </div>
@@ -78,6 +86,7 @@
 </template>
 
 <script setup lang="ts">
+const colorMode = useColorMode();
 const { item } = defineProps(['item']);
 
 const onClick = () => {
