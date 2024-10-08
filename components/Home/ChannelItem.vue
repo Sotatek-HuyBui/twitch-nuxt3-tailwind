@@ -1,44 +1,70 @@
 <template>
-    <div class="cursor-pointer relative mb-2" @click="onClick">
+    <div class="relative mb-2" @click="onClick">
         <div class="stream rounded-md h-[100px] sm:h-[180px]">
-            <img
-                class="w-full h-full object-cover mb-2 rounded-md stream__thumbnail"
-                :src="item.image"
-            />
-        </div>
-        <div class="absolute bg-[red] rounded-sm px-2 py-1 top-2 left-3 z-10">
-            <p class="text-[6px] sm:text-[10px] text-white"><b>LIVE</b></p>
+            <div
+                class="w-full h-full mb-2 rounded-md stream__thumbnail relative"
+            >
+                <img
+                    class="w-full h-full object-cover rounded-md cursor-pointer"
+                    :src="item.image"
+                />
+                <div
+                    class="absolute bg-[red] rounded-md px-[6px] py-0 top-2 left-3 z-10"
+                >
+                    <p
+                        class="text-[6px] sm:text-[14px] text-white font-medium text-center"
+                    >
+                        LIVE
+                    </p>
+                </div>
+                <div
+                    class="absolute bg-[#2e2e2e] rounded-sm px-[6px] py-0 bottom-2 left-3 z-10 bg-opacity-70"
+                >
+                    <p class="text-[6px] sm:text-[14px] text-white text-center">
+                        {{ item.viewers }} viewers
+                    </p>
+                </div>
+            </div>
         </div>
         <div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between">
                 <img
-                    class="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 object-cover rounded-full"
+                    class="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 object-cover rounded-full cursor-pointer"
+                    @click="navigateTo(`/${item.streamer}`)"
                     :src="item.avatar"
                 />
                 <div class="flex-1">
                     <p
-                        class="line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
+                        class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
                     >
                         {{ item.name }}
                     </p>
                     <div class="flex items-center">
                         <p
-                            class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949]"
+                            class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949] cursor-pointer"
+                            @click="navigateTo(`/${item.streamer}`)"
                         >
                             {{ item.streamer }}
                         </p>
                         <img
                             src="~/assets/checklist-purple.png"
-                            class="w-2 h-2 sm:w-4 sm:h-4 ml-2"
+                            class="w-2 h-2 sm:w-3 sm:h-3 ml-[3px]"
                         />
                     </div>
 
                     <p
-                        class="text-[#494949] text-[6px] sm:text-[13px] dark:text-[#8b8b8b]"
+                        class="text-[#494949] cursor-pointer text-[6px] sm:text-[13px] dark:text-[#8b8b8b] hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
+                        @click="
+                            navigateTo(
+                                `/directory/category/${item.description
+                                    .split(' ')
+                                    .join('-')}`
+                            )
+                        "
                     >
                         {{ item.description }}
                     </p>
-                    <div class="flex items-center mt-2">
+                    <div class="flex items-center mt-2 flex-wrap">
                         <Tag
                             v-for="tag in item.tag"
                             :key="tag.id"

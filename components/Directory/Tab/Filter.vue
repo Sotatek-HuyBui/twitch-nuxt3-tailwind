@@ -23,7 +23,7 @@
                 class="rounded-full bg-slate-200 mr-1 dark:bg-slate-700 ml-2 h-[24px] flex items-center px-2"
             >
                 <p
-                    class="text-[8px] sm:text-[10px] dark:text-white font-medium m-0"
+                    class="text-[8px] sm:text-[14px] dark:text-white font-medium m-0"
                 >
                     {{ $route.query.tag }}
                 </p>
