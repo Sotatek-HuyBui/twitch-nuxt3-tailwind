@@ -73,6 +73,10 @@ const route = useRoute();
 const targetCategory = dummyCategories.find(
     (item) => item.name === route.params.live.split('-').join(' ')
 );
+console.log(
+    "🚀 ~ route.params.live.split('-').join(' '):",
+    route.params.live.split('-').join(' ')
+);
 
 const onFollow = () => {
     message.info('Function is in progress!');

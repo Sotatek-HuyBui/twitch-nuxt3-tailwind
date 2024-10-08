@@ -1,4 +1,3 @@
-import { Descriptions } from "ant-design-vue";
 
 export const dummyCategories = [
     {
@@ -108,11 +107,13 @@ export const dummySuggestedChannels = [
         image: 'https://images.pexels.com/photos/1111597/pexels-photo-1111597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: 'RERUN: MOUZ vs. Rooster - ESL Pro League Season 20 - Group C',
         streamer: 'Zemie',
-        description: 'Counter-Strike',
+        viewers: 456,
+        description: 'Just Chatting',
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'Fifa' },
-            { id: 2, name: 'Spanish' },
+            { id: 3, name: 'Spanish' },
+            { id: 4, name: 'Mind-blowing' },
         ],
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d6f9193-7b21-4933-bf91-402eb32f22ea-profile_image-70x70.png',
 
@@ -123,7 +124,8 @@ export const dummySuggestedChannels = [
         image: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: 'WATCHING DEBATE??! BEGINS+NEWS/REACTS/DRAMA @StarforgeSystems @MadMushroomGG @MythicTalent @OTKnetwork NEW YT@AsmongoldShorts1',
         streamer: 'Sommerset',
-        description: 'Just chatting',
+        viewers: 2546,
+        description: 'Leage of Legends',
         tag: [
             { id: 1, name: 'Vietnamese' },
             { id: 2, name: 'Fornite' },
@@ -135,7 +137,8 @@ export const dummySuggestedChannels = [
         image: 'https://images.pexels.com/photos/7047331/pexels-photo-7047331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: '1437 start rank 1 end',
         streamer: 'JaMorant',
-        description: 'Team fighting Tactics',
+        viewers: 23,
+        description: 'Fornite',
         tag: [
             { id: 1, name: 'French' },
             { id: 2, name: 'Dota' },
@@ -147,7 +150,8 @@ export const dummySuggestedChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
         name: 'Thanos',
         streamer: 'Feinberg',
-        description: 'Dota 4',
+        viewers: 34,
+        description: 'Deadlock',
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'FC Online' },
@@ -159,7 +163,8 @@ export const dummySuggestedChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
         name: 'FC Online',
         streamer: 'Replays',
-        description: 'FC Online',
+        viewers: 666,
+        description: 'Silent Hill',
         tag: [
             { id: 1, name: 'Wukong' },
             { id: 2, name: 'Japanese' },
@@ -169,9 +174,10 @@ export const dummySuggestedChannels = [
         id: 6,
         image: 'https://images.pexels.com/photos/6498302/pexels-photo-6498302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
-        name: 'FC Online',
+        name: 'Silent Hill',
         streamer: 'Thiefs',
-        description: 'FC Online',
+        viewers: 678,
+        description: 'Silent Hill',
         tag: [
             { id: 1, name: 'Funny' },
             { id: 2, name: 'Intelligence' },
@@ -185,7 +191,8 @@ export const dummySuggestedForniteChannels = [
         image: 'https://images.pexels.com/photos/7133640/pexels-photo-7133640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: '👑 I got FORTNITE x SAW skin EARLY!',
         streamer: 'Zemie',
-        description: 'Counter-Strike',
+        viewers: 567,
+        description: 'Just Chatting',
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'Spanish' },
@@ -199,7 +206,8 @@ export const dummySuggestedForniteChannels = [
         avatar: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: '💅SHE/HER💅#1 RANKED FEMALE WORLDWIDE🍑BIG GYATT🍑',
         streamer: 'Sommerset',
-        description: 'Just chatting',
+        viewers: 200,
+        description: 'Leage of Legends',
         tag: [
             { id: 1, name: 'Boring' },
             { id: 2, name: 'MMO' },
@@ -211,10 +219,14 @@ export const dummySuggestedForniteChannels = [
         avatar: 'https://images.pexels.com/photos/7047331/pexels-photo-7047331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: 'its my birthday!! UNREAL ZB stomping with random fills | Day 8/100 | Sub Goal 214/300 |',
         streamer: 'JaMorant',
-        description: 'Team fighting Tactics',
+        viewers: 234,
+        description: 'Dota 2',
         tag: [
             { id: 1, name: 'French' },
             { id: 2, name: 'Scary' },
+            { id: 3, name: 'Professional' },
+            { id: 4, name: 'Funny' },
+            { id: 5, name: 'Mind-blowing' },
         ],
     },
     {
@@ -223,10 +235,13 @@ export const dummySuggestedForniteChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
         name: '💰 BIG 2V2 ZW TOKEN W/',
         streamer: 'Feinberg',
-        description: 'Dota 4',
+        viewers: 234,
+        description: 'Deadlock',
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'Popular' },
+            { id: 4, name: 'Ethereal' },
+             { id: 5, name: 'Mind-blowing' },
         ],
     },
     {
@@ -235,10 +250,12 @@ export const dummySuggestedForniteChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
         name: 'SAW x Fortnite Reload Ranked | Use Code TACTS #EpicPartner',
         streamer: 'Replays',
-        description: 'FC Online',
+        viewers: 45,
+        description: 'Counter Striker',
         tag: [
             { id: 1, name: 'Wukong' },
             { id: 2, name: 'Thrilling' },
+            { id: 5, name: 'Peterpot' },
         ],
     },
     {
@@ -247,7 +264,8 @@ export const dummySuggestedForniteChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
         name: 'its my birthday!!',
         streamer: 'Thiefs',
-        description: 'FC Online',
+        viewers: 65,
+        description: 'Counter Striker',
         tag: [
             { id: 1, name: 'Funny' },
             { id: 2, name: 'Intelligence' },
@@ -261,7 +279,8 @@ export const dummySuggestedMinecraftChannels = [
         image: 'https://as2.ftcdn.net/v2/jpg/05/34/81/29/1000_F_534812978_uGH98LyKkS6IGGKdQxF386wsgjNRGmcr.jpg',
         name: 'CRAZY CRAFT BREAK | 120FPS Stream',
         streamer: 'Zemie',
-        description: 'Counter-Strike',
+        viewers: 77,
+        description: 'Counter Striker',
         tag: [
             { id: 1, name: 'Hilarious' },
             { id: 2, name: 'Spanish' },
@@ -275,7 +294,8 @@ export const dummySuggestedMinecraftChannels = [
         avatar: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: '💅SHE/HER💅#1 RANKED FEMALE WORLDWIDE🍑BIG GYATT🍑',
         streamer: 'Sommerset',
-        description: 'Just chatting',
+        viewers: 33,
+        description: 'Just Chatting',
         tag: [
             { id: 1, name: 'Teamate' },
             { id: 2, name: 'Fornite' },
@@ -287,7 +307,8 @@ export const dummySuggestedMinecraftChannels = [
         avatar: 'https://images.pexels.com/photos/7047331/pexels-photo-7047331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         name: '✧🍓 minecraft but i cant stop coughing LOL ♡',
         streamer: 'JaMorant',
-        description: 'Team fighting Tactics',
+        viewers: 2,
+        description: 'Deadlock',
         tag: [
             { id: 1, name: 'French' },
             { id: 2, name: 'Competitive' },
@@ -299,7 +320,8 @@ export const dummySuggestedMinecraftChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
         name: '(UNCAPPED SUBATHON DAY 15) ONESHOT SMP',
         streamer: 'Feinberg',
-        description: 'Dota 4',
+        viewers: 1233,
+        description: 'Fornite',
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'Horor' },
@@ -311,7 +333,8 @@ export const dummySuggestedMinecraftChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
         name: 'SAW x Fortnite Reload Ranked | Use Code TACTS #EpicPartner',
         streamer: 'Replays',
-        description: 'FC Online',
+        viewers: 3,
+        description: 'Silent Hill',
         tag: [
             { id: 1, name: 'Wukong' },
             { id: 2, name: 'Japanese' },
@@ -323,7 +346,8 @@ export const dummySuggestedMinecraftChannels = [
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
         name: 'its my birthday!!',
         streamer: 'Thiefs',
-        description: 'FC Online',
+        viewers: 200,
+        description: 'Silent Hill',
         tag: [
             { id: 1, name: 'Funny' },
             { id: 2, name: 'Intelligence' },
