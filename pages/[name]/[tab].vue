@@ -13,6 +13,11 @@
 
 <script setup>
 const nuxt = useNuxtApp();
+const route = useRoute();
+
+useHead({
+    title: `${route.params.name} -  Twitch`,
+});
 </script>
 
 <style>

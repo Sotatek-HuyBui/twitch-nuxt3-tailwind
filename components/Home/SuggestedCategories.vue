@@ -9,7 +9,7 @@
             we think you'll like
         </p>
         <div
-            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-10 gap-1 sm:gap-2"
+            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-10 2xl:grid-cols-12 gap-1 sm:gap-2"
         >
             <HomeCategoryItem
                 v-for="(item, index) in categories.slice(0, 6)"

@@ -3,6 +3,14 @@
         <HomeSlider />
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
+        <HomeSuggestedChannels
+            :data="dummySuggestedForniteChannels"
+            title="Recommended Fornite Channels"
+        />
+        <HomeSuggestedChannels
+            :data="dummySuggestedMinecraftChannels"
+            title="Recommended MineCraft Channels"
+        />
     </div>
 </template>
 <style>
@@ -13,7 +21,11 @@
 }
 </style>
 
-<script setup lang="ts">
+<script setup>
+import {
+    dummySuggestedForniteChannels,
+    dummySuggestedMinecraftChannels,
+} from '@/data/index.ts';
 useHead({
     title: 'Twitch',
 });

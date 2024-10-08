@@ -17,32 +17,33 @@
                 />
                 <div class="flex-1">
                     <p
-                        class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-white"
+                        class="line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
                     >
                         {{ item.name }}
                     </p>
-                    <p class="text-gray-400 text-[6px] sm:text-[12px]">
+                    <div class="flex items-center">
+                        <p
+                            class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949]"
+                        >
+                            {{ item.streamer }}
+                        </p>
+                        <img
+                            src="~/assets/checklist-purple.png"
+                            class="w-2 h-2 sm:w-4 sm:h-4 ml-2"
+                        />
+                    </div>
+
+                    <p
+                        class="text-[#494949] text-[6px] sm:text-[13px] dark:text-[#8b8b8b]"
+                    >
                         {{ item.description }}
                     </p>
                     <div class="flex items-center mt-2">
-                        <div
+                        <Tag
                             v-for="tag in item.tag"
-                            :key="item.id"
-                            @click="
-                                navigateTo(
-                                    `/directory/all/tags?tag=${tag.name
-                                        .split(' ')
-                                        .join('-')}`
-                                )
-                            "
-                            class="cursor-pointer p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2"
-                        >
-                            <p
-                                class="text-[6px] sm:text-[10px] dark:text-white"
-                            >
-                                {{ tag.name }}
-                            </p>
-                        </div>
+                            :key="tag.id"
+                            :item="tag"
+                        />
                     </div>
                 </div>
             </div>

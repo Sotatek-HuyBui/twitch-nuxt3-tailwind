@@ -1,17 +1,17 @@
 <template>
     <div
-        class="bg-white flex justify-between px-3 py-1 sm:py-2 border-b-2 border-gray-100 dark:border-gray-800 z-50 dark:bg-black"
+        class="bg-white flex justify-between px-3 border-b-2 h-[52px] border-gray-200 dark:border-black z-50 dark:bg-[#18181B]"
     >
         <div class="flex-1 flex items-center">
             <NuxtLink to="/"
                 ><img
                     src="~/assets/twitch.png"
-                    class="w-4 h-4 sm:w-6 sm:h-6 mr-3"
+                    class="w-4 h-4 sm:w-6 sm:h-6 mr-8"
                     alt="Logo"
             /></NuxtLink>
             <p
                 v-if="token"
-                class="cursor-pointer ml-4 font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
                 :class="{
                     'text-customPrimary-1 border-b border-customPrimary-1 dark:text-customPrimary-0 dark:border-customPrimary-0':
                         $route.path.includes('/directory/following'),
@@ -28,7 +28,7 @@
                 </UTooltip>
             </p>
             <p
-                class="mx-8 cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px] mr-8"
                 @click="() => navigateTo('/directory')"
                 :class="{
                     'text-customPrimary-1 border-b border-customPrimary-1':
@@ -36,9 +36,9 @@
                         $route.params.directory !== 'following',
                 }"
             >
-                <span class="hidden sm:inline xl:text-[16px] 2xl:text-[18px]">{{
-                    $t('browse')
-                }}</span>
+                <span class="hidden sm:inline xl:text-[18px] 2xl:text-[19px]"
+                    >Browse</span
+                >
             </p>
             <UTooltip text="Directory">
                 <img
@@ -56,7 +56,7 @@
                     class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
                 >
                     <img
-                        v-if="colorMode.value === 'light'"
+                        v-if="colorMode.value !== 'dark'"
                         src="~/assets/three-dot-menu.png"
                         class="w-2 h-2 sm:w-4 sm:h-4 cursor-pointer"
                         alt="Three dot menu"
@@ -200,7 +200,7 @@
             <button
                 v-if="token"
                 type="button"
-                class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
                 <img
                     v-if="
@@ -223,7 +223,7 @@
                 v-if="!token"
                 type="button"
                 @click="onShowLoginModal"
-                class="py-1 w-[40px] sm:w-[60px] me-1 sm:me-2 text-[5px] sm:text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                class="py-1 w-[40px] sm:w-[60px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium focus:outline-none bg-[#EDEDEF] rounded-md hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
                 Log In
             </button>
@@ -231,7 +231,7 @@
                 v-if="!token"
                 type="button"
                 @click="onShowRegisterModal"
-                class="py-1 w-[40px] sm:w-[70px] me-1 sm:me-2 text-[5px] sm:text-sm font-medium text-white focus:outline-none bg-customPrimary-1 rounded-md border border-gray-200 hover:bg-customPrimary-2 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-customPrimary-2"
+                class="py-1 w-[40px] sm:w-[70px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium text-white focus:outline-none bg-customPrimary-1 rounded-md border border-gray-200 hover:bg-customPrimary-2 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-customPrimary-2"
             >
                 Sign Up
             </button>

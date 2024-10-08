@@ -1,6 +1,13 @@
 <template>
     <div class="mt-4">
         <p
+            v-if="title"
+            class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium dark:text-white"
+        >
+            {{ title }}
+        </p>
+        <p
+            v-else
             class="text-[10px] mb-2 sm:text-lg sm:mb-4 font-medium dark:text-white"
         >
             <a
@@ -20,19 +27,44 @@
             />
         </div>
         <UDivider
+            v-if="!isShowMore"
             class="mt-4 sm:mt-10 cursor-pointer"
-            :label="isShowMore ? 'Show less' : 'Show more'"
             @click="toggleShowMore"
-            :ui="{
-                label: 'text-customPrimary-1 text-[8px] sm:text-[14px] dark:text-customPrimary-0',
-            }"
-        />
+        >
+            <UButton
+                type="submit"
+                class="bg-white shadow-none outline-none hover:text-black hover:bg-[#dedee0] items-center justify-center text-customPrimary-1 dark:text-customPrimary-0 dark:bg-[#121212] dark:hover:text-white dark:hover:bg-[#333338]"
+                @click="message.info('Function is in progress!')"
+            >
+                {{ isShowMore ? 'Show less' : 'Show more' }}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="m19 9l-7 6l-7-6"
+                    ></path>
+                </svg>
+            </UButton>
+        </UDivider>
+        <div
+            v-else
+            class="f-full h-[0.5px] bg-slate-200 dark:bg-[#272727] mt-2 mb-6"
+        ></div>
     </div>
 </template>
 
 <script setup>
 import { dummySuggestedChannels } from '@/data/index.ts';
-const channels = ref(dummySuggestedChannels);
+const { data, title } = defineProps(['data', 'title']);
+const channels = ref(data || dummySuggestedChannels);
 
 const isShowMore = ref(false);
 

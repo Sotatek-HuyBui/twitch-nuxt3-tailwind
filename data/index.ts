@@ -1,83 +1,103 @@
+import { Descriptions } from "ant-design-vue";
+
 export const dummyCategories = [
     {
         id: 1,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/509658-285x380.jpg',
         name: 'Just Chatting',
-        viewers: 21000,
+        followers: 10.1,
+        viewers: 210,
         tag: [
             { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 2, name: 'IRL' },
         ],
+        description: 'Talk to strangers'
     },
     {
         id: 2,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/223869970_IGDB-285x380.jpg',
         name: 'Leage of Legends',
-        viewers: 21000,
+        followers: 4.3,
+        viewers: 100,
         tag: [
-            { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 1, name: 'RPG' },
+            { id: 2, name: 'Strategy' },
         ],
+        description: 'League of Legends is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, League of Legends offers endless replayability for players of every skill level.'
     },
     {
         id: 3,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/519291_IGDB-285x380.jpg',
         name: 'Dota 2',
-        viewers: 21000,
+        followers: 1.2,
+        viewers: 2,
         tag: [
-            { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 1, name: 'RPG' },
+            { id: 2, name: 'Strategy' },
         ],
+        description: 'Dota 2 is an upcoming multiplayer game from Valve in early development.'
+
     },
     {
         id: 4,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/2068583461_IGDB-285x380.jpg',
         name: 'Deadlock',
-        viewers: 21000,
+        followers: 20.1,
+        viewers: 37,
         tag: [
             { id: 1, name: 'English' },
             { id: 2, name: 'Fifa' },
         ],
+        description: 'Deadlock is an upcoming multiplayer game from Valve in early development.'
     },
     {
         id: 5,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/29595-285x380.jpg',
         name: 'Counter Striker',
-        viewers: 21000,
+        followers: 22.1,
+        viewers: 43.4,
         tag: [
             { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 2, name: 'Shooter' },
         ],
+        description: 'Counter-Strike has been the pioneering tactical shooter since the franchise debuted in November 2000. This legacy continues with Counter-Strike: Global Offensive and the upcoming release of CS2.'
     },
     {
         id: 6,
         image: 'https://static-cdn.jtvnw.net/ttv-boxart/33214-285x380.jpg',
-        name: 'Counter Striker',
-        viewers: 21000,
+        name: 'Fornite',
+        followers: 8.9,
+        viewers: 5.4,
         tag: [
             { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 2, name: 'Shooter' },
         ],
+        description: 'Fortnite is the completely free online game where you and your friends fight to be the last one standing in Battle Royale, join forces to make your own Creative games, '
     },
     {
         id: 7,
-        image: 'https://static-cdn.jtvnw.net/ttv-boxart/509663-285x380.jpg',
-        name: 'Counter Striker',
-        viewers: 21000,
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/2058570718_IGDB-188x250.jpg',
+        name: 'Silent Hill',
+        followers: 4.3,
+        viewers: 3.2,
         tag: [
-            { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 1, name: 'Puzzle' },
+            { id: 2, name: 'Adventure Game' },
         ],
+        description: 'Investigating a letter from his late wife, James returns to where they made so many memories - Silent Hill. What he finds is a ghost town, prowled by disturbing monsters and cloaked in deep fog. Confront the monsters, solve puzzles, and search for traces of your wife in this remake of Silent Hill 2.'
     },
     {
         id: 8,
-        image: 'https://static-cdn.jtvnw.net/ttv-boxart/2068583461_IGDB-285x380.jpg',
-        name: 'Counter Striker',
-        viewers: 21000,
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/29307_IGDB-188x250.jpg',
+        name: 'Path of Exile',
+        followers: 2.4,
+        viewers: 4,
         tag: [
-            { id: 1, name: 'English' },
-            { id: 2, name: 'Fifa' },
+            { id: 1, name: 'Action' },
+            { id: 2, name: 'Adventure Game' },
+            { id: 3, name: 'MMO' },
         ],
+        description: 'You are an Exile, struggling to survive on the dark continent of Wraeclast, as you fight to earn power that will allow you to exact your revenge against those who wronged you. Created by hardcore gamers, Path of Exile is an online Action RPG set in a dark fantasy world.'
     },
 ]
 
@@ -150,6 +170,158 @@ export const dummySuggestedChannels = [
         image: 'https://images.pexels.com/photos/6498302/pexels-photo-6498302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
         name: 'FC Online',
+        streamer: 'Thiefs',
+        description: 'FC Online',
+        tag: [
+            { id: 1, name: 'Funny' },
+            { id: 2, name: 'Intelligence' },
+        ],
+    },
+]
+
+export const dummySuggestedForniteChannels = [
+    {
+        id: 1,
+        image: 'https://images.pexels.com/photos/7133640/pexels-photo-7133640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: '👑 I got FORTNITE x SAW skin EARLY!',
+        streamer: 'Zemie',
+        description: 'Counter-Strike',
+        tag: [
+            { id: 1, name: 'English' },
+            { id: 2, name: 'Spanish' },
+        ],
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d6f9193-7b21-4933-bf91-402eb32f22ea-profile_image-70x70.png',
+
+    },
+    {
+        id: 2,
+        image: 'https://as2.ftcdn.net/v2/jpg/03/96/80/61/1000_F_396806134_X8q5qNJQM8XOhMy1x5FErrd6ZxdGUEnr.jpg',
+        avatar: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: '💅SHE/HER💅#1 RANKED FEMALE WORLDWIDE🍑BIG GYATT🍑',
+        streamer: 'Sommerset',
+        description: 'Just chatting',
+        tag: [
+            { id: 1, name: 'Boring' },
+            { id: 2, name: 'MMO' },
+        ],
+    },
+    {
+        id: 3,
+        image: 'https://as1.ftcdn.net/v2/jpg/04/47/76/28/1000_F_447762849_69CNZ518mIDSgQx44EKggnQpfymUWfEr.jpg',
+        avatar: 'https://images.pexels.com/photos/7047331/pexels-photo-7047331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: 'its my birthday!! UNREAL ZB stomping with random fills | Day 8/100 | Sub Goal 214/300 |',
+        streamer: 'JaMorant',
+        description: 'Team fighting Tactics',
+        tag: [
+            { id: 1, name: 'French' },
+            { id: 2, name: 'Scary' },
+        ],
+    },
+    {
+        id: 4,
+        image: 'https://as1.ftcdn.net/v2/jpg/06/87/28/70/1000_F_687287087_eA8YHRGPc9ou7tqmoyaAu0suF61egLRq.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
+        name: '💰 BIG 2V2 ZW TOKEN W/',
+        streamer: 'Feinberg',
+        description: 'Dota 4',
+        tag: [
+            { id: 1, name: 'English' },
+            { id: 2, name: 'Popular' },
+        ],
+    },
+    {
+        id: 5,
+        image: 'https://as2.ftcdn.net/v2/jpg/05/95/22/35/1000_F_595223536_weEB4Ujf02ITK4q1AsonXpx4C5APoN1J.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
+        name: 'SAW x Fortnite Reload Ranked | Use Code TACTS #EpicPartner',
+        streamer: 'Replays',
+        description: 'FC Online',
+        tag: [
+            { id: 1, name: 'Wukong' },
+            { id: 2, name: 'Thrilling' },
+        ],
+    },
+    {
+        id: 6,
+        image: 'https://as1.ftcdn.net/v2/jpg/02/96/16/10/1000_F_296161017_2liAkDkrgKhSeCLItz8k9EDXStmu1kwt.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
+        name: 'its my birthday!!',
+        streamer: 'Thiefs',
+        description: 'FC Online',
+        tag: [
+            { id: 1, name: 'Funny' },
+            { id: 2, name: 'Intelligence' },
+        ],
+    },
+]
+
+export const dummySuggestedMinecraftChannels = [
+    {
+        id: 1,
+        image: 'https://as2.ftcdn.net/v2/jpg/05/34/81/29/1000_F_534812978_uGH98LyKkS6IGGKdQxF386wsgjNRGmcr.jpg',
+        name: 'CRAZY CRAFT BREAK | 120FPS Stream',
+        streamer: 'Zemie',
+        description: 'Counter-Strike',
+        tag: [
+            { id: 1, name: 'Hilarious' },
+            { id: 2, name: 'Spanish' },
+        ],
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d6f9193-7b21-4933-bf91-402eb32f22ea-profile_image-70x70.png',
+
+    },
+    {
+        id: 2,
+        image: 'https://as1.ftcdn.net/v2/jpg/04/11/49/66/1000_F_411496648_EI4IWIYk95jLOTZUzfqvZa9luYrqq66u.jpg',
+        avatar: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: '💅SHE/HER💅#1 RANKED FEMALE WORLDWIDE🍑BIG GYATT🍑',
+        streamer: 'Sommerset',
+        description: 'Just chatting',
+        tag: [
+            { id: 1, name: 'Teamate' },
+            { id: 2, name: 'Fornite' },
+        ],
+    },
+    {
+        id: 3,
+        image: 'https://as1.ftcdn.net/v2/jpg/07/16/45/94/1000_F_716459466_DBlazKsZpOIhvDUgugMiQrz6vZPoNi4v.jpg',
+        avatar: 'https://images.pexels.com/photos/7047331/pexels-photo-7047331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        name: '✧🍓 minecraft but i cant stop coughing LOL ♡',
+        streamer: 'JaMorant',
+        description: 'Team fighting Tactics',
+        tag: [
+            { id: 1, name: 'French' },
+            { id: 2, name: 'Competitive' },
+        ],
+    },
+    {
+        id: 4,
+        image: 'https://as2.ftcdn.net/v2/jpg/05/34/81/27/1000_F_534812787_hlNXVNetrEUjT1r9DMONqOoUW6SHJQgs.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png',
+        name: '(UNCAPPED SUBATHON DAY 15) ONESHOT SMP',
+        streamer: 'Feinberg',
+        description: 'Dota 4',
+        tag: [
+            { id: 1, name: 'English' },
+            { id: 2, name: 'Horor' },
+        ],
+    },
+    {
+        id: 5,
+        image: 'https://as2.ftcdn.net/v2/jpg/04/82/81/37/1000_F_482813709_iKRTY9Nl6KutECqYgbP3Q3aJ6m5DeHZa.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8d1e5966-b579-44df-8b8a-6398021ac7e1-profile_image-70x70.png',
+        name: 'SAW x Fortnite Reload Ranked | Use Code TACTS #EpicPartner',
+        streamer: 'Replays',
+        description: 'FC Online',
+        tag: [
+            { id: 1, name: 'Wukong' },
+            { id: 2, name: 'Japanese' },
+        ],
+    },
+    {
+        id: 6,
+        image: 'https://as1.ftcdn.net/v2/jpg/06/39/50/84/1000_F_639508410_jHVmJSYWBzYuKOdvlPfa1b2xAEtrFBBi.jpg',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e321a91b-9de7-47a7-83d8-e61935e9f583-profile_image-70x70.png',
+        name: 'its my birthday!!',
         streamer: 'Thiefs',
         description: 'FC Online',
         tag: [

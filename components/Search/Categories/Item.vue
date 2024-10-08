@@ -12,15 +12,7 @@
                 {{ formatNumber(item.viewers) }} viewers
             </p>
             <div class="flex items-center mt-2">
-                <div
-                    v-for="tag in item.tag"
-                    :key="item.id"
-                    class="cursor-pointer py-0.5 px-2 rounded-full bg-slate-200 mr-2 dark:bg-slate-700"
-                >
-                    <p class="text-[6px] sm:text-[10px] dark:text-white">
-                        {{ tag.name }}
-                    </p>
-                </div>
+                <Tag v-for="tag in item.tag" :key="tag.id" :item="tag" />
             </div>
         </div>
     </div>

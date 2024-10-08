@@ -8,7 +8,7 @@
         </template>
         <div
             class="flex justify-between p-1 mb-1 sm:px-1.5 sm:py-1 items-center cursor-pointer w-full hover:bg-[#f4f4f4] dark:hover:bg-[#2a2a2a]"
-            @click="goToDetailPage(item?.name)"
+            @click="goToDetailPage(item?.name, item.active)"
         >
             <img
                 :src="item.avatar"
@@ -29,7 +29,9 @@
                 <p class="text-xs">{{ item?.followers }}K</p>
             </div>
             <div v-if="isOpen && !item.active" class="flex items-center">
-                <p class="text-[12px] text-slate-700">Offline</p>
+                <p class="text-[12px] text-slate-700 dark:text-slate-400">
+                    Offline
+                </p>
             </div>
         </div>
     </a-tooltip>
@@ -38,7 +40,11 @@
 const props = defineProps(['item', 'isOpen']);
 const { formatNumber } = useUtils();
 
-const goToDetailPage = (name: string) => {
-    navigateTo(`/${name}/chats`);
+const goToDetailPage = (name: string, active: boolean) => {
+    if (active) {
+        navigateTo(`/${name}/chats`);
+    } else {
+        navigateTo(`/${name}`);
+    }
 };
 </script>

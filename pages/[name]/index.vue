@@ -18,6 +18,7 @@
 <script setup lang="ts">
 const isShowLoginModal = ref(false);
 const isShowRegisterModal = ref(false);
+const route = useRoute();
 
 const onShowLoginModal = () => {
     isShowLoginModal.value = true;
@@ -28,6 +29,10 @@ const onShowRegisterModal = () => {
     isShowRegisterModal.value = true;
     isShowLoginModal.value = false;
 };
+
+useHead({
+    title: `${route.params.name} -  Twitch`,
+});
 </script>
 
 <style>

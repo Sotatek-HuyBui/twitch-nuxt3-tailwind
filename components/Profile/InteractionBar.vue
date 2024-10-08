@@ -25,7 +25,7 @@
                 <div class="flex justify-between items-center">
                     <div class="flex items-center">
                         <p
-                            class="text-[12px] sm:text-[24px] font-bold cursor-pointer"
+                            class="text-[12px] sm:text-[24px] font-bold cursor-pointer hover:underline"
                             @click="navigateTo(`/${$route.params.name}`)"
                         >
                             {{ $route.params.name }}
@@ -159,29 +159,21 @@
                     >
                         <div class="flex items-center">
                             <p
-                                class="text-[8px] sm:text-sm text-customPrimary-1 dark:text-customPrimary-0"
+                                class="text-[8px] sm:text-sm text-customPrimary-1 dark:text-customPrimary-0 hover:underline cursor-pointer"
+                                @click="
+                                    navigateTo(
+                                        `/directory/category/${user.description}`
+                                    )
+                                "
                             >
                                 {{ user.description }}
                             </p>
                             <div class="flex items-center ml-2">
-                                <div
+                                <Tag
                                     v-for="tag in user.badges"
-                                    :key="tag"
-                                    @click="
-                                        navigateTo(
-                                            `/directory/all/tags?tag=${tag.name
-                                                .split(' ')
-                                                .join('-')}`
-                                        )
-                                    "
-                                    class="cursor-pointer py-0.5 px-2 rounded-full bg-slate-200 mr-1 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-800"
-                                >
-                                    <p
-                                        class="text-[8px] sm:text-[10px] dark:text-white font-medium"
-                                    >
-                                        {{ tag.name }}
-                                    </p>
-                                </div>
+                                    :key="tag.id"
+                                    :item="tag"
+                                />
                             </div>
                         </div>
                         <div class="flex items-center">

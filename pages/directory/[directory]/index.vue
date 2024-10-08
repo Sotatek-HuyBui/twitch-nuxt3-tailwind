@@ -1,6 +1,5 @@
 <template>
     <div class="flex-1 pl-5 sm:p-4">
-        <p>{{ $route.params.directory }}</p>
         <DirectoryHeader
             v-if="$route.params.directory !== 'following'"
             :currentDirectoryPath="$route.params.directory"
@@ -31,9 +30,4 @@
 
 <script>
 const route = useRoute();
-const directory = ref(route.params.directory);
-
-useHead({
-    title: `${directory.value} -  Twitch`,
-});
 </script>

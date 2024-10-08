@@ -7,7 +7,7 @@
     </div>
     <div
         v-else
-        class="h-[150px] sm:h-[220px] flex items-center justify-center my-10"
+        class="h-[150px] sm:h-[220px] flex items-center justify-center mt-8 mb-24"
     >
         <div
             class="w-[90%] sm:w-[600px] lg:w-[900px] xl:w-[900px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"

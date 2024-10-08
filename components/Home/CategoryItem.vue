@@ -1,7 +1,7 @@
 <template>
     <div class="mb-4">
         <div
-            class="stream rounded-md h-[120px] sm:h-[180px] xl:h-[230px] 2xl:h-[250px] cursor-pointer"
+            class="stream rounded-md h-[120px] sm:h-[180px] xl:h-[190px] 2xl:h-[200px] cursor-pointer"
             @click="
                 navigateTo(
                     `/directory/category/${item.name.split(' ').join('-')}`
@@ -19,23 +19,10 @@
             {{ item.name }}
         </p>
         <p class="text-gray-400 text-[6px] sm:text-[12px]">
-            {{ item.viewers / 1000 }}K viewers
+            {{ item.viewers }}K viewers
         </p>
         <div class="flex items-center mt-2">
-            <div
-                v-for="tag in item.tag"
-                :key="item.id"
-                class="p-1 py-[1px] sm:px-2 rounded-full bg-slate-200 dark:bg-slate-700 mr-2 cursor-pointer"
-                @click="
-                    navigateTo(
-                        `/directory/tags?tag=${tag.name.split(' ').join('-')}`
-                    )
-                "
-            >
-                <p class="text-[6px] sm:text-[10px] dark:text-white">
-                    {{ tag.name }}
-                </p>
-            </div>
+            <Tag v-for="tag in item.tag" :key="tag.id" :item="tag" />
         </div>
     </div>
 </template>
