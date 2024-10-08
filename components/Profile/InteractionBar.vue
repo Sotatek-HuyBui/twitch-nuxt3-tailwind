@@ -16,9 +16,9 @@
                 />
                 <div
                     v-if="$route.params.tab === 'chats'"
-                    class="flex items-center justify-center bg-red-600 px-1 absolute bottom-[-10px] rounded-md w-6 sm:w-12 left-4"
+                    class="flex items-center justify-center bg-red-600 absolute bottom-[-10px] rounded-md w-6 sm:w-10 left-5"
                 >
-                    <p class="text-white text-sm font-medium m-0">Live</p>
+                    <p class="text-white text-sm font-medium m-0">LIVE</p>
                 </div>
             </div>
             <div class="flex-1 ml-4">
