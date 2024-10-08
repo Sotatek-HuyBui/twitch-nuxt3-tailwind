@@ -76,10 +76,10 @@
         </div>
         <div
             class="flex-1 p-0 message-list overflow-auto dark:bg-[#1c1c1c]"
-            :class="{ 'p-4': isShowMessages }"
+            :class="{ 'px-2 py-1': isShowMessages }"
         >
-            <p v-if="!messages.length && isShowMessages">
-                Welcome to the chat!
+            <p class="text-[13px] text-[#53535F] dark:text-[#ADADB8] pl-2">
+                Welcome to the chat room!
             </p>
             <ProfileChatMessageItem
                 v-if="isShowMessages"
@@ -277,7 +277,7 @@ onMounted(() => {
     transition: all 0.5s ease; /* Smooth transition effect on width change */
 }
 .message-list::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    /* width: 0;
+    height: 0; */
 }
 </style>

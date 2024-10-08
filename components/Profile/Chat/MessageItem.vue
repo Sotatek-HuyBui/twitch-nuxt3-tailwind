@@ -13,7 +13,7 @@
             <img :src="item.avatar" class="w-8 h-8 rounded-full ml-2" />
         </div> -->
         <div
-            class="flex items-center mb-1 hover:bg-slate-50 cursor-pointer dark:hover:bg-slate-800 p-1 rounded-md"
+            class="flex items-center mb-1 hover:bg-[#f0f0f0] cursor-pointer dark:hover:bg-[#3f3f3f] py-1 px-2 rounded-md"
             @click="onToggleShowDetail(item.id)"
         >
             <!-- <img
