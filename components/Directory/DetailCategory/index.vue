@@ -30,7 +30,7 @@
                     />
                     <div class="flex items-center ml-2">
                         <Tag
-                            v-for="tag in item.tag"
+                            v-for="tag in targetCategory.tag"
                             :key="tag.id"
                             :item="tag"
                         />
