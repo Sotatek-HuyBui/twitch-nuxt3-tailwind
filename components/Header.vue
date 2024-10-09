@@ -255,21 +255,16 @@
                 :popper="{ placement: 'bottom-start' }"
             >
                 <div v-if="!token">
-                    <img
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                        src="~/assets/profile-user.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
-                        alt="Logo"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/profile-user-white.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
-                        alt="Logo"
-                    />
+                    <ColorScheme placeholder="" tag="span">
+												<template #placeholder>
+													<div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-6"></div>
+												</template>
+                        <img
+                            :src="isLightTheme ? '/images/profile-user.png' : '/images/profile-user-white.png'"
+                            class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
+                            alt="Logo"
+                        />
+                    </ColorScheme>
                 </div>
                 <img
                     v-else
@@ -473,6 +468,10 @@ let configItems = computed(() => {
                   },
               ],
           ];
+});
+
+const isLightTheme = computed(() => {
+    return colorMode.value === 'light'
 });
 </script>
 <style></style>
