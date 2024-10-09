@@ -8,13 +8,10 @@
             :key="item.id"
             :item="item"
         />
-        <UDivider
-            class="mt-10 cursor-pointer"
-            :label="isShowMore ? 'Show less' : 'Show more'"
-            @click="toggleShowMore"
-            :ui="{
-                label: 'text-customPrimary-1 text-[8px] sm:text-[14px] dark:text-customPrimary-0',
-            }"
+        <ShowMore
+            v-if="!isShowMore"
+            :isShowMore="true"
+            :onClickButton="toggleShowMore"
         />
     </div>
 </template>

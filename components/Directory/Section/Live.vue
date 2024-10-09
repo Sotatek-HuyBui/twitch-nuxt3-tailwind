@@ -2,7 +2,7 @@
     <div class="mb-8">
         <nuxt-link v-if="!isFromVideoTab" :to="url">
             <p
-                class="text-[18px] font-medium mt-6 mb-2 dark:text-slate-300"
+                class="text-[18px] font-medium mt-6 mb-2 dark:text-customPrimary-0 dark:hover:text-customPrimary-0.5 hover:underline"
                 :class="{ 'text-customPrimary-1': !isFromVideoTab }"
             >
                 {{ header || 'Default Items' }}
@@ -27,20 +27,12 @@
             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-1 sm:gap-4"
         >
             <HomeChannelItem
-                v-for="(item, index) in items.slice(0, 3)"
+                v-for="(item, index) in items.slice(0, 5)"
                 :key="item.id"
                 :item="item"
             />
         </div>
-        <UDivider
-            class="mt-6 cursor-pointer"
-            label="Show all"
-            @click="navigateTo(url)"
-            v-if="!isFromVideoTab"
-            :ui="{
-                label: 'text-customPrimary-1 text-[8px] sm:text-[14px] dark:text-customPrimary-0',
-            }"
-        />
+        <ShowMore v-if="!isFromVideoTab" :isShowMore="true" />
     </div>
 </template>
 
