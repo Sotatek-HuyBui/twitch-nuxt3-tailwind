@@ -244,9 +244,8 @@
 												<template #placeholder>
 													<div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-6"></div>
 												</template>
-												<!-- <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-6 mb-4"></div> -->
                         <img
-                            :src="colorMode.value === 'light' ? '/images/profile-user.png' : '/images/profile-user-white.png'"
+                            :src="isLightTheme ? '/images/profile-user.png' : '/images/profile-user-white.png'"
                             class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
                             alt="Logo"
                         />
