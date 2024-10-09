@@ -48,7 +48,21 @@ export default defineNuxtConfig({
   },
   app: {
         head: {
-            link: [{ rel: 'icon', type: 'image/png', href: '/twitch_logo.png' }]
+            link: [{ rel: 'icon', type: 'image/png', href: '/twitch_logo.png' },  {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap',
+      },
+     {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap',
+      },
+     {
+        rel: 'stylesheet',
+        href: 'https://db.onlinewebfonts.com/c/d6ae884b0a2f1a5346717fc160db2d28?family=Roobert',
+      }
+    
+    ]
         }
     },
+    
 })

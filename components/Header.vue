@@ -9,37 +9,52 @@
                     class="w-4 h-4 sm:w-6 sm:h-6 mr-8"
                     alt="Logo"
             /></NuxtLink>
-            <p
+            <div
                 v-if="token"
-                class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                class="h-full flex items-center mr-8"
                 :class="{
-                    'text-customPrimary-1 border-b border-customPrimary-1 dark:text-customPrimary-0 dark:border-customPrimary-0':
+                    ' border-b-2 border-customPrimary-1 dark:border-customPrimary-0':
                         $route.path.includes('/directory/following'),
                 }"
-                @click="() => navigateTo('/directory/following')"
             >
-                <span class="hidden sm:inline text-[18px]">Following</span>
-                <UTooltip text="Following">
-                    <img
-                        src="~/assets/heart.png"
-                        class="w-3 h-3 cursor-pointer inline sm:hidden mt-[-4px]"
-                        alt="Three dot menu"
-                    />
-                </UTooltip>
-            </p>
-            <p
-                class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px] mr-8"
-                @click="() => navigateTo('/directory')"
+                <p
+                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    :class="{
+                        ' text-customPrimary-1  dark:text-customPrimary-0':
+                            $route.path.includes('/directory/following'),
+                    }"
+                    @click="() => navigateTo('/directory/following')"
+                >
+                    <span class="hidden sm:inline text-[18px]">Following</span>
+                    <UTooltip text="Following">
+                        <img
+                            src="~/assets/heart.png"
+                            class="w-3 h-3 cursor-pointer inline sm:hidden mt-[-4px]"
+                            alt="Three dot menu"
+                        />
+                    </UTooltip>
+                </p>
+            </div>
+            <div
+                class="h-full flex items-center mr-8"
                 :class="{
-                    'text-customPrimary-1 border-b border-customPrimary-1':
+                    'border-b-2 border-customPrimary-1 dark:border-customPrimary-0':
                         $route.path.includes('/directory') &&
                         $route.params.directory !== 'following',
                 }"
             >
-                <span class="hidden sm:inline xl:text-[18px] 2xl:text-[19px]"
-                    >Browse</span
+                <p
+                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    @click="() => navigateTo('/directory')"
+                    :class="{
+                        'text-customPrimary-1  dark:text-customPrimary-0':
+                            $route.path.includes('/directory') &&
+                            $route.params.directory !== 'following',
+                    }"
                 >
-            </p>
+                    <span class="hidden sm:inline xl:text-[18px]">Browse</span>
+                </p>
+            </div>
             <UTooltip text="Directory">
                 <img
                     src="~/assets/copy-document.png"
@@ -53,7 +68,7 @@
             >
                 <UTooltip
                     text="More options"
-                    class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
+                    class="p-2 rounded-md dark:hover:bg-darkButtonHover hover:bg-lightButtonHover"
                 >
                     <img
                         v-if="colorMode.value !== 'dark'"
@@ -88,7 +103,7 @@
             </div>
             <UTooltip
                 text="Prime gaming benefits"
-                class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
+                class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
                 <svg
                     v-if="colorMode.value !== 'dark'"
@@ -146,7 +161,7 @@
             <UTooltip
                 text="Notifications"
                 v-if="token"
-                class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
+                class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
                 <img
                     v-if="colorMode.value !== 'dark'"
@@ -164,7 +179,7 @@
             <UTooltip
                 text="Whispers"
                 v-if="token"
-                class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
+                class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
                 <img
                     v-if="colorMode.value !== 'dark'"
@@ -182,7 +197,7 @@
             <UTooltip
                 text="Get bids"
                 v-if="token"
-                class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
+                class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
                 <img
                     v-if="colorMode.value !== 'dark'"

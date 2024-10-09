@@ -1,15 +1,17 @@
 <template>
     <div>
-        <p class="text-[24px] sm:text-[50px] font-bold capitalize">
+        <p
+            class="text-[24px] sm:text-[54px] font-bold capitalize m-0 font-special"
+        >
             {{ $route.params.directory || 'Browse' }}
         </p>
         <p
-            class="text-[12px] sm:text-[20px] font-medium text-gray-600 mt-1 mb-4 dark:text-slate-300"
+            class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special"
         >
             {{ renderDescription() }}
         </p>
         <div
-            class="mt-6x grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-col-6 2xl:grid-col-6 gap-1 sm:gap-1.5"
+            class="mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-col-6 2xl:grid-col-6 gap-1 sm:gap-1.5"
         >
             <template v-for="(item, index) in categories" :key="index">
                 <div
@@ -17,7 +19,7 @@
                     class="border-2 border-black p-0.5 rounded-md dark:border-slate-300"
                 >
                     <div
-                        class="bg-customPrimary-2 rounded-md flex px-1 sm:px-2 py-[1px] sm:py-1 w-full justify-between items-center relative hover:bg-customPrimary-1 cursor-pointer"
+                        class="bg-customPrimary-2 rounded-md flex px-1 sm:px-4 py-[1px] sm:py-1 w-full justify-between items-center relative hover:bg-customPrimary-1 cursor-pointer"
                         @click="goToDirectoryPath(item?.path)"
                     >
                         <p
