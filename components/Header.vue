@@ -25,7 +25,7 @@
                     }"
                     @click="() => navigateTo('/directory/following')"
                 >
-                    <span class="hidden sm:inline text-[18px]">Following</span>
+                    <span class="hidden sm:inline text-[18px]">{{ $t('Following') }}</span>
                     <UTooltip text="Following">
                         <img
                             src="~/assets/heart.png"
@@ -52,7 +52,7 @@
                             $route.params.directory !== 'following',
                     }"
                 >
-                    <span class="hidden sm:inline xl:text-[18px]">Browse</span>
+                    <span class="hidden sm:inline xl:text-[18px]"> {{ $t('Browse') }}</span>
                 </p>
             </div>
             <UTooltip text="Directory">
@@ -240,7 +240,7 @@
                 @click="onShowLoginModal"
                 class="py-1 w-[40px] sm:w-[60px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium focus:outline-none bg-[#EDEDEF] rounded-md hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
-                Log In
+                {{ $t('Log in') }}
             </button>
             <button
                 v-if="!token"
@@ -248,8 +248,7 @@
                 @click="onShowRegisterModal"
                 class="py-1 w-[40px] sm:w-[70px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium text-white focus:outline-none bg-customPrimary-1 rounded-md border border-gray-200 hover:bg-customPrimary-2 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-customPrimary-2"
             >
-                Sign Up
-            </button>
+            {{ $t('Sign up') }}            </button>
             <UDropdown
                 :items="configItems"
                 :popper="{ placement: 'bottom-start' }"
@@ -291,6 +290,33 @@ const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
 const { locale, locales } = useI18n();
+
+// const savedLocale = localStorage.getItem('locale');
+// if (savedLocale) {
+//     locale.value = savedLocale;
+// } else {
+//     locale.value = 'en'; // Ngôn ngữ mặc định nếu không có giá trị từ localStorage
+// }
+const route = useRoute();
+const router = useRouter();
+const onToggleLanguage = () => {
+    let newLocale;
+    
+    if (locale.value === 'en') {
+        newLocale = 'vi';
+    router.push({ path: "/vi" });
+
+    } else {
+        newLocale = 'en';  
+    router.push({ path: "/en" });
+
+    }
+
+    console.log('Updated language:', locale.value);
+    locale.value = newLocale;
+    // localStorage.setItem('locale', newLocale);  // Lưu ngôn ngữ vào localStorage
+    console.log('Updated language:', locale.value);
+}
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -380,9 +406,11 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Language',
+                    label: `Language - ${
+                          locale.value === 'en' ? 'English' : 'Vietnamese'
+                      }`,
                       click: () => {
-                          message.info('Function is in progress!');
+                         onToggleLanguage();
                       },
                       icon: 'material-symbols:globe',
                   },
@@ -427,13 +455,7 @@ let configItems = computed(() => {
                           locale.value === 'en' ? 'English' : 'Vietnamese'
                       }`,
                       click: () => {
-                          if (locale.value === 'en') {
-                              setLocale('vi');
-                          } else {
-                              console.log(111);
-                              setLocale('en');
-                              console.log(locale);
-                          }
+                         onToggleLanguage();
                       },
                       icon: 'material-symbols:globe',
                   },

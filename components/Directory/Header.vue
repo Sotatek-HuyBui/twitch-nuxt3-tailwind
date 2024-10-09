@@ -3,7 +3,7 @@
         <p
             class="text-[24px] sm:text-[54px] font-bold capitalize m-0 font-special"
         >
-            {{ $route.params.directory || 'Browse' }}
+        {{ $t('Browse') }}
         </p>
         <p
             class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special"
@@ -54,6 +54,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n'; 
+
+const { t, locale } = useI18n(); 
 const categories = ref([
     {
         label: 'Games',
@@ -61,17 +65,17 @@ const categories = ref([
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/gaming.svg',
     },
     {
-        label: 'IRL',
+        label: t('IRL'),
         path: 'irl',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/irl.svg',
     },
     {
-        label: 'Music & DJs',
+        label: t('Music & DJs'),
         path: 'music & DJs',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/music.svg',
     },
     {
-        label: 'Creative',
+        label: t('Creative'),
         path: 'creative',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/creative.svg',
     },
@@ -81,6 +85,10 @@ const categories = ref([
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/esports.svg',
     },
 ]);
+
+const changeLanguage = (newLocale: string) => {
+  locale.value = newLocale; 
+};
 
 const goToDirectoryPath = (path: string) => {
     navigateTo(`/directory/${path.split(' ').join('-')}`);

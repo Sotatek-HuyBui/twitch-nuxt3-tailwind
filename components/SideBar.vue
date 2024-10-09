@@ -8,7 +8,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                For you
+            {{ $t('For you') }} 
             </p>
             <a-tooltip v-if="isOpen" title="Collapse" placement="right">
                 <div
@@ -113,6 +113,7 @@
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
                 Recommnded Channels
+                
             </p>
             <div v-if="!token">
                 <a-tooltip
