@@ -24,7 +24,7 @@
 import { dummySidebarChannels } from '@/data/index.ts';
 const channels = ref(dummySidebarChannels);
 </script>
-<style>
+<style scoped>
 .sidebar {
     width: 34px; /* Set the width of the sidebar */
     top: 38px; /* Adjust the top position to accommodate the header */

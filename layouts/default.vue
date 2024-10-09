@@ -14,7 +14,7 @@
             :onShowRegisterModal="onShowRegisterModal"
         />
         <div
-            class="w-[100%] flex relative mt-[40px] sm:mt-[60px] overflow-hidden"
+            class="w-[100%] flex relative mt-[40px] sm:mt-[50px] overflow-hidden"
         >
             <SideBar
                 :toggleFromParent="toggleFromParent"
@@ -22,7 +22,7 @@
             />
             <MobileSideBar class="block sm:hidden" />
             <div
-                class="content layout-collapsed p-1 overflow-y-auto h-full w-full pb-20 relative"
+                class="content layout-collapsed overflow-y-auto h-full w-full pb-20 relative bg-[lightBackgroundSlot] dark:bg-darkBackgroundSlot"
                 :class="{ checkout: isOpen }"
             >
                 <slot />

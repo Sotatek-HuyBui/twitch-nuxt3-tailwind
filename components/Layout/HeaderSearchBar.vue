@@ -5,7 +5,7 @@
         <input
             type="search"
             id="search-dropdown"
-            class="block w-full px-2 z-20 text-[8px] h-[36px] sm:text-[14px] border border-slate-500 hover:border-slate-500 hover:border-2 dark:border-slate-500 dark:hover:border-slate-500 dark:focus:border-customPrimary-0 rounded-l-md focus:border-4 focus:outline-none focus:border-customPrimary-1"
+            class="block w-full px-2 z-20 text-[8px] h-[36px] sm:text-[14px] border border-slate-500 hover:border-slate-500 hover:border-2 dark:border-slate-500 dark:hover:border-slate-500 dark:focus:border-customPrimary-1 rounded-l-md focus:border-4 focus:outline-none focus:border-customPrimary-1"
             placeholder="Search"
             v-model="search"
             @keyup.enter="onEnterKey"

@@ -16,9 +16,9 @@
                 />
                 <div
                     v-if="$route.params.tab === 'chats'"
-                    class="flex items-center justify-center bg-red-600 absolute bottom-[-10px] rounded-md w-6 sm:w-10 left-5"
+                    class="absolute bottom-[-10px] left-5"
                 >
-                    <p class="text-white text-sm font-medium m-0">LIVE</p>
+                    <TagLive />
                 </div>
             </div>
             <div class="flex-1 ml-4">
@@ -167,7 +167,7 @@
                     >
                         <div class="flex items-center">
                             <p
-                                class="text-[8px] sm:text-sm text-customPrimary-1 dark:text-customPrimary-0 hover:underline cursor-pointer"
+                                class="text-[8px] sm:text-sm text-customPrimary-1 dark:text-customPrimary-1 hover:underline cursor-pointer"
                                 @click="
                                     navigateTo(
                                         `/directory/category/${user.description}`

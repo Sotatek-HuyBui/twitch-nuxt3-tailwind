@@ -1,10 +1,13 @@
 <template>
     <div
-        class="px-1 py-3 sidebar collapsed fixed h-full dark:bg-[#1c1c1c]"
+        class="py-3 sidebar collapsed fixed h-full dark:bg-[#1F1F23] bg-[#EFEFF1]"
         :class="{ expanded: isOpen }"
     >
         <div v-if="token" class="flex items-center justify-between p-2">
-            <p v-if="isOpen" class="font-medium uppercase text-[14px]">
+            <p
+                v-if="isOpen"
+                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+            >
                 For you
             </p>
             <a-tooltip v-if="isOpen" title="Collapse" placement="right">
@@ -47,7 +50,10 @@
                 'justify-between': isOpen,
             }"
         >
-            <p v-if="isOpen" class="font-medium uppercase text-[14px]">
+            <p
+                v-if="isOpen"
+                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+            >
                 Followed channels
             </p>
         </div>
@@ -80,7 +86,10 @@
                 'justify-between': isOpen,
             }"
         >
-            <p v-if="isOpen" class="font-medium uppercase text-[14px]">
+            <p
+                v-if="isOpen"
+                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+            >
                 Recommnded Channels
             </p>
             <div v-if="!token">
@@ -158,7 +167,7 @@ const toggleSideBar = () => {
     toggleFromParent();
 };
 </script>
-<style>
+<style scoped>
 .collapsed {
     width: 54px !important;
 }
@@ -172,7 +181,6 @@ const toggleSideBar = () => {
     top: 46px; /* Adjust the top position to accommodate the header */
     left: 0;
     bottom: 0;
-    background-color: #623535; /* Sidebar background color */
     transition: all 0.5s ease; /* Smooth transition effect on width change */
 }
 </style>
