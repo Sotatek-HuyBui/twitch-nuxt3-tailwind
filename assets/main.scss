@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(https://db.onlinewebfonts.com/c/d6ae884b0a2f1a5346717fc160db2d28?family=Roobert);
+
+body {
+    font-family: "Inter",
+        "Roobert",
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+}
 
 /* Custom scrollbar styling */
 /* width */

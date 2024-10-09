@@ -8,20 +8,14 @@
                     class="w-full h-full object-cover rounded-md cursor-pointer"
                     :src="item.image"
                 />
-                <div
-                    class="absolute bg-[red] rounded-md px-[6px] py-0 top-2 left-3 z-10"
-                >
-                    <p
-                        class="text-[6px] sm:text-[14px] text-white font-medium text-center"
-                    >
-                        LIVE
-                    </p>
+                <div class="absolute top-2 left-3">
+                    <TagLive />
                 </div>
                 <div
                     class="absolute bg-[#2e2e2e] rounded-sm px-[6px] py-0 bottom-2 left-3 z-10 bg-opacity-70"
                 >
                     <p class="text-[6px] sm:text-[14px] text-white text-center">
-                        {{ item.viewers }} viewers
+                        {{ reformatNumber(item.viewers) }} viewers
                     </p>
                 </div>
             </div>
@@ -36,7 +30,7 @@
                 <div class="flex-1">
                     <UTooltip :text="item.name">
                         <p
-                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-2 dark:hover:text-customPrimary-0"
+                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-2 dark:hover:text-customPrimary-0.5"
                         >
                             {{ item.name }}
                         </p>
@@ -61,7 +55,7 @@
                     </div>
 
                     <p
-                        class="text-[#494949] cursor-pointer text-[6px] sm:text-[13px] dark:text-[#8b8b8b] hover:text-customPrimary-1 dark:hover:text-customPrimary-0"
+                        class="text-[#494949] cursor-pointer text-[6px] sm:text-[13px] dark:text-[#8b8b8b] hover:text-customPrimary-1 dark:hover:text-customPrimary-0.5"
                         @click="
                             navigateTo(
                                 `/directory/category/${item.description
