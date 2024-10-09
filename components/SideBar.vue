@@ -11,18 +11,12 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <img
+                    <svgo-sidebar-collapse-close-light
                         v-if="colorMode.value !== 'dark'"
-                        src="~/assets/collapse-close.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
                         @click="toggleSideBar"
                     />
-                    <img
+                    <svgo-sidebar-collapse-close-dark
                         v-else
-                        src="~/assets/collapse-close-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
                         @click="toggleSideBar"
                     />
                 </div>
@@ -31,18 +25,12 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <img
+                    <svgo-sidebar-collapse-open-dark
                         v-if="colorMode.value !== 'dark'"
-                        src="~/assets/collapse-open.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
                         @click="toggleSideBar"
                     />
-                    <img
+                    <svgo-sidebar-collapse-open-dark
                         v-else
-                        src="~/assets/collapse-open-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
                         @click="toggleSideBar"
                     />
                 </div>
@@ -52,7 +40,7 @@
         <!-- Following channels -->
 
         <div
-            v-if="token"
+            v-if="token && isOpen"
             class="flex items-center p-2"
             :class="{
                 'justify-center': !isOpen,
@@ -72,18 +60,8 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <img
-                        v-if="colorMode.value !== 'dark'"
-                        src="~/assets/heart.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/heart-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
+                    <svgo-sidebar-heart-light v-if="colorMode.value !== 'dark'" />
+                    <svgo-sidebar-heart-dark v-else />
                 </div>
             </a-tooltip>
             <ChannelItem
@@ -114,18 +92,12 @@
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <img
+                        <svgo-sidebar-collapse-close-light
                             v-if="colorMode.value !== 'dark'"
-                            src="~/assets/collapse-close.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
                             @click="toggleSideBar"
                         />
-                        <img
+                        <svgo-sidebar-collapse-close-dark
                             v-else
-                            src="~/assets/collapse-close-white.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
                             @click="toggleSideBar"
                         />
                     </div>
@@ -134,18 +106,12 @@
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <img
+                        <svgo-sidebar-collapse-open-light
                             v-if="colorMode.value !== 'dark'"
-                            src="~/assets/collapse-open.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
                             @click="toggleSideBar"
                         />
-                        <img
+                        <svgo-sidebar-collapse-open-dark
                             v-else
-                            src="~/assets/collapse-open-white.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
                             @click="toggleSideBar"
                         />
                     </div>
@@ -161,18 +127,10 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <img
+                    <svgo-sidebar-video-light
                         v-if="colorMode.value !== 'dark'"
-                        src="~/assets/video-camera.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
                     />
-                    <img
-                        v-else
-                        src="~/assets/video-camera-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
+                    <svgo-sidebar-video-dark v-else />
                 </div>
             </a-tooltip>
             <ChannelItem
@@ -186,6 +144,7 @@
 </template>
 <script setup>
 import { dummySidebarChannels, followedChannels } from '@/data/index.ts';
+
 const channels = ref(dummySidebarChannels);
 const { $locally } = useNuxtApp();
 const token = $locally.getItem('token');

@@ -55,18 +55,10 @@
                     text="More options"
                     class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
                 >
-                    <img
+                    <svgo-header-three-dot-menu-light
                         v-if="colorMode.value !== 'dark'"
-                        src="~/assets/three-dot-menu.png"
-                        class="w-2 h-2 sm:w-4 sm:h-4 cursor-pointer"
-                        alt="Three dot menu"
                     />
-                    <img
-                        v-else
-                        src="~/assets/three-dots-menu-white.png"
-                        class="w-2 h-2 sm:w-4 sm:h-4 cursor-pointer"
-                        alt="Three dot menu"
-                    />
+                    <svgo-header-three-dot-menu-dark v-else />
                 </UTooltip>
             </UDropdown>
         </div>
@@ -75,10 +67,14 @@
         </div>
         <div class="flex-1 flex items-center justify-end">
             <div class="relative sm:hidden">
-                <img
-                    src="~/assets/search.png"
-                    class="w-3 h-3 sm:hidden cursor-pointer mr-2 sm:mr-3"
-                    alt="Logo"
+                <svgo-header-btn-search-light
+                    v-if="colorMode.value !== 'dark'"
+                    class="w-3 h-3 sm:hidden cursor-pointer mr-2 sm:mr-3 bg-gray-200 hover:bg-gray-300"
+                    @click="onClickSearchButton"
+                />
+                <svgo-header-btn-search-dark
+                    v-else
+                    class="w-3 h-3 sm:hidden cursor-pointer mr-2 sm:mr-3 bg-gray-200 hover:bg-gray-300"
                     @click="onClickSearchButton"
                 />
                 <LayoutHeaderSearchBar
@@ -91,82 +87,50 @@
                 text="Prime gaming benefits"
                 class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <CrownLight v-if="colorMode.value !== 'dark'" />
-                <CrownDark v-else />
+                <svgo-header-crown-light v-if="colorMode.value !== 'dark'" />
+                <svgo-header-crown-dark v-else />
             </UTooltip>
             <UTooltip
                 text="Notifications"
                 v-if="token"
                 class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <img
+                <svgo-header-notification-light
                     v-if="colorMode.value !== 'dark'"
-                    src="~/assets/bell.png"
-                    class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
                 />
-                <img
-                    v-else
-                    src="~/assets/bell-white.png"
-                    class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
-                />
+                <svgo-header-notification-dark v-else />
             </UTooltip>
             <UTooltip
                 text="Whispers"
                 v-if="token"
                 class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <img
-                    v-if="colorMode.value !== 'dark'"
-                    src="~/assets/conversation.png"
-                    class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
-                />
-                <img
-                    v-else
-                    src="~/assets/conversation-white.png"
-                    class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
-                />
+                <svgo-header-whisper-light v-if="colorMode.value !== 'dark'" />
+                <svgo-header-whisper-dark v-else />
             </UTooltip>
             <UTooltip
-                text="Get bids"
+                text="Get bits"
                 v-if="token"
                 class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <img
-                    v-if="colorMode.value !== 'dark'"
-                    src="~/assets/shield.png"
-                    class="w-4 h-4 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
-                />
-                <img
-                    v-else
-                    src="~/assets/shield-white.png"
-                    class="w-4 h-4 sm:w-4 sm:h-4 cursor-pointer"
-                    alt="Logo"
-                />
+                <svgo-header-get-bits-light v-if="colorMode.value !== 'dark'" />
+                <svgo-header-get-bits-dark v-else />
             </UTooltip>
             <button
                 v-if="token"
                 type="button"
-                class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-200 rounded-md border border-gray-200 hover:bg-gray-300 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
-                <img
+                <svgo-header-low-battery-light
                     v-if="
                         (token && colorMode.value === 'light') ||
                         colorMode.value === 'system'
                     "
-                    src="~/assets/low-battery.png"
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
-                    alt="Logo"
                 />
-                <img
+                <svgo-header-low-battery-dark
                     v-if="token && colorMode.value !== 'light'"
-                    src="~/assets/low-battery-white.png"
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
-                    alt="Logo"
                 />
                 Go Ad-Free for Free
             </button>
@@ -190,22 +154,19 @@
                 :items="configItems"
                 :popper="{ placement: 'bottom-start' }"
             >
+                <template #item="{ item }">
+                    <nuxt-icon :name="item.icon" />
+                    <span class="truncate">{{ item.label }}</span>
+
+                </template>
                 <div v-if="!token">
-                    <img
+                    <svgo-header-user-profile-light
                         v-if="
                             colorMode.value === 'light' ||
                             colorMode.value === 'system'
                         "
-                        src="~/assets/profile-user.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
-                        alt="Logo"
                     />
-                    <img
-                        v-else
-                        src="~/assets/profile-user-white.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
-                        alt="Logo"
-                    />
+                    <svgo-header-user-profile-dark v-else />
                 </div>
                 <img
                     v-else
@@ -219,8 +180,7 @@
 </template>
 <script setup lang="ts">
 import { setLocale } from 'yup';
-import CrownLight from '~/assets/icons/crown-light.svg';
-import CrownDark from '~/assets/icons/crown-dark.svg';
+
 //@ts-ignore
 const { onShowLoginModal, onShowRegisterModal } = defineProps([
     'onShowLoginModal',
@@ -310,7 +270,7 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon: 'material-symbols:auto-videocam-rounded',
+                      icon: 'material-symbols:dashboard',
                   },
                   {
                       label: 'Creator Dashboard',
@@ -377,7 +337,7 @@ let configItems = computed(() => {
                               console.log(locale);
                           }
                       },
-                      icon: 'material-symbols:globe',
+                      icon: "",
                   },
                   {
                       label:
@@ -387,7 +347,7 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon: ThemeIcon,
+                      icon: "header/user-profile-dark",
                   },
 
                   {

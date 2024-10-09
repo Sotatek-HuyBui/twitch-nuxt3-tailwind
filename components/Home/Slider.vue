@@ -99,34 +99,22 @@
                 class="flex justify-between absolute top-[50%] w-[110%] left-[-5%] z-2"
             >
                 <button @click="prev">
-                    <img
+                    <svgo-slider-arrow-left-light
                         v-if="
                             colorMode.value === 'light' ||
                             colorMode.value === 'system'
                         "
-                        src="~/assets/chevron.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
                     />
-                    <img
-                        v-else
-                        src="~/assets/chevron-white.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
-                    />
+                    <svgo-slider-arrow-left-dark v-else />
                 </button>
                 <button @click="next">
-                    <img
+                    <svgo-slider-arrow-right-light
                         v-if="
                             colorMode.value === 'light' ||
                             colorMode.value === 'system'
                         "
-                        src="~/assets/next-button.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
                     />
-                    <img
-                        v-else
-                        src="~/assets/next-button-white.png"
-                        class="w-3 h-3 sm:w-6 sm:h-6 object-cover"
-                    />
+                    <svgo-slider-arrow-right-dark v-else />
                 </button>
             </div>
         </div>
