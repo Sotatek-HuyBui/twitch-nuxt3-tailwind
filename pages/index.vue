@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1 p-1 sm:p-4 home-container">
+    <div class="flex-1 p-1 sm:p-6 home-container">
         <HomeSlider />
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
