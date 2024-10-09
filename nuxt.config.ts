@@ -40,8 +40,9 @@ export default defineNuxtConfig({
   i18n: {
     // Module Options
     lazy: true,
-    langDir: "locales", 
-    strategy: "prefix_except_default",
+    langDir: "locales/", 
+    strategy: "no_prefix",
+    lazy: true,
     defaultLocale: "en", // Default Language
     locales: [
         { code: "vi", iso: "vi-VN", file: "vi.json", name: 'Vietnam(VI)'},

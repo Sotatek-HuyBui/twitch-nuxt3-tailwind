@@ -289,7 +289,7 @@ const token = $locally.getItem('token');
 const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
-const { locale, locales } = useI18n();
+const { locale, locales, setLocale } = useI18n();
 
 // const savedLocale = localStorage.getItem('locale');
 // if (savedLocale) {
@@ -301,21 +301,7 @@ const route = useRoute();
 const router = useRouter();
 const onToggleLanguage = () => {
     let newLocale;
-    
-    if (locale.value === 'en') {
-        newLocale = 'vi';
-    router.push({ path: "/vi" });
-
-    } else {
-        newLocale = 'en';  
-    router.push({ path: "/en" });
-
-    }
-
-    console.log('Updated language:', locale.value);
-    locale.value = newLocale;
-    // localStorage.setItem('locale', newLocale);  // Lưu ngôn ngữ vào localStorage
-    console.log('Updated language:', locale.value);
+    locale.value === 'en' ? setLocale('vi') : setLocale('en')
 }
 
 const onToggleMode = () => {
