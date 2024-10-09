@@ -155,7 +155,7 @@
                 :popper="{ placement: 'bottom-start' }"
             >
                 <template #item="{ item }">
-                    <nuxt-icon :name="item.icon" />
+                    <component :is="item.icon" class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer mr-2" />
                     <span class="truncate">{{ item.label }}</span>
 
                 </template>
@@ -337,7 +337,7 @@ let configItems = computed(() => {
                               console.log(locale);
                           }
                       },
-                      icon: "",
+                      icon: "svgo-header-user-profile-light",
                   },
                   {
                       label:
@@ -347,12 +347,12 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon: "header/user-profile-dark",
+                      icon: "svgo-header-get-bits-light",
                   },
 
                   {
                       label: 'Labeled Content',
-                      icon: 'material-symbols:earthquake',
+                      icon: 'svgo-header-user-profile-light',
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -364,7 +364,7 @@ let configItems = computed(() => {
                       click: () => {
                           onShowLoginModal();
                       },
-                      icon: 'ic:baseline-log-in',
+                      icon: 'svgo-header-low-battery-light',
                   },
               ],
           ];
