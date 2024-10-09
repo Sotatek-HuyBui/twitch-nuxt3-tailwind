@@ -86,62 +86,13 @@
                     ref="childComponentRef"
                 />
             </div>
+
             <UTooltip
                 text="Prime gaming benefits"
                 class="dark:hover:bg-slate-800 hover:bg-slate-200 mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <svg
-                    v-if="colorMode.value !== 'dark'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    version="1.1"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:svgjs="http://svgjs.dev/svgjs"
-                >
-                    <g transform="matrix(1,0,0,1,0,0)">
-                        <g id="_01_align_center" data-name="01 align center">
-                            <path
-                                d="M21,21.707H3a3,3,0,0,1-3-3V2.293l6,6,6-6,6,6,6-6V18.707A3,3,0,0,1,21,21.707ZM2,7.121V18.707a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V7.121l-4,4-6-6-6,6Z"
-                                fill="#525252"
-                                fill-opacity="1"
-                                data-original-color="#000000ff"
-                                stroke="none"
-                                stroke-opacity="1"
-                            />
-                        </g>
-                    </g>
-                </svg>
-                <!-- <img
-                    v-else
-                    src="~/assets/crown-white.png"
-                    class="w-3 h-3 sm:w-4 sm:h-4 mt-1 cursor-pointer"
-                    alt="Logo"
-                /> -->
-                <svg
-                    v-else
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    version="1.1"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:svgjs="http://svgjs.dev/svgjs"
-                >
-                    <g transform="matrix(1,0,0,1,0,0)">
-                        <g id="_01_align_center" data-name="01 align center">
-                            <path
-                                d="M21,21.707H3a3,3,0,0,1-3-3V2.293l6,6,6-6,6,6,6-6V18.707A3,3,0,0,1,21,21.707ZM2,7.121V18.707a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V7.121l-4,4-6-6-6,6Z"
-                                fill="#bfbfbf"
-                                fill-opacity="1"
-                                data-original-color="#000000ff"
-                                stroke="none"
-                                stroke-opacity="1"
-                            />
-                        </g>
-                    </g>
-                </svg>
+                <CrownLight v-if="colorMode.value !== 'dark'" />
+                <CrownDark v-else />
             </UTooltip>
             <UTooltip
                 text="Notifications"
@@ -268,7 +219,8 @@
 </template>
 <script setup lang="ts">
 import { setLocale } from 'yup';
-
+import CrownLight from '~/assets/icons/crown-light.svg';
+import CrownDark from '~/assets/icons/crown-dark.svg';
 //@ts-ignore
 const { onShowLoginModal, onShowRegisterModal } = defineProps([
     'onShowLoginModal',
@@ -435,11 +387,9 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'material-symbols:dark-mode-outline'
-                              : 'material-symbols-light:sunny',
+                      icon: ThemeIcon,
                   },
+
                   {
                       label: 'Labeled Content',
                       icon: 'material-symbols:earthquake',
