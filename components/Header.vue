@@ -174,6 +174,13 @@
                         :is="item.icon"
                         class="w-2 sm:w-5 sm:h-5 cursor-pointer"
                         :fontControlled="false"
+                        v-if="item.icon !== 'avatar'"
+                    />
+                    <img
+                        v-else
+                        src="https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer object-cover rounded-full"
+                        alt="Logo"
                     />
                     <span class="truncate">{{ item.label }}</span>
                 </template>
@@ -280,19 +287,100 @@ let configItems = computed(() => {
                       click: () => {
                           navigateTo(`/${username}`);
                       },
+                      icon: 'avatar',
                   },
               ],
               [
+                  {
+                      label: 'Channel',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-channel-light'
+                              : 'svgo-header-menu-channel-dark',
+                  },
                   {
                       label: 'Video Producer',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon: 'material-symbols:dashboard',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-video-producer-light'
+                              : 'svgo-header-menu-video-producer-dark',
                   },
                   {
                       label: 'Creator Dashboard',
-                      icon: 'material-symbols:dashboard',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-creator-dashboard-light'
+                              : 'svgo-header-menu-creator-dashboard-dark',
+                  },
+                  {
+                      label: 'Privacy Center',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-privacy-center-light'
+                              : 'svgo-header-menu-privacy-center-dark',
+                  },
+                  {
+                      label: 'Safety',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-safety-light'
+                              : 'svgo-header-menu-safety-dark',
+                  },
+              ],
+              [
+                  {
+                      label: 'Emote Atrribution',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-emote-atrribution-light'
+                              : 'svgo-header-menu-emote-atrribution-dark',
+                  },
+              ],
+              [
+                  {
+                      label: 'Subscriptions',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-subscriptions-light'
+                              : 'svgo-header-menu-subscriptions-dark',
+                  },
+                  {
+                      label: 'Drops & Rewards',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-drop-rewards-light'
+                              : 'svgo-header-menu-drop-rewards-dark',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                  },
+                  {
+                      label: 'Wallet',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-wallet-light'
+                              : 'svgo-header-menu-wallet-dark',
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -300,11 +388,35 @@ let configItems = computed(() => {
               ],
               [
                   {
+                      label: 'Settings',
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-setting-light'
+                              : 'svgo-header-menu-setting-dark',
+                  },
+                  {
+                      label: 'Content Tuning',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-content-tuning-light'
+                              : 'svgo-header-menu-content-tuning-dark',
+
+                      click: () => {
+                          message.info('Function is in progress!');
+                      },
+                  },
+                  {
                       label: 'Language',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon: 'material-symbols:globe',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-language-light'
+                              : 'svgo-header-menu-language-dark',
                   },
                   {
                       label:
@@ -316,16 +428,8 @@ let configItems = computed(() => {
                       },
                       icon:
                           colorMode.value === 'light'
-                              ? 'material-symbols:dark-mode-outline'
-                              : 'material-symbols-light:sunny',
-                  },
-                  {
-                      label: 'Labeled Content',
-                      icon: 'material-symbols:earthquake',
-
-                      click: () => {
-                          message.info('Function is in progress!');
-                      },
+                              ? 'svgo-header-menu-theme-light'
+                              : 'svgo-header-menu-theme-dark',
                   },
               ],
               [
@@ -336,7 +440,10 @@ let configItems = computed(() => {
                           $locally.removeItem('username');
                           window.location.reload();
                       },
-                      icon: 'tabler:login',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-logout-light'
+                              : 'svgo-header-menu-logout-dark',
                   },
               ],
           ]
@@ -391,7 +498,8 @@ let configItems = computed(() => {
                       click: () => {
                           onShowLoginModal();
                       },
-                      icon: colorMode.value === 'light'
+                      icon:
+                          colorMode.value === 'light'
                               ? 'svgo-header-menu-login-light'
                               : 'svgo-header-menu-login-dark',
                   },
