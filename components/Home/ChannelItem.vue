@@ -21,20 +21,21 @@
             </div>
         </div>
         <div>
-            <div class="flex justify-between">
+            <div class="flex">
                 <img
-                    class="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 object-cover rounded-full cursor-pointer"
+                    class="w-6 h-6 mr-1 sm:w-10 sm:h-10 sm:mr-2 object-cover rounded-full cursor-pointer"
                     @click="navigateTo(`/${item.streamer}`)"
                     :src="item.avatar"
                 />
                 <div class="flex-1">
-                    <UTooltip :text="item.name">
+                    <a-tooltip placement="bottom">
+                        <template #title> {{ item.name }} </template>
                         <p
-                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-2 dark:hover:text-customPrimary-0.5"
+                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0.5"
                         >
                             {{ item.name }}
                         </p>
-                    </UTooltip>
+                    </a-tooltip>
                     <div class="flex items-center">
                         <p
                             class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949] cursor-pointer"

@@ -10,7 +10,7 @@
         class="h-[150px] sm:h-[220px] flex items-center justify-center mt-8 mb-24"
     >
         <div
-            class="w-[90%] sm:w-[600px] lg:w-[900px] xl:w-[900px] 2lg:w-[1200px] relative h-[150px] sm:h-[300px]"
+            class="w-[90%] sm:w-[600px] lg:w-[900px] xl:w-[900px] 2lg:w-[1300px] relative h-[150px] sm:h-[300px]"
         >
             <Carousel
                 :itemsToShow="2.95"
@@ -80,7 +80,7 @@
                             <div
                                 v-for="tag in slide.tags"
                                 :key="tag"
-                                class="py-0.5 px-1 rounded-full bg-slate-200 mr-1 dark:bg-slate-700 cursor-pointer"
+                                class="cursor-pointer mb-1 px-[2px] py-[1px] rounded-full bg-[#E7E7EA] hover:bg-[#dedee0] dark:hover:bg-[#333338] mr-1 dark:bg-[#29292E]"
                                 @click="
                                     navigateTo(
                                         `/directory/all/tags?tag=${tag
@@ -89,7 +89,9 @@
                                     )
                                 "
                             >
-                                <p class="text-[5px] dark:text-white">
+                                <p
+                                    class="text-[6px] text-[#53535F] dark:text-[#A6A6B2] font-medium"
+                                >
                                     {{ tag }}
                                 </p>
                             </div>
