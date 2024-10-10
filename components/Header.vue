@@ -70,10 +70,7 @@
                     text="More options"
                     class="p-2 rounded-md dark:hover:bg-darkButtonHover hover:bg-lightButtonHover"
                 >
-                    <svgo-header-three-dot-menu-light
-                        v-if="colorMode.value !== 'dark'"
-                    />
-                    <svgo-header-three-dot-menu-dark v-else />
+                    <svgo-header-three-dot-menu />
                 </UTooltip>
             </UDropdown>
         </div>
@@ -82,13 +79,7 @@
         </div>
         <div class="flex-1 flex items-center justify-end">
             <div class="relative sm:hidden">
-                <svgo-header-btn-search-light
-                    v-if="colorMode.value !== 'dark'"
-                    class="w-3 h-3 sm:hidden cursor-pointer mr-2 sm:mr-3 bg-gray-200 hover:bg-gray-300"
-                    @click="onClickSearchButton"
-                />
-                <svgo-header-btn-search-dark
-                    v-else
+                <svgo-header-btn-search
                     class="w-3 h-3 sm:hidden cursor-pointer mr-2 sm:mr-3 bg-gray-200 hover:bg-gray-300"
                     @click="onClickSearchButton"
                 />
@@ -97,54 +88,39 @@
                     ref="childComponentRef"
                 />
             </div>
-
             <UTooltip
                 text="Prime gaming benefits"
                 class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <svgo-header-crown-light v-if="colorMode.value !== 'dark'" />
-                <svgo-header-crown-dark v-else />
+                <svgo-header-crown />
             </UTooltip>
             <UTooltip
                 text="Notifications"
                 v-if="token"
                 class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <svgo-header-notification-light
-                    v-if="colorMode.value !== 'dark'"
-                />
-                <svgo-header-notification-dark v-else />
+                <svgo-header-notification />
             </UTooltip>
             <UTooltip
                 text="Whispers"
                 v-if="token"
                 class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <svgo-header-whisper-light v-if="colorMode.value !== 'dark'" />
-                <svgo-header-whisper-dark v-else />
+                <svgo-header-whisper />
             </UTooltip>
             <UTooltip
                 text="Get bits"
                 v-if="token"
                 class="dark:hover:bg-darkButtonHover hover:bg-lightButtonHover mr-2 sm:mr-3 p-2 rounded-md"
             >
-                <svgo-header-get-bits-light v-if="colorMode.value !== 'dark'" />
-                <svgo-header-get-bits-dark v-else />
+                <svgo-header-get-bits />
             </UTooltip>
             <button
                 v-if="token"
                 type="button"
                 class="hidden sm:flex items-center py-1 px-3 me-1 sm:me-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-200 rounded-md border border-gray-200 hover:bg-gray-300 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
-                <svgo-header-low-battery-light
-                    v-if="
-                        (token && colorMode.value === 'light') ||
-                        colorMode.value === 'system'
-                    "
-                    class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
-                />
-                <svgo-header-low-battery-dark
-                    v-if="token && colorMode.value !== 'light'"
+                <svgo-header-low-battery
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                 />
                 Go Ad-Free for Free
@@ -185,13 +161,7 @@
                     <span class="truncate">{{ item.label }}</span>
                 </template>
                 <div v-if="!token">
-                    <svgo-header-user-profile-light
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                    />
-                    <svgo-header-user-profile-dark v-else />
+                    <svgo-header-user-profile />
                 </div>
                 <img
                     v-else
@@ -296,50 +266,35 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-channel-light'
-                              : 'svgo-header-menu-channel-dark',
+                      icon: 'svgo-header-menu-channel',
                   },
                   {
                       label: 'Video Producer',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-video-producer-light'
-                              : 'svgo-header-menu-video-producer-dark',
+                      icon: 'svgo-header-menu-video-producer',
                   },
                   {
                       label: 'Creator Dashboard',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-creator-dashboard-light'
-                              : 'svgo-header-menu-creator-dashboard-dark',
+                      icon: 'svgo-header-menu-creator-dashboard',
                   },
                   {
                       label: 'Privacy Center',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-privacy-center-light'
-                              : 'svgo-header-menu-privacy-center-dark',
+                      icon: 'svgo-header-menu-privacy-center',
                   },
                   {
                       label: 'Safety',
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-safety-light'
-                              : 'svgo-header-menu-safety-dark',
+                      icon: 'svgo-header-menu-safety',
                   },
               ],
               [
@@ -348,10 +303,7 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-emote-atrribution-light'
-                              : 'svgo-header-menu-emote-atrribution-dark',
+                      icon: 'svgo-header-menu-emote-atrribution',
                   },
               ],
               [
@@ -360,27 +312,18 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-subscriptions-light'
-                              : 'svgo-header-menu-subscriptions-dark',
+                      icon: 'svgo-header-menu-subscriptions',
                   },
                   {
                       label: 'Drops & Rewards',
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-drop-rewards-light'
-                              : 'svgo-header-menu-drop-rewards-dark',
+                      icon: 'svgo-header-menu-drop-rewards',
                       click: () => {
                           message.info('Function is in progress!');
                       },
                   },
                   {
                       label: 'Wallet',
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-wallet-light'
-                              : 'svgo-header-menu-wallet-dark',
+                      icon: 'svgo-header-menu-wallet',
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -392,17 +335,11 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-setting-light'
-                              : 'svgo-header-menu-setting-dark',
+                      icon: 'svgo-header-menu-setting',
                   },
                   {
                       label: 'Content Tuning',
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-content-tuning-light'
-                              : 'svgo-header-menu-content-tuning-dark',
+                      icon: 'svgo-header-menu-content-tuning',
 
                       click: () => {
                           message.info('Function is in progress!');
@@ -413,10 +350,7 @@ let configItems = computed(() => {
                       click: () => {
                           message.info('Function is in progress!');
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-language-light'
-                              : 'svgo-header-menu-language-dark',
+                      icon: 'svgo-header-menu-language',
                   },
                   {
                       label:
@@ -426,10 +360,7 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-theme-light'
-                              : 'svgo-header-menu-theme-dark',
+                      icon: 'svgo-header-menu-theme',
                   },
               ],
               [
@@ -440,10 +371,7 @@ let configItems = computed(() => {
                           $locally.removeItem('username');
                           window.location.reload();
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-logout-light'
-                              : 'svgo-header-menu-logout-dark',
+                      icon: 'svgo-header-menu-logout',
                   },
               ],
           ]
@@ -462,10 +390,7 @@ let configItems = computed(() => {
                               console.log(locale);
                           }
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-language-light'
-                              : 'svgo-header-menu-language-dark',
+                      icon: 'svgo-header-menu-language',
                   },
                   {
                       label:
@@ -475,18 +400,12 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-theme-light'
-                              : 'svgo-header-menu-theme-dark',
+                      icon: 'svgo-header-menu-theme',
                   },
 
                   {
                       label: 'Labeled Content',
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-labeled-content-light'
-                              : 'svgo-header-menu-labeled-content-dark',
+                      icon: 'svgo-header-menu-labeled-content',
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -498,17 +417,10 @@ let configItems = computed(() => {
                       click: () => {
                           onShowLoginModal();
                       },
-                      icon:
-                          colorMode.value === 'light'
-                              ? 'svgo-header-menu-login-light'
-                              : 'svgo-header-menu-login-dark',
+                      icon: 'svgo-header-menu-login',
                   },
               ],
           ];
-});
-
-const isLightTheme = computed(() => {
-    return colorMode.value === 'light';
 });
 </script>
 <style></style>

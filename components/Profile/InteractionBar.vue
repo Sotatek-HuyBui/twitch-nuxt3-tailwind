@@ -42,16 +42,7 @@
                             class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-2 dark:bg-slate-700 bg-slate-200 rounded-md mr-2 cursor-pointer hover:bg-slate-300 w-10 sm:w-12"
                             @click="onClickNotifyButton"
                         >
-                            <svgo-interaction-notification-bell-light
-                                v-if="
-                                    isFollowing && colorMode.value === 'light'
-                                "
-                                class="w-3 h-3 sm:w-5 sm:h-4 object-cover"
-                            />
-                            <svgo-interaction-notification-bell-dark
-                                v-if="isFollowing && colorMode.value === 'dark'"
-                                class="w-3 h-3 sm:w-5 sm:h-4 object-cover"
-                            />
+                            <svgo-interaction-notification-bell />
                         </div>
                         <UButton
                             v-if="!isFollowing"
@@ -69,14 +60,7 @@
                             size="2xs"
                             class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-2 dark:bg-slate-700 bg-slate-200 rounded-md cursor-pointer hover:bg-[#ffaaa8] w-10 sm:w-12"
                         >
-                            <svgo-interaction-heart-favorite-light
-                                v-if="colorMode.value !== 'dark'"
-                                class="w-4"
-                            />
-                            <svgo-interaction-heart-favorite-dark
-                                v-else
-                                class="w-5 h-5"
-                            />
+                            <svgo-interaction-heart-favorite />
                         </div>
                         <UButton
                             v-if="token"
@@ -86,13 +70,7 @@
                             variant="solid"
                             class="text-[6px] sm:text-[12px] sm:py-2 ml-2 flex justify-center items-center bg-slate-200 dark:bg-slate-800 hover:bg-slate-100"
                         >
-                            <svgo-interaction-gift-light
-                                v-if="colorMode.value !== 'dark'"
-                                class="w-4"
-                                :fontControlled="false"
-                            />
-                            <svgo-interaction-gift-dark
-                                v-else
+                            <svgo-interaction-gift
                                 class="w-4"
                                 :fontControlled="false"
                             />
@@ -110,14 +88,10 @@
                             variant="solid"
                             class="text-[6px] sm:text-[12px] sm:py-2 ml-2 flex justify-center bg-slate-200 dark:bg-slate-800 hover:bg-slate-100"
                         >
-                            <svgo-interaction-star-light
-                                v-if="colorMode.value !== 'dark'"
+                            <svgo-interaction-star
                                 class="w-3.5 h-5"
                                 :fontControlled="false" />
-                            <svgo-interaction-star-dark
-                                v-else
-                                class="w-4 h-5"
-                                :fontControlled="false" />Subcribe
+                            Subcribe
                             <img
                                 src="~/assets/arrow-down.png"
                                 class="h-2 w-2 ml-1 sm:w-[10px] sm:h-[10px] cursor-pointer"
@@ -139,12 +113,7 @@
                                 :items="configItems"
                                 :popper="{ placement: 'bottom-start' }"
                             >
-                                <svgo-header-three-dot-menu-light
-                                    v-if="colorMode.value !== 'dark'"
-                                    class="h-2 w-2 ml-1 sm:w-4 sm:h-4 cursor-pointer"
-                                />
-                                <svgo-header-three-dot-menu-dark
-                                    v-else
+                                <svgo-header-three-dot-menu
                                     class="h-2 w-2 ml-1 sm:w-4 sm:h-4 cursor-pointer"
                                 />
                             </UDropdown>
@@ -196,13 +165,7 @@
                                         message.info('Function is in progress!')
                                     "
                                 >
-                                    <svgo-interaction-share-light
-                                        v-if="colorMode.value !== 'dark'"
-                                        class="w-5 h-5"
-                                        :fontControlled="false"
-                                    />
-                                    <svgo-interaction-share-dark
-                                        v-else
+                                    <svgo-interaction-share
                                         class="w-5 h-5"
                                         :fontControlled="false"
                                     />
@@ -214,12 +177,7 @@
                                     :popper="{ placement: 'bottom-start' }"
                                     class="dark:bg-slate-900 dark:hover:bg-slate-800 p-2 rounded-md"
                                 >
-                                    <svgo-header-three-dot-menu-light
-                                        v-if="colorMode.value !== 'dark'"
-                                        class="h-2 w-2 ml-1 sm:w-4 sm:h-4 cursor-pointer"
-                                    />
-                                    <svgo-header-three-dot-menu-dark
-                                        v-else
+                                    <svgo-header-three-dot-menu
                                         class="h-2 w-2 ml-1 sm:w-4 sm:h-4 cursor-pointer"
                                     />
                                 </UDropdown>

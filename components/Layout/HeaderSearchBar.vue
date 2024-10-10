@@ -19,8 +19,7 @@
             @click="onSearch"
             class="p-[0.6rem] text-sm font-medium h-full  bg-gray-200 hover:bg-gray-300 dark:bg-slate-800 rounded-e-lg border dark:border-slate-800 hover:bg-customPrimary- focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:bg-slate-900 dark:focus:ring-blue-800"
         >
-            <svgo-header-btn-search-light v-if="colorMode.value !== 'dark'" />
-            <svgo-header-btn-search-dark v-else />
+            <svgo-header-btn-search/>
             <span class="sr-only">Search</span>
         </button>
         <div

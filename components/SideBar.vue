@@ -14,28 +14,14 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <svgo-sidebar-collapse-close-light
-                        v-if="colorMode.value !== 'dark'"
-                        @click="toggleSideBar"
-                    />
-                    <svgo-sidebar-collapse-close-dark
-                        v-else
-                        @click="toggleSideBar"
-                    />
+                    <svgo-sidebar-collapse-close @click="toggleSideBar" />
                 </div>
             </a-tooltip>
             <a-tooltip v-else title="Collapse" placement="right">
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <svgo-sidebar-collapse-open-dark
-                        v-if="colorMode.value !== 'dark'"
-                        @click="toggleSideBar"
-                    />
-                    <svgo-sidebar-collapse-open-dark
-                        v-else
-                        @click="toggleSideBar"
-                    />
+                    <svgo-sidebar-collapse-open @click="toggleSideBar" />
                 </div>
             </a-tooltip>
         </div>
@@ -66,8 +52,7 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <svgo-sidebar-heart-light v-if="colorMode.value !== 'dark'" />
-                    <svgo-sidebar-heart-dark v-else />
+                    <svgo-sidebar-heart />
                 </div>
             </a-tooltip>
             <ChannelItem
@@ -101,28 +86,14 @@
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <svgo-sidebar-collapse-close-light
-                            v-if="colorMode.value !== 'dark'"
-                            @click="toggleSideBar"
-                        />
-                        <svgo-sidebar-collapse-close-dark
-                            v-else
-                            @click="toggleSideBar"
-                        />
+                        <svgo-sidebar-collapse-close @click="toggleSideBar" />
                     </div>
                 </a-tooltip>
                 <a-tooltip v-else title="Collapse" placement="right">
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <svgo-sidebar-collapse-open-light
-                            v-if="colorMode.value !== 'dark'"
-                            @click="toggleSideBar"
-                        />
-                        <svgo-sidebar-collapse-open-dark
-                            v-else
-                            @click="toggleSideBar"
-                        />
+                        <svgo-sidebar-collapse-open @click="toggleSideBar" />
                     </div>
                 </a-tooltip>
             </div>
@@ -136,10 +107,7 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <svgo-sidebar-video-light
-                        v-if="colorMode.value !== 'dark'"
-                    />
-                    <svgo-sidebar-video-dark v-else />
+                    <svgo-sidebar-video />
                 </div>
             </a-tooltip>
             <ChannelItem

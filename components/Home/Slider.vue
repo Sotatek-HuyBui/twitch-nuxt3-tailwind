@@ -99,22 +99,10 @@
                 class="flex justify-between absolute top-[50%] w-[110%] left-[-5%] z-2"
             >
                 <button @click="prev">
-                    <svgo-slider-arrow-left-light
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                    />
-                    <svgo-slider-arrow-left-dark v-else />
+                    <svgo-slider-arrow-left />
                 </button>
                 <button @click="next">
-                    <svgo-slider-arrow-right-light
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                    />
-                    <svgo-slider-arrow-right-dark v-else />
+                    <svgo-slider-arrow-right />
                 </button>
             </div>
         </div>

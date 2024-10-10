@@ -30,17 +30,7 @@
                     :popper="{ arrow: true, placement: 'right' }"
                     class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
                 >
-                    <svgo-chat-user-chat-light
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                        @click="toggleShowMessage"
-                    />
-                    <svgo-chat-user-chat-dark
-                        v-else
-                        @click="toggleShowMessage"
-                    />
+                    <svgo-chat-user-chat @click="toggleShowMessage" />
                 </UTooltip>
             </div>
             <div v-else>
