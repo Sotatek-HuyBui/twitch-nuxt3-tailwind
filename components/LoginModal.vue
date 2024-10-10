@@ -10,7 +10,7 @@
                             alt="Logo"
                         />
                         <p class="ml-4 text-[24px] font-medium dark:text-white">
-                            Login to Twicth
+                            {{ $t('Login to Twicth') }}
                         </p>
                     </div>
                     <img
@@ -24,7 +24,7 @@
                         class="space-y-2 mt-8 flex flex-col justify-center"
                         @submit="onSubmit"
                     >
-                        <UFormGroup label="Username" name="email">
+                        <UFormGroup :label="$t('LoginModal.desc5')" name="email">
                             <UInput
                                 v-model="state.email"
                                 class="w-full focus:outline-none"
@@ -33,7 +33,7 @@
                         </UFormGroup>
 
                         <UFormGroup
-                            label="Password"
+                            :label="$t('LoginModal.desc6')"
                             name="password"
                             class="relative"
                         >
@@ -78,7 +78,7 @@
                             target="_blank"
                             class="text-[12px] text-customPrimary-1 cursor-pointer hover:text-customPrimary-2"
                         >
-                            Trouble logging in?
+                            {{ $t('LoginModal.desc1') }}
                         </a>
 
                         <div class="flex justify-center">
@@ -87,7 +87,7 @@
                                 type="submit"
                                 class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2 dark:text-white"
                             >
-                                Log in
+                                {{  $t('Log in') }}
                             </UButton>
                         </div>
                     </UForm>
@@ -95,7 +95,7 @@
                         class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
                         @click="onShowRegisterModal"
                     >
-                        Don't have an account? Sign up
+                    {{ $t('LoginModal.desc2') }}
                     </p>
                 </div>
                 <div
@@ -106,11 +106,10 @@
                         class="w-24 h-24 mb-3"
                     />
                     <p class="font-medium mb-2 text-[18px] dark:text-white">
-                        Plan ahead for the hype
+                        {{ $t('LoginModal.desc3') }}
                     </p>
                     <p class="text-center text-[12px] dark:text-slate-300">
-                        Get notified about upcoming streams ahead of time so you
-                        can plan your snacks accordingly 😏
+                        {{ $t('LoginModal.desc4') }}
                     </p>
                     <img
                         @click="() => (isOpen = false)"

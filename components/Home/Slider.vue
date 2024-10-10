@@ -71,7 +71,7 @@
                                 >
                                     Minecraft
                                 </p>
-                                <p class="text-[6px]">3.6 viewers</p>
+                                <p class="text-[6px]">3.6 {{ $t('Home.Slider.desc1') }}</p>
                             </div>
                         </div>
                         <div class="flex items-center mt-2">

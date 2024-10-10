@@ -232,7 +232,7 @@
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                     alt="Logo"
                 />
-                Go Ad-Free for Free
+                {{ $t('Go Ad-Free for Free') }}
             </button>
             <button
                 v-if="!token"
@@ -276,33 +276,38 @@
     </div>
 </template>
 <script setup lang="ts">
-import { setLocale } from 'yup';
+// import { setLocale } from 'yup';
 
 //@ts-ignore
 const { onShowLoginModal, onShowRegisterModal } = defineProps([
     'onShowLoginModal',
     'onShowRegisterModal',
 ]);
-
+import { useI18n } from 'vue-i18n'; 
 const { $locally }: any = useNuxtApp();
 const token = $locally.getItem('token');
 const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
+<<<<<<< Updated upstream
 const { locale, locales, setLocale } = useI18n();
 
+=======
+const { t, locale, locales, setLocale } = useI18n();
+>>>>>>> Stashed changes
 // const savedLocale = localStorage.getItem('locale');
 // if (savedLocale) {
-//     locale.value = savedLocale;
-// } else {
-//     locale.value = 'en'; // Ngôn ngữ mặc định nếu không có giá trị từ localStorage
-// }
-const route = useRoute();
 const router = useRouter();
 const onToggleLanguage = () => {
+<<<<<<< Updated upstream
     let newLocale;
     locale.value === 'en' ? setLocale('vi') : setLocale('en')
 }
+=======
+    
+    locale.value === 'en' ? setLocale('vi') : setLocale('en')
+};
+>>>>>>> Stashed changes
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -313,35 +318,34 @@ const childComponentRef = ref<any>(null);
 const onClickSearchButton = () => {
     isShowMobileSearchBar.value = !isShowMobileSearchBar.value;
 };
-
-const generalItems = [
+const generalItems = computed(() => [
     [
         {
-            label: 'About',
+            label: t('Header.desc1'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Advertisers',
+            label: t('Header.desc2'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Blogs',
+            label: t('Header.desc3'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Developers',
+            label: t('Header.desc4'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Download Apps',
+            label: t('Header.desc5'),
             click: () => {
                 message.info('Function is in progress!');
             },
@@ -349,19 +353,19 @@ const generalItems = [
     ],
     [
         {
-            label: 'Accessibility Statement',
+            label: t('Header.desc6'),
             click: () => {
                 console.log('Edit');
             },
         },
         {
-            label: 'Ad Choices',
+            label: t('Header.desc7'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
     ],
-];
+]);
 
 let configItems = computed(() => {
     return token
@@ -376,14 +380,14 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Video Producer',
+                      label: t('Header.desc8'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'material-symbols:auto-videocam-rounded',
                   },
                   {
-                      label: 'Creator Dashboard',
+                      label: t('Header.desc9'),
                       icon: 'material-symbols:dashboard',
                       click: () => {
                           message.info('Function is in progress!');
@@ -392,8 +396,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                    label: `Language - ${
-                          locale.value === 'en' ? 'English' : 'Vietnamese'
+                    label: `${t('Header.desc10')} - ${locale.value === 'en' ? t('Header.desc11') : t('Header.desc12')
                       }`,
                       click: () => {
                          onToggleLanguage();
@@ -403,8 +406,8 @@ let configItems = computed(() => {
                   {
                       label:
                           colorMode.value === 'light'
-                              ? 'Dark Theme'
-                              : 'Light Theme',
+                              ? t('Header.desc13')
+                              : t('Header.desc14'),
                       click: () => {
                           onToggleMode();
                       },
@@ -414,7 +417,7 @@ let configItems = computed(() => {
                               : 'material-symbols-light:sunny',
                   },
                   {
-                      label: 'Labeled Content',
+                      label: t('Header.desc15'),
                       icon: 'material-symbols:earthquake',
 
                       click: () => {
@@ -424,7 +427,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Log out',
+                      label: t('Header.desc16'),
                       click: () => {
                           $locally.removeItem('token');
                           $locally.removeItem('username');
@@ -437,8 +440,7 @@ let configItems = computed(() => {
         : [
               [
                   {
-                      label: `Language - ${
-                          locale.value === 'en' ? 'English' : 'Vietnamese'
+                      label: `${t('Header.desc10')} - ${ locale.value === 'en' ? t('Header.desc11') : t('Header.desc12')
                       }`,
                       click: () => {
                          onToggleLanguage();
@@ -448,8 +450,8 @@ let configItems = computed(() => {
                   {
                       label:
                           colorMode.value === 'light'
-                              ? 'Dark Theme'
-                              : 'Light Theme',
+                              ? t('Header.desc13')
+                              : t('Header.desc14'),
                       click: () => {
                           onToggleMode();
                       },
@@ -459,7 +461,7 @@ let configItems = computed(() => {
                               : 'material-symbols-light:sunny',
                   },
                   {
-                      label: 'Labeled Content',
+                      label: t('Header.desc15'),
                       icon: 'material-symbols:earthquake',
                       click: () => {
                           message.info('Function is in progress!');
@@ -468,7 +470,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Log in',
+                      label: t('Header.desc17'),
                       click: () => {
                           onShowLoginModal();
                       },
@@ -477,6 +479,10 @@ let configItems = computed(() => {
               ],
           ];
 });
+
+const changeLanguage = (newLocale: string) => {
+  locale.value = newLocale; 
+};
 
 const isLightTheme = computed(() => {
     return colorMode.value === 'light'

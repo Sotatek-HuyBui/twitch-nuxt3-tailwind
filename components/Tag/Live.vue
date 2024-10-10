@@ -6,7 +6,7 @@
                 'sm:text-[8px]': isSmallText,
             }"
         >
-            LIVE
+            {{ $t('LIVE') }}
         </p>
     </div>
 </template>

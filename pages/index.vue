@@ -3,14 +3,10 @@
         <HomeSlider />
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
-        <HomeSuggestedChannels
-            :data="dummySuggestedForniteChannels"
-            title="Recommended Fornite Channels"
-        />
-        <HomeSuggestedChannels
-            :data="dummySuggestedMinecraftChannels"
-            title="Recommended MineCraft Channels"
-        />
+        <HomeSuggestedChannels :key="`HomeSuggestedChannels-${forceRenderlocale}`" :data="dummySuggestedForniteChannels"
+            :title="$t('Pages.desc1')" />
+        <HomeSuggestedChannels :key="`HomeSuggestedChannels222-${forceRenderlocale}`"
+            :data="dummySuggestedMinecraftChannels" :title="$t('Pages.desc2')" />
     </div>
 </template>
 <style>
@@ -26,7 +22,22 @@ import {
     dummySuggestedForniteChannels,
     dummySuggestedMinecraftChannels,
 } from '@/data/index.ts';
+
+import { useI18n } from 'vue-i18n';
+
 useHead({
     title: 'Twitch',
 });
+
+const { locale } = useI18n();
+
+const forceRenderlocale = ref(0);
+
+watch(
+    () => locale.value,
+    (newLocale, oldLocale) => {
+        console.log(`Ngôn ngữ đã thay đổi từ ${oldLocale} thành ${newLocale}`);
+        forceRenderlocale.value += 1;
+    }
+);
 </script>

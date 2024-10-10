@@ -10,7 +10,7 @@
                             alt="Logo"
                         />
                         <p class="ml-4 text-[24px] font-medium dark:text-white">
-                            Join Twicth today
+                            {{ $t('RegisterModal.desc1') }}
                         </p>
                     </div>
                     <img
@@ -24,7 +24,7 @@
                         class="space-y-2 mt-8 flex flex-col justify-center"
                         @submit="onSubmit"
                     >
-                        <UFormGroup label="Username" name="email">
+                        <UFormGroup :label="$t('RegisterModal.desc6')" name="email">
                             <UInput
                                 v-model="state.username"
                                 class="w-full"
@@ -32,16 +32,16 @@
                             />
                         </UFormGroup>
 
-                        <UFormGroup label="Password" name="password">
+                        <UFormGroup :label="$t('RegisterModal.desc7')" name="password">
                             <UInput v-model="state.password" type="password" />
                         </UFormGroup>
 
-                        <UFormGroup label="Date of birth" name="dob">
+                        <UFormGroup :label="$t('RegisterModal.desc8')" name="dob">
                             <div class="flex">
                                 <UInputMenu
                                     class="mx-2"
                                     :options="days"
-                                    placeholder="Day"
+                                    :placeholder="$t('RegisterModal.desc10')"
                                     v-model="daySelected"
                                 />
                                 <UInputMenu
@@ -50,14 +50,14 @@
                                     placeholder="Month"
                                 />
                                 <UInputMenu
-                                    placeholder="Year"
+                                    :placeholder="$t('RegisterModal.desc11')"
                                     :options="years"
                                     v-model="yearSelected"
                                 />
                             </div>
                         </UFormGroup>
 
-                        <UFormGroup label="Email" name="email">
+                        <UFormGroup :label="$t('RegisterModal.desc9')" name="email">
                             <UInput v-model="state.email" class="w-full" />
                         </UFormGroup>
 
@@ -72,7 +72,7 @@
                                 type="submit"
                                 class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2"
                             >
-                                Sign up
+                            {{ $t('RegisterModal.desc2') }}
                             </UButton>
                         </div>
                     </UForm>
@@ -80,7 +80,7 @@
                         class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
                         @click="onShowLoginModal"
                     >
-                        Have an account? Log in
+                    {{ $t('RegisterModal.desc3') }}
                     </p>
                 </div>
                 <div
@@ -91,11 +91,10 @@
                         class="w-24 h-24 mb-3"
                     />
                     <p class="font-medium mb-2 text-[18px] dark:text-white">
-                        Plan ahead for the hype
+                        {{ $t('RegisterModal.desc4') }}
                     </p>
                     <p class="text-center text-[12px] dark:text-slate-300">
-                        Get notified about upcoming streams ahead of time so you
-                        can plan your snacks accordingly 😏
+                        {{ $t('RegisterModal.desc5') }}
                     </p>
                 </div>
                 <img
@@ -112,6 +111,7 @@
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from '#ui/types';
+const { t, locale, locales, setLocale } = useI18n();
 
 const schema = object({
     email: string().email('Invalid email').required('Required'),
@@ -121,19 +121,23 @@ const schema = object({
 });
 
 const months = [
-    'January',
-    'Febuary',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    t('RegisterModal.desc12'),
+    t('RegisterModal.desc13'),
+    t('RegisterModal.desc14'),
+    t('RegisterModal.desc15'),
+    t('RegisterModal.desc16'),
+    t('RegisterModal.desc17'),
+    t('RegisterModal.desc18'),
+    t('RegisterModal.desc19'),
+    t('RegisterModal.desc20'),
+    t('RegisterModal.desc21'),
+    t('RegisterModal.desc22'),
+    t('RegisterModal.desc23'),
 ];
+
+const changeLanguage = (newLocale: string) => {
+  locale.value = newLocale; 
+};
 
 const days = Array.from({ length: 31 }, (_, index) => (index + 1).toString());
 const years = Array.from({ length: 2024 - 1900 + 1 }, (_, index) =>

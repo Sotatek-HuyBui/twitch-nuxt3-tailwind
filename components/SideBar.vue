@@ -66,7 +66,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                Followed channels
+                {{ $t('Followed channels') }}
             </p>
         </div>
         <div class="flex flex-col" v-if="token">
@@ -112,7 +112,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                Recommnded Channels
+                {{  $t('Recommended Channels') }}
                 
             </p>
             <div v-if="!token">

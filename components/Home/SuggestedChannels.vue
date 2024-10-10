@@ -13,9 +13,9 @@
             <a
                 href="/directory/all"
                 class="text-customPrimary-2 hover:underline dark:text-customPrimary-0"
-                >Live channels</a
+                >{{ $t('Home.SuggestedChannels.desc1') }}</a
             >
-            we think you'll like
+            {{ $t('Home.SuggestedChannels.desc2') }}
         </p>
         <div
             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-1 sm:gap-4"

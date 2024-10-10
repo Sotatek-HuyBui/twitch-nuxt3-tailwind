@@ -58,7 +58,7 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n'; 
 
 const { t, locale } = useI18n(); 
-const categories = ref([
+const categories = computed(() => [
     {
         label: 'Games',
         path: 'games',
@@ -86,10 +86,6 @@ const categories = ref([
     },
 ]);
 
-const changeLanguage = (newLocale: string) => {
-  locale.value = newLocale; 
-};
-
 const goToDirectoryPath = (path: string) => {
     navigateTo(`/directory/${path.split(' ').join('-')}`);
 };
@@ -99,23 +95,27 @@ const { currentDirectoryPath } = defineProps(['currentDirectoryPath']);
 const renderDescription = () => {
     switch (currentDirectoryPath) {
         case 'games':
-            return 'Live streams of all your favorite games, from shooters to platformers and everything in between!';
+            return t('Directory.Header.desc1');
 
         case 'irl':
-            return 'The home for everything from working out to exploring the world to chatting and beyond!';
+            return t('Directory.Header.desc2');
 
         case 'music-&-DJs':
-            return 'Your favorite DJs, live artist performances, music production, and special events!';
+            return t('Directory.Header.desc3');
 
         case 'creative':
-            return 'A place to share creativity through painting, cooking, programming, and more!';
+            return t('Directory.Header.desc4');
 
         case 'esports':
-            return 'Live tournaments, match highlights, and your favorite pro players all in one place!';
+            return t('Directory.Header.desc5');
 
         default:
             return '';
             break;
     }
+};
+
+const changeLanguage = (newLocale: string) => {
+  locale.value = newLocale; 
 };
 </script>

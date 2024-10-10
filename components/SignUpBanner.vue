@@ -18,8 +18,8 @@
                 Chat, follow or subcribe - Twitch is your oyster.
             </p>
             <p v-else class="text-white text-[8px] sm:text-[19px]">
-                <span class="font-medium">Join the Twitch community!</span>
-                Discover the best live streams anywhere.
+                <span class="font-medium">{{ $t('SignUpBanner.desc1') }}</span>
+                {{ $t('SignUpBanner.desc2') }}
             </p>
         </div>
         <UButton

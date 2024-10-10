@@ -14,7 +14,7 @@
                         <span class="font-medium"
                             >{{ targetCategory.viewers }}K</span
                         >
-                        Viewers
+                       Viewers 
                     </p>
                     <div
                         class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black mx-1 sm:mx-3"

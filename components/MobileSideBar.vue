@@ -2,7 +2,7 @@
     <div class="sidebar fixed h-full dark:bg-[#1c1c1c]">
         <div class="flex flex-col items-center">
             <UTooltip
-                text="Recommended Channels"
+                text="Recommended Channels1234"
                 :popper="{ arrow: true, placement: 'right' }"
             >
                 <img
