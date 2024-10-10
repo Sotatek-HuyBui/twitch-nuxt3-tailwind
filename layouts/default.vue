@@ -28,7 +28,7 @@
                 <slot />
                 <div
                     v-if="isShowVideo"
-                    class="w-[300px] h-[180px] bg-red-700 fixed left-20 bottom-20 z-50"
+                    class="w-[280px] h-[165px] bg-red-700 fixed left-[3.5rem] bottom-[4rem] z-50 group"
                 >
                     <video
                         class="w-full h-full object-cover"
@@ -39,11 +39,19 @@
                         <source :src="dummySliders[0].sources[0]" />
                         Your browser does not support HTML video.
                     </video>
-                    <img
-                        @click="onCloseCornerVideo"
-                        src="~/assets/close-white.png"
-                        class="cursor-pointer absolute top-4 right-4 w-4 h-4"
-                    />
+
+                    <div
+                        class="cursor-pointer bg-black bg-opacity-65 text-nowrap absolute top-0 left-0 right-0 flex justify-between items-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                        <div class="ml-2 text-sm text-white">
+                            Watching {{ dummySuggestedChannels[0].streamer }}
+                        </div>
+                        <svgo-default-btn-close
+                            @click="onCloseCornerVideo"
+                            class="cursor-pointer text-white w-7 h-7 mr-2 transition duration-300 hover:bg-white hover:bg-opacity-30 p-1 rounded"
+                             :fontControlled="false"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { dummySliders } from '~/data/index';
+import { dummySliders, dummySuggestedChannels } from '~/data/index';
 const { isShowingVideoCorner, hideVideoCorner } = useNavigateStore();
 const isShowLoginModal = ref(false);
 const isShowRegisterModal = ref(false);
