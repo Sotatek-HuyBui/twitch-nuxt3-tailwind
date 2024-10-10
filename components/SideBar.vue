@@ -130,8 +130,14 @@ const isOpen = ref(true);
 const { toggleFromParent } = defineProps(['toggleFromParent']);
 const colorMode = useColorMode();
 
-const toggleSideBar = () => {
+onMounted(() => {
+    const storedIsOpen = localStorage.getItem('isOpenSideBar');
+    isOpen.value = storedIsOpen === 'true' || false;
+});
+
+const toggleSideBar = () => {    
     isOpen.value = !isOpen.value;
+    localStorage.setItem('isOpenSideBar', isOpen.value);
     toggleFromParent();
 };
 </script>

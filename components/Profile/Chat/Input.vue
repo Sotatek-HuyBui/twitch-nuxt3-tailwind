@@ -12,13 +12,7 @@
                 :popper="{ arrow: true, placement: 'right' }"
                 class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
             >
-                <svgo-sidebar-collapse-open-dark
-                    v-if="colorMode.value !== 'dark'"
-                    class="w-4 h-4 cursor-pointer"
-                    @click="toggleSideBar"
-                />
-                <svgo-sidebar-collapse-open-dark
-                    v-else
+                <svgo-sidebar-collapse-open
                     class="w-4 h-4 cursor-pointer"
                     @click="toggleSideBar"
                 />
@@ -174,9 +168,9 @@
 <script setup>
 import { dummySidebarChannels, dummyComments } from '@/data/index';
 import { v4 as uuidv4 } from 'uuid';
-const { isOpen, onShowLoginModal, toggleSideBar } = defineProps([
+const { isOpen, onShowRegisterModal, toggleSideBar } = defineProps([
     'isOpen',
-    'onShowLoginModal',
+    'onShowRegisterModal',
     'toggleSideBar',
 ]);
 const { $locally } = useNuxtApp();
@@ -214,7 +208,7 @@ const onSendMessage = (isMe, message) => {
             },
         ];
     } else {
-        onShowLoginModal();
+        onShowRegisterModal();
     }
     messageInput.value = '';
 };
