@@ -206,6 +206,7 @@ const isFollowing = ref(false);
 const isSubcribing = ref(false);
 const isOpen = ref(false);
 const isOpenUnsubcribe = ref(false);
+const userStore = useUserStore();
 
 const configItems = [
     [
@@ -252,4 +253,10 @@ const onClickSubcribeButton = () => {
 const user = dummySidebarChannels.find(
     (item) => item.name === route.params.name
 );
+onMounted(() => {
+  const user = dummySidebarChannels.find(item => item.name === route.params.name);
+  if (user) {
+    userStore.value.name = user.name;
+  }
+});
 </script>
