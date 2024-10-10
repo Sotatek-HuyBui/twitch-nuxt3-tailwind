@@ -1,12 +1,12 @@
 <template>
     <div>
         <p
-            class="text-[24px] sm:text-[54px] font-bold capitalize m-0 font-special"
+            class="text-[24px] sm:text-[54px] font-bold capitalize mb-[10px] font-special leading-[65px] text-[#0E0E10] dark:text-[#EFEFF1]"
         >
             {{ $route.params.directory || 'Browse' }}
         </p>
         <p
-            class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special"
+            class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special font-semibold leading-[29px]"
         >
             {{ renderDescription() }}
         </p>
