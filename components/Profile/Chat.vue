@@ -20,10 +20,12 @@
                 :popper="{ arrow: true, placement: 'right' }"
                 class="p-2 rounded-md hover:bg-slate-800"
             >
-                <img
-                    src="~/assets/collapse-close-white.png"
-                    class="w-4 h-4 cursor-pointer z-50"
-                    alt="Collapse"
+                <svgo-sidebar-collapse-close-light
+                    v-if="colorMode.value !== 'dark'"
+                    @click="toggleSideBar"
+                />
+                <svgo-sidebar-collapse-close-dark
+                    v-else
                     @click="toggleSideBar"
                 />
             </UTooltip>
