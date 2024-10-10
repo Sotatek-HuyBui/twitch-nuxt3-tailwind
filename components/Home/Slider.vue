@@ -27,9 +27,11 @@
                     <div class="w-[400px] h-[300px] relative">
                         <div
                             v-if="currentSlide === index"
-                            class="absolute bg-[red] rounded-sm px-1 top-20 left-3 z-10"
+                            class="absolute bg-[#EB0400] rounded-[3px] px-[3px] top-20 left-3 z-10"
                         >
-                            <p class="text-[8px] text-white">
+                            <p
+                                class="text-[7px] text-white font-light leading-[10px]"
+                            >
                                 <b>LIVE</b>
                             </p>
                         </div>
