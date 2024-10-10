@@ -170,9 +170,12 @@
                 :popper="{ placement: 'bottom-start' }"
             >
                 <template #item="{ item }">
-                    <component :is="item.icon" class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer mr-2" />
+                    <component
+                        :is="item.icon"
+                        class="w-2 sm:w-5 sm:h-5 cursor-pointer"
+                        :fontControlled="false"
+                    />
                     <span class="truncate">{{ item.label }}</span>
-
                 </template>
                 <div v-if="!token">
                     <svgo-header-user-profile-light
@@ -352,7 +355,10 @@ let configItems = computed(() => {
                               console.log(locale);
                           }
                       },
-                      icon: "svgo-header-user-profile-light",
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-language-light'
+                              : 'svgo-header-menu-language-dark',
                   },
                   {
                       label:
@@ -362,12 +368,18 @@ let configItems = computed(() => {
                       click: () => {
                           onToggleMode();
                       },
-                      icon: "svgo-header-get-bits-light",
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-theme-light'
+                              : 'svgo-header-menu-theme-dark',
                   },
 
                   {
                       label: 'Labeled Content',
-                      icon: 'svgo-header-user-profile-light',
+                      icon:
+                          colorMode.value === 'light'
+                              ? 'svgo-header-menu-labeled-content-light'
+                              : 'svgo-header-menu-labeled-content-dark',
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -379,14 +391,16 @@ let configItems = computed(() => {
                       click: () => {
                           onShowLoginModal();
                       },
-                      icon: 'svgo-header-low-battery-light',
+                      icon: colorMode.value === 'light'
+                              ? 'svgo-header-menu-login-light'
+                              : 'svgo-header-menu-login-dark',
                   },
               ],
           ];
 });
 
 const isLightTheme = computed(() => {
-    return colorMode.value === 'light'
+    return colorMode.value === 'light';
 });
 </script>
 <style></style>
