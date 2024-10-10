@@ -120,7 +120,7 @@ export const dummySuggestedChannels = [
         id: 2,
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/ced31775-5eb0-458a-b3c2-bd94b3587ec1-profile_image-70x70.png',
         image: 'https://images.pexels.com/photos/7046682/pexels-photo-7046682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'WATCHING DEBATE??! BEGINS+NEWS/REACTS/DRAMA @StarforgeSystems @MadMushroomGG @MythicTalent @OTKnetwork NEW YT@AsmongoldShorts1',
+        name: 'I\'M ADDICTED TO ELDEN RING [First Playthrough',
         streamer: 'Sommerset',
         viewers: 2546,
         description: 'Leage of Legends',
@@ -1027,4 +1027,55 @@ export const dummyComments = [
     "This game is so competitive.",
     "I'm on the edge of my seat.",
     "I can't stop playing."
+]
+
+export const dummyCategoryTagDropdownItems = [
+    {
+        id: 1,
+        name: 'Fighting'
+    },
+    {
+        id: 2,
+        name: 'MMO'
+    },
+    {
+        id: 3,
+        name: 'Creative'
+    },
+    {
+        id: 4,
+        name: 'Competitive'
+    },
+    {
+        id: 5,
+        name: 'Aggressive'
+    },
+    {
+        id: 6,
+        name: 'Funny'
+    },
+    {
+        id: 7,
+        name: 'YUmmy'
+    },
+    {
+        id: 8,
+        name: 'Emottional'
+    },
+    {
+        id: 9,
+        name: 'Damage'
+    },
+    {
+        id: 10,
+        name: 'Thrilling'
+    },
+    {
+        id: 11,
+        name: 'Interesting'
+    },
+    {
+        id: 12,
+        name: 'Exciting'
+    },
 ]
