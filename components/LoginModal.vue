@@ -1,9 +1,9 @@
 <template>
     <div>
-        <a-modal centered v-model:open="isOpen" :width="500" :footer="null" >
-            <div class="flex ">
+        <a-modal centered v-model:open="isOpen" :width="500" :footer="null">
+            <div class="flex">
                 <div
-                    class="relative flex-1 px-[30px] py-[30px] dark:bg-[#1d1d1d] rounded-l-md "
+                    class="relative flex-1 px-[30px] py-[30px] dark:bg-[#18181b]"
                 >
                     <div class="flex items-center justify-center ">
                         <img
@@ -29,46 +29,50 @@
                         layout="vertical"
                         class="space-y-2 flex flex-col justify-center"
                     >
-                        <a-form-item
-                            label="Username"
-                            name="email"
-                            class="border-slate-50 mb-[7px] my-5 label-bold"
+                        <div
+                            :class="{ 'dark-mode': colorMode.value === 'dark' }"
                         >
-                            <a-input
-                                v-model:value="state.email"
-                                :autofocus="true"
-                                class="h-[28.5px] w-[440px] pb-2 pl-2 custom-input"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                            label="Password"
-                            name="password"
-                            class="relative label-bold"
-                        >
-                            <a-input
-                                v-model:value="state.password"
-                                :type="showPassword ? 'text' : 'password'"
-                                class="h-[28px] w-[440px] pb-2"
-                            />
-                            <div
-                                v-if="showPassword"
-                                class="absolute right-2 top-[6px]"
+                            <a-form-item
+                                label="Username"
+                                name="email"
+                                class=" mb-[7px] my-5 label-bold"
                             >
-                                <svgo-popup-eye-close
-                                    @click="onTogglePassword"
-                                    class="w-5 h-5 cursor-pointer"
-                                    :fontControlled="false"
+                                <a-input
+                                    v-model:value="state.email"
+                                    :autofocus="true"
+                                class="h-[28.5px] w-[440px] pb-2 pl-2 custom-input"
                                 />
-                            </div>
-                            <div v-else class="absolute right-2 top-[6px]">
-                                <svgo-popup-eye-open
-                                    @click="onTogglePassword"
-                                    class="w-5 h-5 cursor-pointer"
-                                    :fontControlled="false"
+                            </a-form-item>
+
+                            <a-form-item
+                                label="Password"
+                                name="password"
+                                class="relative label-bold"
+                            >
+                                <a-input
+                                    v-model:value="state.password"
+                                    :type="showPassword ? 'text' : 'password'"
+                                    class="h-[28px] w-[440px] pb-2"
                                 />
-                            </div>
-                        </a-form-item>
+                                <div
+                                    v-if="showPassword"
+                                    class="absolute right-2 top-[6px]"
+                                >
+                                    <svgo-popup-eye-close
+                                        @click="onTogglePassword"
+                                        class="w-5 h-5 cursor-pointer"
+                                        :fontControlled="false"
+                                    />
+                                </div>
+                                <div v-else class="absolute right-2 top-[6px]">
+                                    <svgo-popup-eye-open
+                                        @click="onTogglePassword"
+                                        class="w-5 h-5 cursor-pointer"
+                                        :fontControlled="false"
+                                    />
+                                </div>
+                            </a-form-item>
+                        </div>
                         <a
                             href="https://www.twitch.tv/user/account-recovery"
                             target="_blank"
@@ -81,6 +85,7 @@
                             <a-button
                                 :disabled="!state.email || !state.password"
                                 type="primary"
+                                htmlType="submit"
                                 class="mt-3 bg-[#9147ff] w-full rounded items-center justify-center hover:bg-[#9147ff] font-semibold dark:text-white disabled:bg-[#ADADB838] disabled:cursor-not-allowed"
                             >
                                 Log in
@@ -171,4 +176,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     border-color: #772ce8 !important;
     box-shadow: 0 0 0 2px #772ce8;
 }
+.dark-mode .ant-form-item-label > label {
+    color: white !important;
+}
+.dark-mode .ant-form-item-control-input-content {
+    background-color: #e8f0fe !important;
+}
+
 </style>

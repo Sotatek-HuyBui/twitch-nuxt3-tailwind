@@ -3,7 +3,7 @@
         <a-modal centered v-model:open="isOpen" :width="500" :footer="null">
             <div class="relative flex">
                 <div
-                    class="relative flex-1 px-[30px] py-[30px] dark:bg-[#1d1d1d] rounded-l-md"
+                    class="relative flex-1 px-[30px] py-[30px] dark:!bg-[#18181b] rounded-l-md"
                 >
                     <div class="flex items-center justify-center">
                         <img
