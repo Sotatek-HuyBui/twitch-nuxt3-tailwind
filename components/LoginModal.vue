@@ -164,7 +164,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
 .ant-input:hover {
     border-color: rgba(50, 50, 57, 0.62) !important;
-    border-width: 3px !important;
+    box-shadow: 0 0 0 2px rgba(50, 50, 57, 0.62);
 }
 
 .ant-input:focus {
