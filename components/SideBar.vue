@@ -14,40 +14,14 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <img
-                        v-if="colorMode.value !== 'dark'"
-                        src="~/assets/collapse-close.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                        @click="toggleSideBar"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/collapse-close-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                        @click="toggleSideBar"
-                    />
+                    <svgo-sidebar-collapse-close @click="toggleSideBar" />
                 </div>
             </a-tooltip>
             <a-tooltip v-else title="Collapse" placement="right">
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
-                    <img
-                        v-if="colorMode.value !== 'dark'"
-                        src="~/assets/collapse-open.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                        @click="toggleSideBar"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/collapse-open-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                        @click="toggleSideBar"
-                    />
+                    <svgo-sidebar-collapse-open @click="toggleSideBar" />
                 </div>
             </a-tooltip>
         </div>
@@ -55,7 +29,7 @@
         <!-- Following channels -->
 
         <div
-            v-if="token"
+            v-if="token && isOpen"
             class="flex items-center p-2"
             :class="{
                 'justify-center': !isOpen,
@@ -78,18 +52,7 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <img
-                        v-if="colorMode.value !== 'dark'"
-                        src="~/assets/heart.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/heart-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
+                    <svgo-sidebar-heart />
                 </div>
             </a-tooltip>
             <ChannelItem
@@ -123,40 +86,14 @@
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <img
-                            v-if="colorMode.value !== 'dark'"
-                            src="~/assets/collapse-close.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
-                            @click="toggleSideBar"
-                        />
-                        <img
-                            v-else
-                            src="~/assets/collapse-close-white.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
-                            @click="toggleSideBar"
-                        />
+                        <svgo-sidebar-collapse-close @click="toggleSideBar" />
                     </div>
                 </a-tooltip>
                 <a-tooltip v-else title="Collapse" placement="right">
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
-                        <img
-                            v-if="colorMode.value !== 'dark'"
-                            src="~/assets/collapse-open.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
-                            @click="toggleSideBar"
-                        />
-                        <img
-                            v-else
-                            src="~/assets/collapse-open-white.png"
-                            class="w-4 h-4 cursor-pointer"
-                            alt="Collapse"
-                            @click="toggleSideBar"
-                        />
+                        <svgo-sidebar-collapse-open @click="toggleSideBar" />
                     </div>
                 </a-tooltip>
             </div>
@@ -170,18 +107,7 @@
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 py-2 rounded-md flex justify-center items-center mb-2"
                 >
-                    <img
-                        v-if="colorMode.value !== 'dark'"
-                        src="~/assets/video-camera.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/video-camera-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        alt="Collapse"
-                    />
+                    <svgo-sidebar-video />
                 </div>
             </a-tooltip>
             <ChannelItem
@@ -195,6 +121,7 @@
 </template>
 <script setup>
 import { dummySidebarChannels, followedChannels } from '@/data/index.ts';
+
 const channels = ref(dummySidebarChannels);
 const { $locally } = useNuxtApp();
 const token = $locally.getItem('token');
@@ -203,8 +130,14 @@ const isOpen = ref(true);
 const { toggleFromParent } = defineProps(['toggleFromParent']);
 const colorMode = useColorMode();
 
-const toggleSideBar = () => {
+onMounted(() => {
+    const storedIsOpen = localStorage.getItem('isOpenSideBar');
+    isOpen.value = storedIsOpen === 'true' || false;
+});
+
+const toggleSideBar = () => {    
     isOpen.value = !isOpen.value;
+    localStorage.setItem('isOpenSideBar', isOpen.value);
     toggleFromParent();
 };
 </script>

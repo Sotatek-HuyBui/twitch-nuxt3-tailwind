@@ -12,18 +12,8 @@
                 :popper="{ arrow: true, placement: 'right' }"
                 class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
             >
-                <img
-                    v-if="colorMode.value !== 'dark'"
-                    src="~/assets/collapse-open.png"
+                <svgo-sidebar-collapse-open
                     class="w-4 h-4 cursor-pointer"
-                    alt="Collapse"
-                    @click="toggleSideBar"
-                />
-                <img
-                    v-else
-                    src="~/assets/collapse-open-white.png"
-                    class="w-4 h-4 cursor-pointer"
-                    alt="Collapse"
                     @click="toggleSideBar"
                 />
             </UTooltip>
@@ -34,21 +24,7 @@
                     :popper="{ arrow: true, placement: 'right' }"
                     class="p-2 rounded-md dark:hover:bg-slate-800 hover:bg-slate-200"
                 >
-                    <img
-                        v-if="
-                            colorMode.value === 'light' ||
-                            colorMode.value === 'system'
-                        "
-                        src="~/assets/user.png"
-                        class="w-4 h-4 cursor-pointer"
-                        @click="toggleShowMessage"
-                    />
-                    <img
-                        v-else
-                        src="~/assets/user-white.png"
-                        class="w-4 h-4 cursor-pointer"
-                        @click="toggleShowMessage"
-                    />
+                    <svgo-chat-user-chat @click="toggleShowMessage" />
                 </UTooltip>
             </div>
             <div v-else>
@@ -192,9 +168,9 @@
 <script setup>
 import { dummySidebarChannels, dummyComments } from '@/data/index';
 import { v4 as uuidv4 } from 'uuid';
-const { isOpen, onShowLoginModal, toggleSideBar } = defineProps([
+const { isOpen, onShowRegisterModal, toggleSideBar } = defineProps([
     'isOpen',
-    'onShowLoginModal',
+    'onShowRegisterModal',
     'toggleSideBar',
 ]);
 const { $locally } = useNuxtApp();
@@ -232,7 +208,7 @@ const onSendMessage = (isMe, message) => {
             },
         ];
     } else {
-        onShowLoginModal();
+        onShowRegisterModal();
     }
     messageInput.value = '';
 };

@@ -14,16 +14,14 @@
         >
             <ProfileChatStream :onShowLoginModal="onShowLoginModal" />
         </div>
-        <div v-if="!isOpen" class="absolute top-2 right-2 z-50 p-2">
+        <div v-if="!isOpen" class="absolute top-2 right-2 z-49 p-2">
             <UTooltip
                 text="Expand"
                 :popper="{ arrow: true, placement: 'right' }"
                 class="p-2 rounded-md hover:bg-slate-800"
             >
-                <img
-                    src="~/assets/collapse-close-white.png"
-                    class="w-4 h-4 cursor-pointer z-50"
-                    alt="Collapse"
+                <svgo-sidebar-collapse-close
+                    class="text-white cursor-pointer"
                     @click="toggleSideBar"
                 />
             </UTooltip>
@@ -31,7 +29,7 @@
         <ProfileChatInput
             :isOpen="isOpen"
             :toggleSideBar="toggleSideBar"
-            :onShowLoginModal="onShowLoginModal"
+            :onShowRegisterModal="onShowRegisterModal"
             v-if="isOpen"
         />
     </div>
@@ -41,6 +39,11 @@ const isOpen = ref(true);
 const isShowLoginModal = ref(false);
 const isShowRegisterModal = ref(false);
 const colorMode = useColorMode();
+
+onMounted(() => {
+    const storedIsOpen = localStorage.getItem('isOpenChat');
+    isOpen.value = storedIsOpen === 'true' || false;
+});
 
 const onShowLoginModal = () => {
     isShowLoginModal.value = true;
@@ -54,6 +57,7 @@ const onShowRegisterModal = () => {
 
 const toggleSideBar = () => {
     isOpen.value = !isOpen.value;
+    localStorage.setItem('isOpenChat', isOpen.value);
 };
 </script>
 
