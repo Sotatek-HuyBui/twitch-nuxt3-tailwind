@@ -28,14 +28,13 @@
                     :src="item.avatar"
                 />
                 <div class="flex-1">
-                    <a-tooltip placement="bottom">
-                        <template #title> {{ item.name }} </template>
+                    <UTooltip :text="item.name">
                         <p
-                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0.5"
+                            class="cursor-pointer line-clamp-1 text-[8px] sm:text-[14px] mb-1 dark:text-white font-semibold hover:text-customPrimary-1 dark:hover:text-customPrimary-0.5"
                         >
                             {{ item.name }}
                         </p>
-                    </a-tooltip>
+                    </UTooltip>
                     <div class="flex items-center">
                         <p
                             class="line-clamp-1 text-[8px] sm:text-[14px] dark:text-[#8b8b8b] text-[#494949] cursor-pointer"

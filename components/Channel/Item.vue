@@ -3,7 +3,7 @@
         <template #title>
             <span
                 v-if="!isOpen"
-                class="text-customPrimary-1 dark:text-customPrimary-0"
+                class="text-customPrimary-0.5 dark:text-customPrimary-0"
                 >{{ item.name }} . {{ item.description }} <br
             /></span>
             {{ item.tooltip }}

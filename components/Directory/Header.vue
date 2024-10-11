@@ -3,7 +3,7 @@
         <p
             class="text-[24px] sm:text-[54px] font-bold capitalize mb-[10px] font-special leading-[65px] text-[#0E0E10] dark:text-[#EFEFF1]"
         >
-            {{ $route.params.directory || 'Browse' }}
+            {{ header }}
         </p>
         <p
             class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special font-semibold leading-[29px]"
@@ -81,6 +81,12 @@ const categories = ref([
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/esports.svg',
     },
 ]);
+
+const route = useRoute();
+const header =
+    route.params.directory === 'all' || !route.params.directory
+        ? 'Browse'
+        : route.params.directory;
 
 const goToDirectoryPath = (path: string) => {
     navigateTo(`/directory/${path.split(' ').join('-')}`);
