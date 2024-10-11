@@ -155,10 +155,10 @@
                         </div>
                         <div class="flex items-center">
                             <svg
-                                width="18"
-                                height="17"
+                                width="20"
+                                height="20"
                                 aria-hidden="true"
-                                class="mr-[4px] mb-[3px]"
+                                class="mr-[2px] mb-[3px]"
                             >
                                 <path
                                     fill-rule="evenodd"
@@ -172,14 +172,14 @@
                                 />
                             </svg>
                             <p
-                                class="text-[8px] sm:text-sm mr-2 text-[#971311] dark:text-[#ff8280] font-medium"
+                                class="text-[8px] sm:text-[13px] mr-2 text-[#971311] dark:text-[#ff8280] font-semibold"
                             >
                                 {{ reformatNumberDot(user.followers) }}
                             </p>
                             <UTooltip text="Share" class="p-2 rounded-md">
                                 <UButton
                                     type="submit"
-                                    class="bg-white items-center justify-center dark:text-white text-black dark:bg-slate-900 dark:hover:bg-slate-800 hover:bg-slate-200"
+                                    class="bg-lightBackgroundSlot items-center justify-center dark:text-white text-black dark:bg-slate-900 dark:hover:bg-slate-800 hover:bg-slate-200"
                                     @click="
                                         message.info('Function is in progress!')
                                     "

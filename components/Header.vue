@@ -14,14 +14,14 @@
                 class="h-full flex items-center mr-8"
                 :class="{
                     ' border-b-2 border-customPrimary-1 dark:border-customPrimary-0':
-                        $route.path.includes('/directory/following'),
+                        isFollowingPage,
                 }"
             >
                 <p
-                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    class="cursor-pointer font-semibold hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
                     :class="{
                         ' text-customPrimary-1  dark:text-customPrimary-0':
-                            $route.path.includes('/directory/following'),
+                            isFollowingPage,
                     }"
                     @click="() => navigateTo('/directory/following')"
                 >
@@ -39,17 +39,15 @@
                 class="h-full flex items-center mr-8"
                 :class="{
                     'border-b-2 border-customPrimary-1 dark:border-customPrimary-0':
-                        $route.path.includes('/directory') &&
-                        $route.params.directory !== 'following',
+                        isNotFollowingPage,
                 }"
             >
                 <p
-                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    class="cursor-pointer font-semibold hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
                     @click="() => navigateTo('/directory')"
                     :class="{
                         'text-customPrimary-1  dark:text-customPrimary-0':
-                            $route.path.includes('/directory') &&
-                            $route.params.directory !== 'following',
+                            isNotFollowingPage,
                     }"
                 >
                     <span class="hidden sm:inline xl:text-[18px]">Browse</span>
@@ -161,7 +159,22 @@
                     <span class="truncate">{{ item.label }}</span>
                 </template>
                 <div v-if="!token">
-                    <svgo-header-user-profile />
+                    <ColorScheme placeholder="" tag="span">
+                        <template #placeholder>
+                            <div
+                                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-6"
+                            ></div>
+                        </template>
+                        <img
+                            :src="
+                                isLightTheme
+                                    ? '/images/profile-user.png'
+                                    : '/images/profile-user-white.png'
+                            "
+                            class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer"
+                            alt="Logo"
+                        />
+                    </ColorScheme>
                 </div>
                 <img
                     v-else
@@ -182,12 +195,20 @@ const { onShowLoginModal, onShowRegisterModal } = defineProps([
     'onShowRegisterModal',
 ]);
 
+const route = useRoute();
 const { $locally }: any = useNuxtApp();
 const token = $locally.getItem('token');
 const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
 const { locale, locales } = useI18n();
+
+const isDarkMode = computed(() => colorMode.value === 'dark');
+
+const isNotFollowingPage =
+    route.path.includes('/directory') && route.params.directory !== 'following';
+
+const isFollowingPage = route.path.includes('/directory/following');
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -421,6 +442,10 @@ let configItems = computed(() => {
                   },
               ],
           ];
+});
+
+const isLightTheme = computed(() => {
+    return colorMode.value === 'light';
 });
 </script>
 <style></style>

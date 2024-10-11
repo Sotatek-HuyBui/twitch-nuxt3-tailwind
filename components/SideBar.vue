@@ -1,12 +1,12 @@
 <template>
     <div
-        class="py-3 sidebar collapsed fixed h-full dark:bg-[#1F1F23] bg-[#EFEFF1]"
+        class="py-3 sidebar collapsed fixed h-full dark:bg-darkBackgroundSidebar bg-[#EFEFF1]"
         :class="{ expanded: isOpen }"
     >
         <div v-if="token" class="flex items-center justify-between p-2">
             <p
                 v-if="isOpen"
-                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+                class="font-semibold uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
                 For you
             </p>
@@ -17,7 +17,7 @@
                     <svgo-sidebar-collapse-close @click="toggleSideBar" />
                 </div>
             </a-tooltip>
-            <a-tooltip v-else title="Collapse" placement="right">
+            <a-tooltip v-else title="Expand" placement="right">
                 <div
                     class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                 >
@@ -38,7 +38,7 @@
         >
             <p
                 v-if="isOpen"
-                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+                class="font-semibold uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
                 Followed channels
             </p>
@@ -73,7 +73,7 @@
         >
             <p
                 v-if="isOpen"
-                class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
+                class="font-semibold uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
                 Recommnded Channels
             </p>
@@ -89,7 +89,7 @@
                         <svgo-sidebar-collapse-close @click="toggleSideBar" />
                     </div>
                 </a-tooltip>
-                <a-tooltip v-else title="Collapse" placement="right">
+                <a-tooltip v-else title="Expand" placement="right">
                     <div
                         class="dark:hover:bg-slate-800 hover:bg-slate-200 p-2 rounded-md"
                     >
@@ -135,7 +135,7 @@ onMounted(() => {
     isOpen.value = storedIsOpen === 'true' || false;
 });
 
-const toggleSideBar = () => {    
+const toggleSideBar = () => {
     isOpen.value = !isOpen.value;
     localStorage.setItem('isOpenSideBar', isOpen.value);
     toggleFromParent();
