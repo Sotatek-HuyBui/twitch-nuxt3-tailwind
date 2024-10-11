@@ -18,7 +18,7 @@
                 }"
             >
                 <p
-                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    class="cursor-pointer font-semibold hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
                     :class="{
                         ' text-customPrimary-1  dark:text-customPrimary-0':
                             $route.path.includes('/directory/following'),
@@ -44,7 +44,7 @@
                 }"
             >
                 <p
-                    class="cursor-pointer font-medium hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
+                    class="cursor-pointer font-semibold hover:text-customPrimary-1 dark:hover:text-customPrimary-0 text-[18px]"
                     @click="() => navigateTo('/directory')"
                     :class="{
                         'text-customPrimary-1  dark:text-customPrimary-0':

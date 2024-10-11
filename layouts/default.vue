@@ -22,7 +22,7 @@
             />
             <MobileSideBar class="block sm:hidden" />
             <div
-                class="content layout-collapsed overflow-y-auto h-full w-full pb-20 relative bg-[lightBackgroundSlot] dark:bg-darkBackgroundSlot"
+                class="content layout-collapsed overflow-y-auto h-full w-full pb-20 relative bg-lightBackgroundSlot dark:bg-darkBackgroundSlot"
                 :class="{ checkout: isOpen }"
             >
                 <slot />

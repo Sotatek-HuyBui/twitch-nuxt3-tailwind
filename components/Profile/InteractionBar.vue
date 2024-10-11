@@ -9,14 +9,14 @@
             :onUnsubcribe="onUnsubcribe"
         />
         <div class="flex justify-center items-center">
-            <div class="w-6 h-6 sm:w-20 sm:h-20 relative">
+            <div class="w-6 h-6 sm:w-[64px] sm:h-[64px] relative">
                 <img
                     class="object-cover rounded-full w-full h-full"
                     :src="user.avatar"
                 />
                 <div
                     v-if="$route.params.tab === 'chats'"
-                    class="absolute bottom-[-10px] left-5"
+                    class="absolute bottom-[-6px] left-3"
                 >
                     <TagLive />
                 </div>
@@ -25,7 +25,7 @@
                 <div class="flex justify-between items-center">
                     <div class="flex items-center">
                         <p
-                            class="text-[12px] sm:text-[24px] font-bold cursor-pointer hover:underline"
+                            class="text-[12px] sm:text-[18px] font-bold cursor-pointer hover:underline"
                             @click="navigateTo(`/${$route.params.name}`)"
                         >
                             {{ $route.params.name }}
@@ -123,16 +123,16 @@
                 <div>
                     <p
                         v-if="$route.params.tab === 'chats'"
-                        class="text-[8px] sm:text-sm font-medium mt-2"
+                        class="text-[8px] sm:text-sm font-medium"
                     >
                         {{ user.tooltip }}
                     </p>
                     <p v-else class="text-[8px] sm:text-sm">
-                        {{ user.followers }}K followers
+                        {{ user.viewers }} followers
                     </p>
                     <div
                         v-if="$route.params.tab === 'chats'"
-                        class="flex items-center mt-3 justify-between"
+                        class="flex items-center mt-[-8px] justify-between"
                     >
                         <div class="flex items-center">
                             <p
@@ -154,13 +154,32 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <p class="text-[8px] sm:text-sm mr-2">
-                                {{ user.followers }}K followers
+                            <svg
+                                width="20"
+                                height="20"
+                                aria-hidden="true"
+                                class="mr-[2px] mb-[3px]"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5 7a5 5 0 1 1 6.192 4.857A2 2 0 0 0 13 13h1a3 3 0 0 1 3 3v2h-2v-2a1 1 0 0 0-1-1h-1a4 4 0 0 1-3-1.354A4 4 0 0 1 7 15H6a1 1 0 0 0-1 1v2H3v-2a3 3 0 0 1 3-3h1a2 2 0 0 0 1.808-1.143A5 5 0 0 1 5 7m5 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                                    clip-rule="evenodd"
+                                    :fill="
+                                        colorMode.value === 'dark'
+                                            ? '#ff8280'
+                                            : '#971311'
+                                    "
+                                />
+                            </svg>
+                            <p
+                                class="text-[8px] sm:text-[13px] mr-2 text-[#971311] dark:text-[#ff8280] font-semibold"
+                            >
+                                {{ reformatNumberDot(user.followers) }}
                             </p>
                             <UTooltip text="Share" class="p-2 rounded-md">
                                 <UButton
                                     type="submit"
-                                    class="bg-white items-center justify-center dark:text-white text-black dark:bg-slate-900 dark:hover:bg-slate-800 hover:bg-slate-200"
+                                    class="bg-lightBackgroundSlot items-center justify-center dark:text-white text-black dark:bg-slate-900 dark:hover:bg-slate-800 hover:bg-slate-200"
                                     @click="
                                         message.info('Function is in progress!')
                                     "
@@ -254,9 +273,11 @@ const user = dummySidebarChannels.find(
     (item) => item.name === route.params.name
 );
 onMounted(() => {
-  const user = dummySidebarChannels.find(item => item.name === route.params.name);
-  if (user) {
-    userStore.value.name = user.name;
-  }
+    const user = dummySidebarChannels.find(
+        (item) => item.name === route.params.name
+    );
+    if (user) {
+        userStore.value.name = user.name;
+    }
 });
 </script>

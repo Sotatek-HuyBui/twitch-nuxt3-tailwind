@@ -6,3 +6,7 @@ export const reformatNumber = (num: number) => {
         return formattedNum.endsWith('.0') ? formattedNum.slice(0, -2) + 'K' : formattedNum + 'K';
     }
 }
+
+export const reformatNumberDot = (num: number) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
