@@ -27,7 +27,7 @@ export default {
     fontFamily: {
       'special': [ "Roobert","Inter",
        
-        "Helvetica Neue",]    }
+        "Helvetica Neue","sans-serif"]    }
   },
   plugins: [],
   darkMode: 'class',

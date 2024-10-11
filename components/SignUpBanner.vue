@@ -1,6 +1,6 @@
 <template>
     <div
-        class="fixed bottom-0 left-0 flex justify-between items-center p-1 sm:px-5 sm:py-3 right-0 bg-customPrimary-3 z-[9999]"
+        class="fixed bottom-0 left-0 flex justify-between items-center p-1 sm:px-5 sm:py-3 right-0 bg-customPrimary-3 z-[1000]"
     >
         <div class="flex items-center">
             <img

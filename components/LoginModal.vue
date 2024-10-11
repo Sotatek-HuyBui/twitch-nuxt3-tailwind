@@ -1,123 +1,98 @@
 <template>
     <div>
-        <a-modal centered v-model:open="isOpen" :width="800" :footer="null">
-            <div class="flex">
-                <div class="relative flex-1 p-8 dark:bg-[#1d1d1d] rounded-l-md">
-                    <div class="flex items-center justify-center">
+        <a-modal centered v-model:open="isOpen" :width="500" :footer="null" >
+            <div class="flex ">
+                <div
+                    class="relative flex-1 px-[30px] py-[30px] dark:bg-[#1d1d1d] rounded-l-md "
+                >
+                    <div class="flex items-center justify-center ">
                         <img
                             src="~/assets/twitch.png"
-                            class="w-6 h-6"
+                            class="w-11 h-13"
                             alt="Logo"
                         />
-                        <p class="ml-4 text-[24px] font-medium dark:text-white">
-                            Login to Twicth
+                        <p
+                            class="ml-3 text-[#0E0E10] text-[24px] font-special font-serif dark:text-white"
+                        >
+                            Log in to Twicth
                         </p>
                     </div>
                     <img
                         @click="() => (isOpen = false)"
                         src="~/assets/close-white.png"
-                        v-if="colorMode.value === 'dark'"
                         class="cursor-pointer absolute top-5 right-4 w-4 h-4 block sm:hidden"
                     />
-                    <UForm
-                        :state="state"
-                        class="space-y-2 mt-8 flex flex-col justify-center"
-                        @submit="onSubmit"
-                    >
-                        <UFormGroup label="Username" name="email">
-                            <UInput
-                                v-model="state.email"
-                                class="w-full focus:outline-none"
-                                :autofocus="true"
-                            />
-                        </UFormGroup>
 
-                        <UFormGroup
+                    <a-form
+                        :model="state"
+                        @submit="onSubmit"
+                        layout="vertical"
+                        class="space-y-2 flex flex-col justify-center"
+                    >
+                        <a-form-item
+                            label="Username"
+                            name="email"
+                            class="border-slate-50 mb-[7px] my-5 label-bold"
+                        >
+                            <a-input
+                                v-model:value="state.email"
+                                :autofocus="true"
+                                class="h-[28.5px] w-[440px] pb-2 pl-2 custom-input"
+                            />
+                        </a-form-item>
+
+                        <a-form-item
                             label="Password"
                             name="password"
-                            class="relative"
+                            class="relative label-bold"
                         >
-                            <UInput
-                                v-model="state.password"
+                            <a-input
+                                v-model:value="state.password"
                                 :type="showPassword ? 'text' : 'password'"
+                                class="h-[28px] w-[440px] pb-2"
                             />
                             <div
                                 v-if="showPassword"
-                                class="absolute right-2 top-3"
+                                class="absolute right-2 top-[6px]"
                             >
-                                <img
+                                <svgo-popup-eye-close
                                     @click="onTogglePassword"
-                                    v-if="colorMode.value === 'light'"
-                                    src="~/assets/hide.png"
-                                    class="w-3 h-3 cursor-pointer"
-                                />
-                                <img
-                                    @click="onTogglePassword"
-                                    v-else
-                                    src="~/assets/hide-white.png"
-                                    class="w-3 h-3 cursor-pointer"
+                                    class="w-5 h-5 cursor-pointer"
+                                    :fontControlled="false"
                                 />
                             </div>
-                            <div v-else class="absolute right-2 top-3">
-                                <img
+                            <div v-else class="absolute right-2 top-[6px]">
+                                <svgo-popup-eye-open
                                     @click="onTogglePassword"
-                                    v-if="colorMode.value === 'light'"
-                                    src="~/assets/show.png"
-                                    class="w-3 h-3 cursor-pointer"
-                                />
-                                <img
-                                    @click="onTogglePassword"
-                                    v-else
-                                    src="~/assets/show-white.png"
-                                    class="w-3 h-3 cursor-pointer"
+                                    class="w-5 h-5 cursor-pointer"
+                                    :fontControlled="false"
                                 />
                             </div>
-                        </UFormGroup>
+                        </a-form-item>
                         <a
                             href="https://www.twitch.tv/user/account-recovery"
                             target="_blank"
-                            class="text-[12px] text-customPrimary-1 cursor-pointer hover:text-customPrimary-2"
+                            class="text-[13px] text-customPrimary-1 cursor-pointer hover:text-customPrimary-2"
                         >
                             Trouble logging in?
                         </a>
 
                         <div class="flex justify-center">
-                            <UButton
+                            <a-button
                                 :disabled="!state.email || !state.password"
-                                type="submit"
-                                class="mt-2 bg-customPrimary-1 w-full items-center justify-center hover:bg-customPrimary-2 dark:text-white"
+                                type="primary"
+                                class="mt-3 bg-[#9147ff] w-full rounded items-center justify-center hover:bg-[#9147ff] font-semibold dark:text-white disabled:bg-[#ADADB838] disabled:cursor-not-allowed"
                             >
                                 Log in
-                            </UButton>
+                            </a-button>
                         </div>
-                    </UForm>
+                    </a-form>
                     <p
-                        class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
+                        class="text-[#5C16C5] mt-6 h-[30px] text-[14px] text-center font-medium cursor-pointer"
                         @click="onShowRegisterModal"
                     >
                         Don't have an account? Sign up
                     </p>
-                </div>
-                <div
-                    class="rounded-r-md relative hidden sm:flex flex-1 bg-slate-50 rounded-md flex-col items-center justify-center px-10 dark:bg-[#000000] dark:rounded-l-none"
-                >
-                    <img
-                        src="~/assets/notification.png"
-                        class="w-24 h-24 mb-3"
-                    />
-                    <p class="font-medium mb-2 text-[18px] dark:text-white">
-                        Plan ahead for the hype
-                    </p>
-                    <p class="text-center text-[12px] dark:text-slate-300">
-                        Get notified about upcoming streams ahead of time so you
-                        can plan your snacks accordingly 😏
-                    </p>
-                    <img
-                        @click="() => (isOpen = false)"
-                        src="~/assets/close-white.png"
-                        v-if="colorMode.value === 'dark'"
-                        class="cursor-pointer absolute top-4 right-4 w-4 h-4"
-                    />
                 </div>
             </div>
         </a-modal>
@@ -126,8 +101,7 @@
 
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup';
-import type { FormSubmitEvent } from '#ui/types';
-//@ts-ignore
+import type { FormSubmitEvent } from 'ant-design-vue';
 import { v4 as uuidv4 } from 'uuid';
 
 const schema = object({
@@ -151,7 +125,6 @@ const state = reactive({
 const onTogglePassword = () => (showPassword.value = !showPassword.value);
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-    // Do something with event.data
     try {
         localStorage.setItem('token', uuidv4());
         localStorage.setItem('username', state.email);
@@ -165,5 +138,37 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 <style>
 .ant-modal .ant-modal-content {
     padding: 0px !important;
+    border-radius: 4px !important;
+}
+.ant-modal-wrap.ant-modal-centered {
+    background-color: #000000d9 !important;
+}
+.ant-input {
+    border-color: #0e0e10;
+    border-width: 1px !important;
+    border-radius: 4px !important;
+}
+
+.ant-input-affix-wrapper {
+    border-width: 2px !important;
+    border-radius: 4px !important;
+}
+.label-bold .ant-form-item-label > label {
+    font-weight: 600;
+    font-size: 13.5px;
+    font-family: Roobert, Inter, Helvetica Neue, sans-serif;
+}
+.label-bold .ant-form-item-label {
+    padding-bottom: 4px;
+}
+
+.ant-input:hover {
+    border-color: rgba(50, 50, 57, 0.62) !important;
+    border-width: 3px !important;
+}
+
+.ant-input:focus {
+    border-color: #772ce8 !important;
+    box-shadow: 0 0 0 2px #772ce8;
 }
 </style>
