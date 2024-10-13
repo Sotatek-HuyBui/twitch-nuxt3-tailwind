@@ -23,31 +23,36 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const activeKey = ref('overview');
+import { useI18n } from 'vue-i18n';
 
-const tabs = [
+const { t, locale } = useI18n();
+const tabs = computed(() => [
     {
         key: 'overview',
-        label: 'Overview',
+        label: t('Directory.Following.desc1'),
     },
     {
         key: 'live',
-        label: 'Live',
+        label: t('LIVE'),
     },
     {
         key: 'videos',
-        label: 'Videos',
+        label: t('Videos'),
     },
     {
         key: 'categories',
-        label: 'Categories',
+        label: t('Directory.Following.desc3'),
     },
     {
         key: 'channels',
-        label: 'Channels',
+        label: t('Directory.Following.desc4'),
     },
-];
+]);
+const changeLanguage = (newLocale: string) => {
+    locale.value = newLocale;
+};
 </script>
 
 <style scoped>

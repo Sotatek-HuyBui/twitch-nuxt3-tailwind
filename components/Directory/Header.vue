@@ -1,12 +1,12 @@
 <template>
     <div>
         <p
-            class="text-[24px] sm:text-[54px] font-bold capitalize mb-[10px] font-special leading-[65px] text-[#0E0E10] dark:text-[#EFEFF1]"
+            class="text-[24px] sm:text-[54px] font-bold capitalize m-0 font-special"
         >
-            {{ header }}
+            {{ $t('Browse') }}
         </p>
         <p
-            class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special font-semibold leading-[29px]"
+            class="text-[12px] sm:text-[24px] text-[#53535f] dark:text-[#adadb8] mb-4 font-special"
         >
             {{ renderDescription() }}
         </p>
@@ -54,24 +54,28 @@
 </template>
 
 <script setup lang="ts">
-const categories = ref([
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
+const categories = computed(() => [
     {
-        label: 'Games',
+        label: t('Games'),
         path: 'games',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/gaming.svg',
     },
     {
-        label: 'IRL',
+        label: t('IRL'),
         path: 'irl',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/irl.svg',
     },
     {
-        label: 'Music & DJs',
+        label: t('Music & DJs'),
         path: 'music & DJs',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/music.svg',
     },
     {
-        label: 'Creative',
+        label: t('Creative'),
         path: 'creative',
         img: 'https://static-cdn.jtvnw.net/c3-vg/verticals/creative.svg',
     },
@@ -82,12 +86,6 @@ const categories = ref([
     },
 ]);
 
-const route = useRoute();
-const header =
-    route.params.directory === 'all' || !route.params.directory
-        ? 'Browse'
-        : route.params.directory;
-
 const goToDirectoryPath = (path: string) => {
     navigateTo(`/directory/${path.split(' ').join('-')}`);
 };
@@ -97,23 +95,27 @@ const { currentDirectoryPath } = defineProps(['currentDirectoryPath']);
 const renderDescription = () => {
     switch (currentDirectoryPath) {
         case 'games':
-            return 'Live streams of all your favorite games, from shooters to platformers and everything in between!';
+            return t('Directory.Header.desc1');
 
         case 'irl':
-            return 'The home for everything from working out to exploring the world to chatting and beyond!';
+            return t('Directory.Header.desc2');
 
         case 'music-&-DJs':
-            return 'Your favorite DJs, live artist performances, music production, and special events!';
+            return t('Directory.Header.desc3');
 
         case 'creative':
-            return 'A place to share creativity through painting, cooking, programming, and more!';
+            return t('Directory.Header.desc4');
 
         case 'esports':
-            return 'Live tournaments, match highlights, and your favorite pro players all in one place!';
+            return t('Directory.Header.desc5');
 
         default:
             return '';
             break;
     }
+};
+
+const changeLanguage = (newLocale: string) => {
+    locale.value = newLocale;
 };
 </script>

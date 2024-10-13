@@ -8,7 +8,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                For you
+                {{ $t('For you') }}
             </p>
             <a-tooltip v-if="isOpen" title="Collapse" placement="right">
                 <div
@@ -40,7 +40,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                Followed channels
+                {{ $t('Followed channels') }}
             </p>
         </div>
         <div class="flex flex-col" v-if="token">
@@ -75,7 +75,7 @@
                 v-if="isOpen"
                 class="font-medium uppercase text-[13px] text-[#0e0e10] dark:text-white"
             >
-                Recommnded Channels
+                {{ $t('Recommended Channels') }}
             </p>
             <div v-if="!token">
                 <a-tooltip
@@ -135,7 +135,7 @@ onMounted(() => {
     isOpen.value = storedIsOpen === 'true' || false;
 });
 
-const toggleSideBar = () => {    
+const toggleSideBar = () => {
     isOpen.value = !isOpen.value;
     localStorage.setItem('isOpenSideBar', isOpen.value);
     toggleFromParent();

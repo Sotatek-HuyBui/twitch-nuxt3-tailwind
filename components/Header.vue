@@ -25,7 +25,9 @@
                     }"
                     @click="() => navigateTo('/directory/following')"
                 >
-                    <span class="hidden sm:inline text-[18px]">Following</span>
+                    <span class="hidden sm:inline text-[18px]">{{
+                        $t('Following')
+                    }}</span>
                     <UTooltip text="Following">
                         <img
                             src="~/assets/heart.png"
@@ -52,7 +54,9 @@
                             $route.params.directory !== 'following',
                     }"
                 >
-                    <span class="hidden sm:inline xl:text-[18px]">Browse</span>
+                    <span class="hidden sm:inline xl:text-[18px]">{{
+                        $t('Browse')
+                    }}</span>
                 </p>
             </div>
             <UTooltip text="Directory">
@@ -123,7 +127,7 @@
                 <svgo-header-low-battery
                     class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer mr-2 sm:mr-3"
                 />
-                Go Ad-Free for Free
+                {{ $t('Go Ad-Free for Free') }}
             </button>
             <button
                 v-if="!token"
@@ -131,7 +135,7 @@
                 @click="onShowLoginModal"
                 class="py-1 w-[40px] sm:w-[60px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium focus:outline-none bg-[#EDEDEF] rounded-md hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
-                Log In
+                {{ $t('Log in') }}
             </button>
             <button
                 v-if="!token"
@@ -139,27 +143,82 @@
                 @click="onShowRegisterModal"
                 class="py-1 w-[40px] sm:w-[70px] me-1 sm:me-2 text-[5px] sm:text-[13px] font-medium text-white focus:outline-none bg-customPrimary-1 rounded-md border border-gray-200 hover:bg-customPrimary-2 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 dark:hover:text-white dark:hover:bg-customPrimary-2"
             >
-                Sign Up
+                {{ $t('Sign up') }}
             </button>
+
             <UDropdown
-                :items="configItems"
-                :popper="{ placement: 'bottom-start' }"
+                v-model:open="isOpenMenu"
+                :items="isOpenSubmenuLang ? submenuLang : configItems"
+                :ui="{
+                    padding: `${
+                        isOpenSubmenuLang
+                            ? '[&:nth-child(2)]:p-2 p-[0rem]'
+                            : '[&:nth-child(2)]:p-2'
+                    }`,
+                    // rounded: `${
+                    //     isOpenSubmenuLang ? 'rounded-none' : 'rounded-nơne'
+                    // }`,
+                }"
             >
                 <template #item="{ item }">
-                    <component
-                        :is="item.icon"
-                        class="w-2 sm:w-5 sm:h-5 cursor-pointer"
-                        :fontControlled="false"
-                        v-if="item.icon !== 'avatar'"
-                    />
-                    <img
-                        v-else
-                        src="https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer object-cover rounded-full"
-                        alt="Logo"
-                    />
-                    <span class="truncate">{{ item.label }}</span>
+                    <div class="flex items-center w-full h-full">
+                        <component
+                            :is="item.icon"
+                            class="fill-red w-2 sm:w-5 sm:h-5 cursor-pointer"
+                            :fontControlled="false"
+                            v-if="item.icon && item.icon !== 'avatar'"
+                        />
+
+                        <component
+                            :is="item.addIcon2"
+                            class="fill-red w-2 sm:w-3 sm:h-3 cursor-pointer text-black"
+                            :fontControlled="false"
+                            v-if="item.addIcon2 && item.addIcon2 !== 'avatar'"
+                        />
+
+                        <span class="truncate ml-2">{{ item.label }}</span>
+
+                        <component
+                            :is="item.addIcon"
+                            class="ml-12 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer justify-end"
+                            :fontControlled="false"
+                            v-if="item.addIcon && item.addIcon !== 'avatar'"
+                        />
+
+                        <component
+                            :is="item.iconCheck"
+                            class="ml-12 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer text-white"
+                            :fontControlled="false"
+                            v-if="item.iconCheck && item.iconCheck !== 'avatar'"
+                        />
+
+                        <component
+                            :is="item.iconCheck2"
+                            class="ml-20 sm:h-4 mt-0.5 cursor-pointer text-white"
+                            :fontControlled="false"
+                            v-if="
+                                item.iconCheck2 && item.iconCheck2 !== 'avatar'
+                            "
+                        />
+
+                        <!-- <span :class="'ml-2'">{{ item.label1 }}</span> -->
+                        <!-- Hiển thị label với class thay đổi khi active -->
+                        <!-- <span
+                            :class="[
+                                {
+                                    'bg-red-500': activeLabel === item.label2,
+                                },
+                            ]"
+                        >
+                            {{ item.label2 }}
+                        </span> -->
+
+                        <!-- <img v-else
+                            src="https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer object-cover rounded-full" alt="Logo" /> -->
+                    </div>
                 </template>
+
                 <div v-if="!token">
                     <svgo-header-user-profile />
                 </div>
@@ -174,7 +233,8 @@
     </div>
 </template>
 <script setup lang="ts">
-import { setLocale } from 'yup';
+import { icons } from 'ant-design-vue/es/image/PreviewGroup';
+// import { setLocale } from 'yup';
 
 //@ts-ignore
 const { onShowLoginModal, onShowRegisterModal } = defineProps([
@@ -187,7 +247,31 @@ const token = $locally.getItem('token');
 const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
-const { locale, locales } = useI18n();
+
+const { t, locale, locales, setLocale } = useI18n();
+
+const activeLabel = ref('');
+
+onMounted(() => {
+    handleActiveSubmenu(String(locale.value));
+});
+
+watch(locale, (val) => {
+    handleActiveSubmenu(val);
+});
+
+const handleActiveSubmenu = (lang: string) => {
+    if (lang === 'en') {
+        activeLabel.value = t('Header.desc11');
+        return;
+    }
+    activeLabel.value = t('Header.desc12');
+};
+
+const router = useRouter();
+const onToggleLanguage = () => {
+    locale.value === 'en' ? setLocale('vi') : setLocale('en');
+};
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -199,34 +283,34 @@ const onClickSearchButton = () => {
     isShowMobileSearchBar.value = !isShowMobileSearchBar.value;
 };
 
-const generalItems = [
+const generalItems = computed(() => [
     [
         {
-            label: 'About',
+            label: t('Header.desc1'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Advertisers',
+            label: t('Header.desc2'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Blogs',
+            label: t('Header.desc3'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Developers',
+            label: t('Header.desc4'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
         {
-            label: 'Download Apps',
+            label: t('Header.desc5'),
             click: () => {
                 message.info('Function is in progress!');
             },
@@ -234,19 +318,22 @@ const generalItems = [
     ],
     [
         {
-            label: 'Accessibility Statement',
+            label: t('Header.desc6'),
             click: () => {
                 console.log('Edit');
             },
         },
         {
-            label: 'Ad Choices',
+            label: t('Header.desc7'),
             click: () => {
                 message.info('Function is in progress!');
             },
         },
     ],
-];
+]);
+
+const isOpenMenu = ref(false);
+const isOpenSubmenuLang = ref(false);
 
 let configItems = computed(() => {
     return token
@@ -262,35 +349,35 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Channel',
+                      label: t('Header.desc18'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-channel',
                   },
                   {
-                      label: 'Video Producer',
+                      label: t('Header.desc19'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-video-producer',
                   },
                   {
-                      label: 'Creator Dashboard',
+                      label: t('Header.desc20'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-creator-dashboard',
                   },
                   {
-                      label: 'Privacy Center',
+                      label: t('Header.desc21'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-privacy-center',
                   },
                   {
-                      label: 'Safety',
+                      label: t('Header.desc22'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -299,7 +386,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Emote Atrribution',
+                      label: t('Header.desc23'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
@@ -308,21 +395,21 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Subscriptions',
+                      label: t('Header.desc24'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-subscriptions',
                   },
                   {
-                      label: 'Drops & Rewards',
+                      label: t('Header.desc25'),
                       icon: 'svgo-header-menu-drop-rewards',
                       click: () => {
                           message.info('Function is in progress!');
                       },
                   },
                   {
-                      label: 'Wallet',
+                      label: t('Header.desc26'),
                       icon: 'svgo-header-menu-wallet',
                       click: () => {
                           message.info('Function is in progress!');
@@ -331,14 +418,14 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Settings',
+                      label: t('Header.desc27'),
                       click: () => {
                           message.info('Function is in progress!');
                       },
                       icon: 'svgo-header-menu-setting',
                   },
                   {
-                      label: 'Content Tuning',
+                      label: t('Header.desc28'),
                       icon: 'svgo-header-menu-content-tuning',
 
                       click: () => {
@@ -346,17 +433,22 @@ let configItems = computed(() => {
                       },
                   },
                   {
-                      label: 'Language',
+                      label: t('Language'),
                       click: () => {
-                          message.info('Function is in progress!');
+                          isOpenSubmenuLang.value = true;
+                          nextTick(() => {
+                              isOpenMenu.value = true;
+                          });
                       },
+                      locked: true,
                       icon: 'svgo-header-menu-language',
+                      addIcon: 'svgo-header-menu-angle-right-solid',
                   },
                   {
                       label:
                           colorMode.value === 'light'
-                              ? 'Dark Theme'
-                              : 'Light Theme',
+                              ? t('Header.desc13')
+                              : t('Header.desc14'),
                       click: () => {
                           onToggleMode();
                       },
@@ -365,7 +457,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Log out',
+                      label: t('Header.desc16'),
                       click: () => {
                           $locally.removeItem('token');
                           $locally.removeItem('username');
@@ -378,25 +470,22 @@ let configItems = computed(() => {
         : [
               [
                   {
-                      label: `Language - ${
-                          locale.value === 'en' ? 'English' : 'Vietnamese'
-                      }`,
+                      label: t('Language'),
                       click: () => {
-                          if (locale.value === 'en') {
-                              setLocale('vi');
-                          } else {
-                              console.log(111);
-                              setLocale('en');
-                              console.log(locale);
-                          }
+                          isOpenSubmenuLang.value = true;
+                          nextTick(() => {
+                              isOpenMenu.value = true;
+                          });
                       },
+                      locked: true,
                       icon: 'svgo-header-menu-language',
+                      addIcon: 'svgo-header-menu-angle-right-solid',
                   },
                   {
                       label:
                           colorMode.value === 'light'
-                              ? 'Dark Theme'
-                              : 'Light Theme',
+                              ? t('Header.desc13')
+                              : t('Header.desc14'),
                       click: () => {
                           onToggleMode();
                       },
@@ -404,7 +493,7 @@ let configItems = computed(() => {
                   },
 
                   {
-                      label: 'Labeled Content',
+                      label: t('Header.desc15'),
                       icon: 'svgo-header-menu-labeled-content',
                       click: () => {
                           message.info('Function is in progress!');
@@ -413,7 +502,7 @@ let configItems = computed(() => {
               ],
               [
                   {
-                      label: 'Log in',
+                      label: t('Header.desc17'),
                       click: () => {
                           onShowLoginModal();
                       },
@@ -422,5 +511,57 @@ let configItems = computed(() => {
               ],
           ];
 });
+
+let submenuLang = computed(() => [
+    [
+        {
+            label: t('Language'),
+            click: () => {
+                isOpenSubmenuLang.value = false;
+                nextTick(() => {
+                    isOpenMenu.value = true;
+                });
+            },
+            addIcon2: 'svgo-header-menu-angle-left-solid',
+            class: 'bg-[#efeff1] rounded-none text-red',
+        },
+    ],
+    [
+        {
+            label: t('Header.desc12'),
+            click: () => {
+                activeLabel.value = t('Header.desc12');
+                isOpenSubmenuLang.value = false;
+                onToggleLanguage();
+            },
+            class: `${
+                activeLabel.value === t('Header.desc12')
+                    ? 'bg-[#9147ff] '
+                    : 'bg-white'
+            }`,
+            iconCheck:
+                activeLabel.value === t('Header.desc12')
+                    ? 'svgo-header-menu-check-solid'
+                    : null,
+        },
+        {
+            label: t('Header.desc11'),
+            click: () => {
+                activeLabel.value = t('Header.desc11');
+                isOpenSubmenuLang.value = false;
+                onToggleLanguage();
+            },
+            class: `${
+                activeLabel.value === t('Header.desc11')
+                    ? 'bg-[#9147ff] text-red'
+                    : 'bg-white'
+            }`,
+            iconCheck2:
+                activeLabel.value === t('Header.desc11')
+                    ? 'svgo-header-menu-check-solid'
+                    : null,
+        },
+    ],
+]);
 </script>
 <style></style>

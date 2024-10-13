@@ -4,9 +4,9 @@
             <a
                 href="/directory"
                 class="text-customPrimary-2 hover:underline dark:text-customPrimary-0"
-                >Categories</a
+                >{{ $t('Home.SuggestedCategories.desc1') }}</a
             >
-            we think you'll like
+            {{ $t('Home.SuggestedCategories.desc2') }}
         </p>
         <div
             class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-10 2xl:grid-cols-12 gap-1 sm:gap-2"

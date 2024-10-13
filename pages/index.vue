@@ -4,12 +4,15 @@
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
         <HomeSuggestedChannels
+            :key="`HomeSuggestedChannels-${forceRenderlocale}`"
             :data="dummySuggestedForniteChannels"
-            title="Recommended Fornite Channels"
+            :title="$t('Pages.desc1')"
         />
         <HomeSuggestedChannels
+            :key="`HomeSuggestedChannels222-${forceRenderlocale}`"
             :data="dummySuggestedMinecraftChannels"
-            title="Recommended MineCraft Channels"
+            :title="$t('Pages.desc2')"
+        />
         />
     </div>
 </template>

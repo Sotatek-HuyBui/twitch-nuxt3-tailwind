@@ -19,7 +19,7 @@
             {{ item.name }}
         </p>
         <p class="text-gray-400 text-[6px] sm:text-[12px]">
-            {{ item.viewers }}K viewers
+            {{ item.viewers }}K {{ $t('Viewers') }}
         </p>
         <div class="flex items-center mt-2">
             <Tag v-for="tag in item.tag" :key="tag.id" :item="tag" />

@@ -1,3 +1,167 @@
 {
-    "browse" : "Browse"
+    "Browse": "Browse",
+    "Following": "Following",
+    "Log In": "Log In",
+    "Sign Up": "Sign Up",
+    "Login to Twicth": "Login to Twicth",
+    "Go Ad-Free for Free": "Go Ad-Free for Free",
+    "IRL": "IRL",
+    "Music & DJs": "Music & DJs",
+    "Creative": "Creative",
+    "Categories": "Categories",
+    "Recommended Channels": "Recomemnded Channels",
+    "For you": "For you",
+    " Followed channels": " Followed channels",
+    "Live channels": "Live channels",
+    "LIVE": "LIVE",
+    "Viewers": "Viewers",
+    "viewers": "viewers",
+    "Show more": "Show more",
+    "Games": "Games",
+    "Language": "Language",
+    "Videos": "Videos",
+    "Home": {
+        "Slider": {
+            "desc1": "viewers"
+        },
+        "SuggestedChannels": {
+            "desc1": "Live channels",
+            "desc2": "we think you'll like"
+        },
+        "SuggestedCategories": {
+            "desc1": "Categories",
+            "desc2": "we think you'll like"
+        }
+    },
+    "Directory": {
+        "Following": {
+            "desc1": "Overview",
+            "desc2": "Follow",
+            "desc3": "Categories",
+            "desc4": "Channels",
+            "desc5": "Enjoying a channel? Follow it!",
+            "desc6": "Get Notified",
+            "desc7": "We'll let you know when it goes live.",
+            "desc8": "Watch",
+            "desc9": "Come back and catch the live action.",
+            "desc10": "Latest videos",
+            "desc11": "No recent videos from your followed channels",
+            "desc12": "You can now follow your favorite games!",
+            "desc13": " Find Out More!"
+        },
+        "Tab": {
+            "desc1": "Recommended For You",
+            "desc2": "Viewers (High to Low)",
+            "desc3": "Viewers (Low to High)",
+            "desc4": "Recently Started"
+        },
+        "Header": {
+            "desc1": "Live streams of all your favorite games, from shooters to platformers and everything in between!",
+            "desc2": "The home for everything from working out to exploring the world to chatting and beyond!",
+            "desc3": "Your favorite DJs, live artist performances, music production, and special events!",
+            "desc4": "A place to share creativity through painting, cooking, programming, and more!",
+            "desc5": "Live tournaments, match highlights, and your favorite pro players all in one place!"
+        },
+        "Game": {
+            "desc1": "Recommended Games",
+            "desc2": "Team FPS & Battle Royales"
+        },
+        "IRL": {
+            "desc1": " Recommended IRL Categories",
+            "desc2": "Just Chatting",
+            "desc3": "Sports"
+        },
+        "Creative": {
+            "desc1": "Recommended Creative Categories",
+            "desc2": "Art",
+            "desc3": "Markers and Crafting",
+            "desc4": "Software and Game Developments"
+        },
+        "Esports": {
+            "desc1": "Pro Players"
+        }
+    },
+    "LoginModal": {
+        "desc1": "Trouble logging in?",
+        "desc2": "Don't have an account? Sign up",
+        "desc3": "Plan ahead for the hype",
+        "desc4": "Get notified about upcoming streams ahead of time so you\ncan plan your snacks accordingly 😏",
+        "desc5": "Username",
+        "desc6": "Password",
+        "desc7": " Log in to Twicth"
+    },
+    "RegisterModal": {
+        "desc1": " Join Twicth today",
+        "desc2": "Sign up",
+        "desc3": "Have an account? Log in",
+        "desc4": "Plan ahead for the hype",
+        "desc5": "Get notified about upcoming streams ahead of time so you\ncan plan your snacks accordingly 😏",
+        "desc6": "Username",
+        "desc7": "Password",
+        "desc8": "Date of birth",
+        "desc9": "Email",
+        "desc10": "Day",
+        "desc11": "Year",
+        "desc12": "January",
+        "desc13": "February",
+        "desc14": "March",
+        "desc15": "April",
+        "desc16": "May",
+        "desc17": "June",
+        "desc18": "July",
+        "desc19": "August",
+        "desc20": "September",
+        "desc21": "October",
+        "desc22": "November",
+        "desc23": "December",
+        "desc24": "Month",
+        "desc25": "Phone number",
+        "desc26": "Use email instead",
+        "desc27": "Twitch may use your phone number to call or send\ntext messages with information regarding your\naccount.",
+        "desc28": " By clicking Sign Up, you are agreeing to Twitch's",
+        "desc29": "Terms of Service",
+        "desc30": " and are acknowledging our",
+        "desc31": "Privacy Notice",
+        "desc32": " applies.",
+        "desc33": "Use phone number instead",
+        "desc34": "This is the name people will know you by on\nTwitch. You can always change it later."
+    },
+    "SignUpBanner": {
+        "desc1": "Join the Twitch community!",
+        "desc2": "Discover the best live streams anywhere."
+    },
+    "Header": {
+        "desc1": "About",
+        "desc2": "Advertisers",
+        "desc3": "Blogs",
+        "desc4": "Developers",
+        "desc5": "Download Apps",
+        "desc6": "Accessibility Statement",
+        "desc7": "Ad Choices",
+        "desc8": "Video Producer",
+        "desc9": "Creator Dashboard",
+        "desc10": "Language",
+        "desc11": "English",
+        "desc12": "Vietnamese",
+        "desc13": "Dark Theme",
+        "desc14": "Light Theme",
+        "desc15": "Labeled Content",
+        "desc16": "Log out",
+        "desc17": "Log in",
+        "desc18": "Channel ",
+        "desc19": " Video Producer",
+        "desc20": "Creator Dashboard ",
+        "desc21": "Privacy Center ",
+        "desc22": "Safety ",
+        "desc23": "Emote Atrribution ",
+        "desc24": "Subscriptions ",
+        "desc25": "Drops & Rewards ",
+        "desc26": "Wallet ",
+        "desc27": " Settings",
+        "desc28": "Content Tuning "
+    },
+    "Pages": {
+        "desc1": "Recommended Fornite Channels",
+        "desc2": "Recommended MineCraft Channels"
+    }
 }
