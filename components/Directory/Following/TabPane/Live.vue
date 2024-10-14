@@ -49,7 +49,5 @@ const items = computed(() => [
         description: t('Directory.Following.desc9'),
     },
 ]);
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
+
 </script>

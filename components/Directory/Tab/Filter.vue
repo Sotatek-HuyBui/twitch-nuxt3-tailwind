@@ -78,10 +78,6 @@ const options = computed(() => [
     },
 ]);
 
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
-
 const selectedLanguage = ref();
 const selectedOption = ref(1);
 const search = ref('');

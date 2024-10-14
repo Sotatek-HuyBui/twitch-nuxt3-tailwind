@@ -312,10 +312,6 @@ const colorMode = useColorMode();
 
 const onTogglePassword = () => (showPassword.value = !showPassword.value);
 
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
-
 const state = reactive({
     username: '',
     password: '',

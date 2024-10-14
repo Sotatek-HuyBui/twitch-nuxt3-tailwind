@@ -114,8 +114,4 @@ const renderDescription = () => {
             break;
     }
 };
-
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
 </script>

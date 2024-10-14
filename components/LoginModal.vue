@@ -110,10 +110,6 @@ import type { FormSubmitEvent } from 'ant-design-vue';
 import { v4 as uuidv4 } from 'uuid';
 const { t, locale, locales, setLocale } = useI18n();
 
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
-
 const schema = object({
     email: string().email('Invalid email').required('Required'),
     password: string()

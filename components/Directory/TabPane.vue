@@ -62,10 +62,6 @@ const tabs = computed(() => [
     },
 ]);
 
-const changeLanguage = (newLocale) => {
-    locale.value = newLocale;
-};
-
 const onClickTab = (item) => {
     if (item.key === '2') {
         navigateTo('/directory/all');

@@ -50,9 +50,7 @@ const tabs = computed(() => [
         label: t('Directory.Following.desc4'),
     },
 ]);
-const changeLanguage = (newLocale: string) => {
-    locale.value = newLocale;
-};
+
 </script>
 
 <style scoped>

@@ -150,15 +150,12 @@
                 v-model:open="isOpenMenu"
                 :items="isOpenSubmenuLang ? submenuLang : configItems"
                 :ui="{
-                    padding: `${
-                        isOpenSubmenuLang
-                            ? '[&:nth-child(2)]:p-2 p-[0rem]'
-                            : '[&:nth-child(2)]:p-2'
-                    }`,
-                    // rounded: `${
-                    //     isOpenSubmenuLang ? 'rounded-none' : 'rounded-nơne'
-                    // }`,
-                }"
+            padding: `${
+                isOpenSubmenuLang
+                    ? '[&:nth-child(2)]:p-2 p-[0rem]'
+                    : '[&:nth-child(2)]:p-2'
+            }`
+        }"
             >
                 <template #item="{ item }">
                     <div class="flex items-center w-full h-full">
@@ -171,23 +168,24 @@
 
                         <component
                             :is="item.addIcon2"
-                            class="fill-red w-2 sm:w-3 sm:h-3 cursor-pointer text-black"
+                            class=" w-2 sm:w-3 sm:h-3 cursor-pointer text-black"
                             :fontControlled="false"
                             v-if="item.addIcon2 && item.addIcon2 !== 'avatar'"
                         />
 
-                        <span class="truncate ml-2">{{ item.label }}</span>
+                 
+                        <span class="truncate ml-2"> {{ item.label }}</span>
 
                         <component
                             :is="item.addIcon"
-                            class="ml-12 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer justify-end"
+                            class="ml-14 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer justify-end"
                             :fontControlled="false"
                             v-if="item.addIcon && item.addIcon !== 'avatar'"
                         />
 
                         <component
                             :is="item.iconCheck"
-                            class="ml-12 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer text-white"
+                            class="ml-16 w-1 sm:w-4 sm:h-4 mt-0.5 cursor-pointer text-white"
                             :fontControlled="false"
                             v-if="item.iconCheck && item.iconCheck !== 'avatar'"
                         />
@@ -200,6 +198,8 @@
                                 item.iconCheck2 && item.iconCheck2 !== 'avatar'
                             "
                         />
+
+                        
 
                         <!-- <span :class="'ml-2'">{{ item.label1 }}</span> -->
                         <!-- Hiển thị label với class thay đổi khi active -->
@@ -443,6 +443,7 @@ let configItems = computed(() => {
                       locked: true,
                       icon: 'svgo-header-menu-language',
                       addIcon: 'svgo-header-menu-angle-right-solid',
+                    
                   },
                   {
                       label:
@@ -523,7 +524,7 @@ let submenuLang = computed(() => [
                 });
             },
             addIcon2: 'svgo-header-menu-angle-left-solid',
-            class: 'bg-[#efeff1] rounded-none text-red',
+            class: 'bg-[#efeff1] rounded-none font-bold',
         },
     ],
     [
@@ -536,13 +537,14 @@ let submenuLang = computed(() => [
             },
             class: `${
                 activeLabel.value === t('Header.desc12')
-                    ? 'bg-[#9147ff] '
-                    : 'bg-white'
+                    ? 'bg-[#9147ff] text-white'
+                    : null
             }`,
             iconCheck:
                 activeLabel.value === t('Header.desc12')
                     ? 'svgo-header-menu-check-solid'
                     : null,
+
         },
         {
             label: t('Header.desc11'),
@@ -553,8 +555,8 @@ let submenuLang = computed(() => [
             },
             class: `${
                 activeLabel.value === t('Header.desc11')
-                    ? 'bg-[#9147ff] text-red'
-                    : 'bg-white'
+                    ? 'bg-[#9147ff] text-white'
+                    : null
             }`,
             iconCheck2:
                 activeLabel.value === t('Header.desc11')
