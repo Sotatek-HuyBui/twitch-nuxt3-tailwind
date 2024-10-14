@@ -1,7 +1,7 @@
 <template>
     <div>
         <DirectorySectionLive
-            :key="`DirectorySectionLive-${forceRenderlocale}`"
+            :key="`DirectorySectionLive-${locale}`"
             :header="$t('Directory.Esports.desc1')"
             :items="lives"
             :directorySection="directorySection"
@@ -22,12 +22,10 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
-const forceRenderlocale = ref(0);
 watch(
     () => locale.value,
     (newLocale, oldLocale) => {
-        console.log(`Ngôn ngữ đã thay đổi từ ${oldLocale} thành ${newLocale}`);
-        forceRenderlocale.value += 1;
+        locale.value += 1;
     }
 );
 </script>

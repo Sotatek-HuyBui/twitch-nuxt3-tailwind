@@ -1,12 +1,12 @@
 <template>
     <div>
         <DirectorySectionRecommendations
-            :key="`DirectorySectionRecommendations-${forceRenderlocale}`"
+            :key="`DirectorySectionRecommendations-${locale}`"
             :header="$t('Directory.Game.desc1')"
             :items="categories"
         />
         <DirectorySectionLive
-            :key="`DirectorySectionLive-${forceRenderlocale}`"
+            :key="`DirectorySectionLive-${locale}`"
             :header="$t('Directory.Game.desc2')"
             :items="lives"
         />
@@ -22,8 +22,6 @@ const categories = ref(dummyCategories);
 const lives = ref(dummySuggestedChannels);
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
-
-const forceRenderlocale = ref(0);
 
 watch(() => locale.value);
 </script>

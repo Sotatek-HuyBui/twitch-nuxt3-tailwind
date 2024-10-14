@@ -1,24 +1,24 @@
 <template>
     <div>
         <DirectorySectionRecommendations
-            :key="`DirectorySectionRecommendations-${forceRenderlocale}`"
+            :key="`DirectorySectionRecommendations-${locale}`"
             :header="$t('Directory.IRL.desc1')"
             :items="categories"
         />
         <DirectorySectionLive
-            :key="`DirectorySectionLive-${forceRenderlocale}`"
+            :key="`DirectorySectionLive-${locale}`"
             :header="$t('Directory.IRL.desc2')"
             :items="lives"
             :directorySection="directorySection"
         />
         <DirectorySectionLive
-            :key="`DirectorySectionLive-${forceRenderlocale}`"
+            :key="`DirectorySectionLive-${locale}`"
             header="ASMR"
             :items="lives"
             :directorySection="directorySection"
         />
         <DirectorySectionLive
-            :key="`DirectorySectionLive-${forceRenderlocale}`"
+            :key="`DirectorySectionLive-${locale}`"
             :header="$t('Directory.IRL.desc3')"
             :items="lives"
             :directorySection="directorySection"
@@ -34,6 +34,5 @@ const lives = ref(dummySuggestedChannels);
 const directorySection = defineProps(['directorySection']);
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
-const forceRenderlocale = ref(0);
 watch(() => locale.value);
 </script>

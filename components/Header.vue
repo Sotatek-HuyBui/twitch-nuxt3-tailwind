@@ -150,12 +150,19 @@
                 v-model:open="isOpenMenu"
                 :items="isOpenSubmenuLang ? submenuLang : configItems"
                 :ui="{
-            padding: `${
-                isOpenSubmenuLang
-                    ? '[&:nth-child(2)]:p-2 p-[0rem]'
-                    : '[&:nth-child(2)]:p-2'
-            }`
+                    padding: `${
+                        isOpenSubmenuLang
+                            ? '[&:nth-child(2)]:p-2 p-[0rem]'
+                            : '[&:nth-child(2)]:p-2'
+                    }`,
+                    justifyContent: `${
+                        isOpenSubmenuLang
+                            ? '[&:nth-child(3)]:items-center'
+                            : '[&:nth-child(2)]:'
+                    }`
+                   
         }"
+ 
             >
                 <template #item="{ item }">
                     <div class="flex items-center w-full h-full">
@@ -198,26 +205,36 @@
                                 item.iconCheck2 && item.iconCheck2 !== 'avatar'
                             "
                         />
-
-                        
-
-                        <!-- <span :class="'ml-2'">{{ item.label1 }}</span> -->
-                        <!-- Hiển thị label với class thay đổi khi active -->
-                        <!-- <span
-                            :class="[
-                                {
-                                    'bg-red-500': activeLabel === item.label2,
-                                },
-                            ]"
-                        >
-                            {{ item.label2 }}
-                        </span> -->
-
-                        <!-- <img v-else
-                            src="https://images.pexels.com/photos/27603834/pexels-photo-27603834/free-photo-of-ao-dai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            class="w-3 h-3 sm:w-6 sm:h-6 cursor-pointer object-cover rounded-full" alt="Logo" /> -->
                     </div>
+                    <transition 
+                enter-active-class="transition ease-out duration-200 transform"
+                enter-class="transform opacity-0 translate-x-[-100%]" 
+                enter-to-class="transform opacity-100 translate-x-0"
+                leave-active-class="transition ease-in duration-200 transform"
+                leave-class="transform opacity-100 translate-x-0"
+                leave-to-class="transform opacity-0 translate-x-[-100%]"
+            >
+                <div v-if="isOpenSubmenuLang" class="submenu-content">
+                </div>
+            </transition>
                 </template>
+
+                <!-- <transition 
+                enter-active-class="transition ease-out duration-200 transform"
+                enter-class="transform opacity-0 translate-x-[-100%]" 
+                enter-to-class="transform opacity-100 translate-x-0"
+                leave-active-class="transition ease-in duration-200 transform"
+                leave-class="transform opacity-100 translate-x-0"
+                leave-to-class="transform opacity-0 translate-x-[-100%]"
+            >
+                <div v-if="isOpenSubmenuLang" class="submenu-content">
+                    <ul>
+                        <li v-for="(item, index) in submenuLang" :key="index">
+                            {{ item.label }}
+                        </li>
+                    </ul>
+                </div>
+            </transition> -->
 
                 <div v-if="!token">
                     <svgo-header-user-profile />
@@ -524,7 +541,7 @@ let submenuLang = computed(() => [
                 });
             },
             addIcon2: 'svgo-header-menu-angle-left-solid',
-            class: 'bg-[#efeff1] rounded-none font-bold',
+            class: 'bg-[#efeff1] rounded-none text-black font-[600] item-between',
         },
     ],
     [

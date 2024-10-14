@@ -4,12 +4,12 @@
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
         <HomeSuggestedChannels
-            :key="`HomeSuggestedChannels-${forceRenderlocale}`"
+            :key="`HomeSuggestedChannels-${locale}`"
             :data="dummySuggestedForniteChannels"
             :title="$t('Pages.desc1')"
         />
         <HomeSuggestedChannels
-            :key="`HomeSuggestedChannels222-${forceRenderlocale}`"
+            :key="`HomeSuggestedChannels222-${locale}`"
             :data="dummySuggestedMinecraftChannels"
             :title="$t('Pages.desc2')"
         />
@@ -32,4 +32,5 @@ import {
 useHead({
     title: 'Twitch',
 });
+
 </script>
