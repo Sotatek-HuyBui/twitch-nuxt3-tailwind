@@ -150,17 +150,11 @@
                 v-model:open="isOpenMenu"
                 :items="isOpenSubmenuLang ? submenuLang : configItems"
                 :ui="{
-                    padding: `${
-                        isOpenSubmenuLang
-                            ? '[&:nth-child(2)]:p-2 p-[0rem]'
-                            : '[&:nth-child(2)]:p-2'
-                    }`,
-                    justifyContent: `${
-                        isOpenSubmenuLang
-                            ? '[&:nth-child(3)]:items-center'
-                            : '[&:nth-child(2)]:'
-                    }`
-                   
+            padding: `${
+                isOpenSubmenuLang
+                    ? '[&:nth-child(2)]:p-2 p-[0rem]'
+                    : '[&:nth-child(2)]:p-2'
+            }`
         }"
  
             >
@@ -264,8 +258,7 @@ const token = $locally.getItem('token');
 const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
-
-const { t, locale, locales, setLocale } = useI18n();
+const { t, locale, setLocale } = useI18n();
 
 const activeLabel = ref('');
 
@@ -286,9 +279,12 @@ const handleActiveSubmenu = (lang: string) => {
 };
 
 const router = useRouter();
-const onToggleLanguage = () => {
-    locale.value === 'en' ? setLocale('vi') : setLocale('en');
+
+const onToggleLanguage = (lang: string) => {
+    setLocale(lang);  
+    locale.value = lang; 
 };
+
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -550,7 +546,7 @@ let submenuLang = computed(() => [
             click: () => {
                 activeLabel.value = t('Header.desc12');
                 isOpenSubmenuLang.value = false;
-                onToggleLanguage();
+                onToggleLanguage('vi');
             },
             class: `${
                 activeLabel.value === t('Header.desc12')
@@ -568,7 +564,7 @@ let submenuLang = computed(() => [
             click: () => {
                 activeLabel.value = t('Header.desc11');
                 isOpenSubmenuLang.value = false;
-                onToggleLanguage();
+                onToggleLanguage('en');
             },
             class: `${
                 activeLabel.value === t('Header.desc11')

@@ -22,6 +22,4 @@ const categories = ref(dummyCategories);
 const lives = ref(dummySuggestedChannels);
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
-
-watch(() => locale.value);
 </script>

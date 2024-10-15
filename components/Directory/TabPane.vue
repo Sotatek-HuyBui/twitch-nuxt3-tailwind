@@ -48,7 +48,7 @@ const categories = ref(dummyCategories);
 const channels = ref(dummySuggestedChannels);
 import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n();
+const { t } = useI18n();
 console.log(route.params);
 
 const tabs = computed(() => [

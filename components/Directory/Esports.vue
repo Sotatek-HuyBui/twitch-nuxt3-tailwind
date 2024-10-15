@@ -22,10 +22,4 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
-watch(
-    () => locale.value,
-    (newLocale, oldLocale) => {
-        locale.value += 1;
-    }
-);
 </script>
