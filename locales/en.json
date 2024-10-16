@@ -14,15 +14,15 @@
     " Followed channels": " Followed channels",
     "Live channels": "Live channels",
     "LIVE": "LIVE",
-    "Viewers": "Viewers",
-    "viewers": "viewers",
+    "Viewer": "{count} Viewer | {count} Viewers",
+    "viewer": "{count} viewer | {count} viewers",
     "Show more": "Show more",
     "Games": "Games",
     "Language": "Language",
     "Videos": "Videos",
     "Home": {
         "Slider": {
-            "desc1": "viewers"
+            "desc1": "{count} viewer | {count} viewers"
         },
         "SuggestedChannels": {
             "desc1": "Live channels",

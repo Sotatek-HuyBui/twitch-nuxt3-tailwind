@@ -19,7 +19,7 @@
             {{ item.name }}
         </p>
         <p class="text-gray-400 text-[6px] sm:text-[12px]">
-            {{ item.viewers }}K {{ $t('Viewers') }}
+            {{ $t('Viewer',  {count:reformatNumber(item.viewers)}, (item.viewers) ) }}
         </p>
         <div class="flex items-center mt-2">
             <Tag v-for="tag in item.tag" :key="tag.id" :item="tag" />
@@ -29,6 +29,14 @@
 
 <script setup lang="ts">
 const props = defineProps(['item']);
+
+function reformatNumber(number: number): string {
+  if (number >= 1000) {
+    return parseFloat((number / 1000).toFixed(1)).toString() + 'K'; 
+  }
+  return number.toString(); 
+}
+
 </script>
 
 <style scoped>

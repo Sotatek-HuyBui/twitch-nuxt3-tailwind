@@ -14,15 +14,15 @@
     "Followed channels": " Các kênh đã theo dõi",
     "Live channels": "Kênh trực tiếp",
     "LIVE": "TRỰC TIẾP",
-    "Viewers": "Người xem",
-    "viewers": "người xem",
+    "Viewer": "{count} Người xem | {count} Người xem",
+    "viewer": "{count} người xem  | {count} người xem",
     "Show more": "Hiển thị thêm",
     "Games": "Các trò chơi",
     "Language": "Ngôn ngữ",
     "Videos": "Các video",
     "Home": {
         "Slider": {
-            "desc1": "người xem"
+            "desc1": " {count} người xem | {count} người xem"
         },
         "SuggestedChannels": {
             "desc1": "Kênh trực tiếp",

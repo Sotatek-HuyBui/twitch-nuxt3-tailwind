@@ -128,7 +128,6 @@ const token = $locally.getItem('token');
 
 const isOpen = ref(true);
 const { toggleFromParent } = defineProps(['toggleFromParent']);
-const colorMode = useColorMode();
 
 onMounted(() => {
     const storedIsOpen = localStorage.getItem('isOpenSideBar');

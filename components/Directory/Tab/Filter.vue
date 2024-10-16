@@ -58,7 +58,7 @@
 const languages = ['United States', 'Canada', 'Mexico'];
 import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n();
+const { t} = useI18n();
 const options = computed(() => [
     {
         name: t('Directory.Tab.desc1'),

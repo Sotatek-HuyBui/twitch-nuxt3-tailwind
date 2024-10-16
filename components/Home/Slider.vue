@@ -74,7 +74,7 @@
                                     Minecraft
                                 </p>
                                 <p class="text-[6px]">
-                                    3.6 {{ $t('Home.Slider.desc1') }}
+                                    {{ $t('viewer',  {count:reformatNumber(item.viewers)}, (item.viewers) ) }}
                                 </p>
                             </div>
                         </div>
@@ -136,6 +136,17 @@ onMounted(() => {
         loading.value = false;
     }, 3000);
 });
+
+const item = {
+  viewers: 3.6,  
+};
+
+function reformatNumber(number: number): string {
+  if (number >= 1000) {
+    return parseFloat((number / 1000).toFixed(1)).toString() + 'K'; 
+  }
+  return number.toString(); 
+}
 </script>
 
 <style scoped>

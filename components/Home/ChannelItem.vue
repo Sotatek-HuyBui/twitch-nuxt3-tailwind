@@ -15,7 +15,8 @@
                     class="absolute bg-[#2e2e2e] rounded-sm px-[6px] py-0 bottom-2 left-3 z-10 bg-opacity-70"
                 >
                     <p class="text-[6px] sm:text-[14px] text-white text-center">
-                        {{ reformatNumber(item.viewers) }} {{ $t('viewers') }}
+                        {{ $t('viewer',  {count:reformatNumber(item.viewers)}, (item.viewers) ) }}
+
                     </p>
                 </div>
             </div>
@@ -86,6 +87,12 @@ const { item } = defineProps(['item']);
 const onClick = () => {
     navigateTo(`/${item.streamer}/chats`);
 };
+function reformatNumber(number: number): string {
+  if (number >= 1000) {
+    return parseFloat((number / 1000).toFixed(1)).toString() + 'K'; 
+  }
+  return number.toString(); 
+}
 </script>
 
 <style scoped>

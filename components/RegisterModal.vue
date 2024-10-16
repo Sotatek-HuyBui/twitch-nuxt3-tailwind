@@ -262,7 +262,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { useColorMode } from '@vueuse/core';
-const { t, locale, locales, setLocale } = useI18n();
+const { t } = useI18n();
 
 const months = [
     t('RegisterModal.desc12'),
