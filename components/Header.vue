@@ -175,7 +175,7 @@
 </template>
 <script setup lang="ts">
 import { setLocale } from 'yup';
-
+import { onMounted, watch } from 'vue';
 //@ts-ignore
 const { onShowLoginModal, onShowRegisterModal } = defineProps([
     'onShowLoginModal',
@@ -188,11 +188,24 @@ const username = $locally.getItem('username');
 const isShowMobileSearchBar = ref(false);
 const colorMode = useColorMode();
 const { locale, locales } = useI18n();
+const route = useRoute()
 
 const onToggleMode = () => {
     colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
 };
 
+const applyTheme = () => {
+    document.documentElement.classList.toggle('dark', colorMode.value === 'dark');
+};
+
+watch(() => route.path, () => {
+    applyTheme(); 
+});
+
+
+onMounted(() => {
+    applyTheme(); 
+});
 const childComponentRef = ref<any>(null);
 
 const onClickSearchButton = () => {
