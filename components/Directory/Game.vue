@@ -1,11 +1,13 @@
 <template>
     <div>
         <DirectorySectionRecommendations
-            header="Recommended Games"
+            :key="`DirectorySectionRecommendations-${locale}`"
+            :header="$t('Directory.Game.desc1')"
             :items="categories"
         />
         <DirectorySectionLive
-            header="Team FPS & Battle Royales"
+            :key="`DirectorySectionLive-${locale}`"
+            :header="$t('Directory.Game.desc2')"
             :items="lives"
         />
         <DirectorySectionLive header="Party & Social Games" :items="lives" />
@@ -18,4 +20,6 @@ import { dummyCategories, dummySuggestedChannels } from '@/data/index.ts';
 
 const categories = ref(dummyCategories);
 const lives = ref(dummySuggestedChannels);
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
 </script>

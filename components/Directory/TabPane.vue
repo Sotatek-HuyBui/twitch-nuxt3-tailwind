@@ -41,24 +41,25 @@
 
 <script setup>
 import { dummyCategories, dummySuggestedChannels } from '@/data/index.ts';
-
 const route = useRoute();
 const activeKey = ref(route.params?.directory === 'all' ? '2' : '1');
 const categories = ref(dummyCategories);
 const channels = ref(dummySuggestedChannels);
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 console.log(route.params);
 
-const tabs = [
+const tabs = computed(() => [
     {
         key: '1',
-        label: 'Categories',
+        label: t('Categories'),
     },
     {
         key: '2',
-        label: 'Live Channels',
+        label: t('Home.SuggestedChannels.desc1'),
     },
-];
+]);
 
 const onClickTab = (item) => {
     if (item.key === '2') {

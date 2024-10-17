@@ -56,24 +56,27 @@
 
 <script setup lang="ts">
 const languages = ['United States', 'Canada', 'Mexico'];
-const options = [
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+const options = computed(() => [
     {
-        name: 'Recommended For You',
+        name: t('Directory.Tab.desc1'),
         value: 1,
     },
     {
-        name: 'Viewers (High to Low)',
+        name: t('Directory.Tab.desc2'),
         value: 2,
     },
     {
-        name: 'Viewers (Low to High)',
+        name: t('Directory.Tab.desc3'),
         value: 3,
     },
     {
-        name: 'Recently Started',
+        name: t('Directory.Tab.desc4'),
         value: 4,
     },
-];
+]);
 
 const selectedLanguage = ref();
 const selectedOption = ref(1);

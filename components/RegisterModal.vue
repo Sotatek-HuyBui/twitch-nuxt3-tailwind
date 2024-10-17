@@ -12,7 +12,7 @@
                             alt="Logo"
                         />
                         <p class="ml-4 text-[24px] font-medium dark:text-white">
-                            Join Twitch today
+                            {{ $t('RegisterModal.desc1') }}
                         </p>
                     </div>
                     <img
@@ -29,7 +29,7 @@
                         class="space-y-2 mt-8 flex flex-col justify-center"
                     >
                         <a-form-item
-                            label="Username"
+                            :label="t('RegisterModal.desc6')"
                             class="!mt-[7px] my-5 label-bold relative transition-all duration-200"
                             :class="isInputFocused ? 'mb-[45px]' : 'mb-[7px]'"
                         >
@@ -51,14 +51,13 @@
                                     v-if="isInputFocused"
                                     class="absolute left-0 mt-1 text-[12.5px] text-[#53535F]"
                                 >
-                                    This is the name people will know you by on
-                                    Twitch. You can always change it later.
+                                    {{ $t('RegisterModal.desc34') }}
                                 </div>
                             </transition>
                         </a-form-item>
 
                         <a-form-item
-                            label="Password"
+                            :label="t('RegisterModal.desc7')"
                             name="password"
                             class="relative label-bold"
                         >
@@ -87,13 +86,13 @@
                         </a-form-item>
 
                         <a-form-item
-                            label="Date of Birth"
+                            :label="t('RegisterModal.desc8')"
                             class="!mt-[21px] label-bold"
                         >
                             <div class="grid grid-cols-5 gap-2">
                                 <a-select
                                     v-model:value="monthSelected"
-                                    placeholder="Month"
+                                    :placeholder="t('RegisterModal.desc10')"
                                     :bordered="false"
                                     class="col-span-3 h-[28.5px] !border !border-[#000000d9] rounded flex items-center"
                                 >
@@ -108,7 +107,7 @@
                                 </a-select>
                                 <a-select
                                     v-model:value="daySelected"
-                                    placeholder="Day"
+                                    :placeholder="t('RegisterModal.desc11')"
                                     :bordered="false"
                                     class="col-span-1 h-[28.5px] !border !border-[#000000d9] rounded flex items-center"
                                 >
@@ -141,7 +140,9 @@
                             class="grid grid-cols-5 gap-2 !mt-[30px] max-h-[4rem]"
                         >
                             <a-form-item
-                                :label="useEmail ? '' : 'Phone number'"
+                                :label="
+                                    useEmail ? '' : t('RegisterModal.desc25')
+                                "
                                 :class="useEmail ? 'col-span-5' : 'col-span-2'"
                                 class="label-bold mb-0"
                             >
@@ -170,10 +171,10 @@
                                             class="text-[13.5px] font-semibold font-special"
                                             font-
                                         >
-                                            Email
+                                            {{ $t('RegisterModal.desc9') }}
                                         </p>
                                         <p @click="toggleUseEmail">
-                                            Use phone number instead
+                                            U{{ $t('RegisterModal.desc33') }}
                                         </p>
                                     </div>
                                     <a-input
@@ -194,7 +195,7 @@
                                     class="mb-[5.7px] flex justify-end label-bold cursor-pointer"
                                     @click="toggleUseEmail"
                                 >
-                                    Use email instead
+                                    {{ $t('RegisterModal.desc26') }}
                                 </div>
                                 <a-input
                                     v-model:value="state.phoneNumber"
@@ -209,32 +210,30 @@
                             v-if="!useEmail"
                             class="text-[13px] text-gray-500 mt-2"
                         >
-                            Twitch may use your phone number to call or send
-                            text messages with information regarding your
-                            account.
+                            {{ $t('RegisterModal.desc27') }}
                         </p>
 
                         <p class="text-[13px] text-gray-500 !mt-4">
-                            By clicking Sign Up, you are agreeing to Twitch's
+                            {{ $t('RegisterModal.desc28') }}
                             <a
-                               class="text-[#5C16C5] underline hover:text-[#5C16C5] hover:underline"
+                                class="text-[#5C16C5] underline hover:text-[#5C16C5] hover:underline"
                                 href="https://www.twitch.tv/p/vi-vn/legal/terms-of-service/"
                             >
-                                Terms of Service</a
+                                {{ $t('RegisterModal.desc29') }}</a
                             >
-                            and are acknowledging our
+                            {{ $t('RegisterModal.desc30') }}
                             <a
-                            class="text-[#5C16C5] underline hover:text-[#5C16C5] hover:underline"
+                                class="text-[#5C16C5] underline hover:text-[#5C16C5] hover:underline"
                                 href="https://www.twitch.tv/p/vi-vn/legal/privacy-notice/"
-                                >Privacy Notice</a
+                                >{{ $t('RegisterModal.desc31') }}</a
                             >
-                            applies.
+                            {{ $t('RegisterModal.desc32') }}
                         </p>
 
                         <div class="flex justify-center !mt-6">
                             <a-button
                                 type="primary"
-                                class="w-full  !border-none"
+                                class="w-full !border-none"
                                 :disabled="
                                     !state.username ||
                                     !state.password ||
@@ -243,7 +242,7 @@
                                 "
                                 @click="onSubmit"
                             >
-                                Sign up
+                                {{ $t('RegisterModal.desc2') }}
                             </a-button>
                         </div>
                     </a-form>
@@ -252,7 +251,7 @@
                         class="text-customPrimary-1 mt-4 text-sm text-center font-medium cursor-pointer"
                         @click="onShowLoginModal"
                     >
-                        Have an account? Log in
+                        {{ $t('RegisterModal.desc3') }}
                     </p>
                 </div>
             </div>
@@ -263,20 +262,21 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { useColorMode } from '@vueuse/core';
+const { t } = useI18n();
 
 const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    t('RegisterModal.desc12'),
+    t('RegisterModal.desc13'),
+    t('RegisterModal.desc14'),
+    t('RegisterModal.desc15'),
+    t('RegisterModal.desc16'),
+    t('RegisterModal.desc17'),
+    t('RegisterModal.desc18'),
+    t('RegisterModal.desc19'),
+    t('RegisterModal.desc20'),
+    t('RegisterModal.desc21'),
+    t('RegisterModal.desc22'),
+    t('RegisterModal.desc23'),
 ];
 const days = Array.from({ length: 31 }, (_, index) => (index + 1).toString());
 const years = Array.from({ length: 2024 - 1900 + 1 }, (_, index) =>

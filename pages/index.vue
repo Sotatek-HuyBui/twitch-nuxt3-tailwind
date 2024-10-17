@@ -4,12 +4,15 @@
         <HomeSuggestedChannels />
         <HomeSuggestedCategories />
         <HomeSuggestedChannels
+            :key="`HomeSuggestedChannels-${locale}`"
             :data="dummySuggestedForniteChannels"
-            title="Recommended Fornite Channels"
+            :title="$t('Pages.desc1')"
         />
         <HomeSuggestedChannels
+            :key="`HomeSuggestedChannels222-${locale}`"
             :data="dummySuggestedMinecraftChannels"
-            title="Recommended MineCraft Channels"
+            :title="$t('Pages.desc2')"
+        />
         />
     </div>
 </template>
@@ -29,4 +32,6 @@ import {
 useHead({
     title: 'Twitch',
 });
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
 </script>

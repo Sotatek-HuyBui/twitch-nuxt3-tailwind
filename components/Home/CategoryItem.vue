@@ -19,7 +19,7 @@
             {{ item.name }}
         </p>
         <p class="text-gray-400 text-[6px] sm:text-[12px]">
-            {{ item.viewers }}K viewers
+            {{ $t('Viewer',  {count:reformatNumber(item.viewers)}, (item.viewers) ) }}
         </p>
         <div class="flex items-center mt-2">
             <Tag v-for="tag in item.tag" :key="tag.id" :item="tag" />
@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 const props = defineProps(['item']);
+
 </script>
 
 <style scoped>

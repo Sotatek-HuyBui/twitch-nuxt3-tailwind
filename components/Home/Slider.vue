@@ -73,7 +73,9 @@
                                 >
                                     Minecraft
                                 </p>
-                                <p class="text-[6px]">3.6 viewers</p>
+                                <p class="text-[6px]">
+                                    {{ $t('viewer',  {count:reformatNumber(item.viewers)}, (item.viewers) ) }}
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-center mt-2">
@@ -118,6 +120,7 @@ import { Carousel, Slide } from 'vue3-carousel';
 import { dummySliders } from '@/data/index';
 import 'vue3-carousel/dist/carousel.css';
 
+
 const currentSlide = ref(0);
 const colorMode = useColorMode();
 const loading = ref(true);
@@ -134,6 +137,10 @@ onMounted(() => {
         loading.value = false;
     }, 3000);
 });
+
+const item = {
+  viewers: 3.6,  
+};
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
                 <div
                     class="relative flex-1 px-[30px] py-[30px] dark:bg-[#18181b]"
                 >
-                    <div class="flex items-center justify-center ">
+                    <div class="flex items-center justify-center">
                         <img
                             src="~/assets/twitch.png"
                             class="w-11 h-13"
@@ -14,7 +14,7 @@
                         <p
                             class="ml-3 text-[#0E0E10] text-[24px] font-special font-serif dark:text-white"
                         >
-                            Log in to Twicth
+                            {{ $t('LoginModal.desc7') }}
                         </p>
                     </div>
                     <img
@@ -33,19 +33,19 @@
                             :class="{ 'dark-mode': colorMode.value === 'dark' }"
                         >
                             <a-form-item
-                                label="Username"
+                                :label="t('LoginModal.desc5')"
                                 name="email"
-                                class=" mb-[7px] my-5 label-bold"
+                                class="mb-[7px] my-5 label-bold"
                             >
                                 <a-input
                                     v-model:value="state.email"
                                     :autofocus="true"
-                                class="h-[28.5px] w-[440px] pb-2 pl-2 custom-input"
+                                    class="h-[28.5px] w-[440px] pb-2 pl-2 custom-input"
                                 />
                             </a-form-item>
 
                             <a-form-item
-                                label="Password"
+                                :label="t('LoginModal.desc6')"
                                 name="password"
                                 class="relative label-bold"
                             >
@@ -78,7 +78,7 @@
                             target="_blank"
                             class="text-[13px] text-customPrimary-1 cursor-pointer hover:text-customPrimary-2"
                         >
-                            Trouble logging in?
+                            {{ $t('LoginModal.desc1') }}
                         </a>
 
                         <div class="flex justify-center">
@@ -88,7 +88,7 @@
                                 htmlType="submit"
                                 class="mt-3 bg-[#9147ff] w-full rounded items-center justify-center hover:bg-[#9147ff] font-semibold dark:text-white disabled:bg-[#ADADB838] disabled:cursor-not-allowed"
                             >
-                                Log in
+                                {{ $t('Log in') }}
                             </a-button>
                         </div>
                     </a-form>
@@ -96,7 +96,7 @@
                         class="text-[#5C16C5] mt-6 h-[30px] text-[14px] text-center font-medium cursor-pointer"
                         @click="onShowRegisterModal"
                     >
-                        Don't have an account? Sign up
+                        {{ $t('LoginModal.desc2') }}
                     </p>
                 </div>
             </div>
@@ -108,6 +108,7 @@
 import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from 'ant-design-vue';
 import { v4 as uuidv4 } from 'uuid';
+const { t } = useI18n();
 
 const schema = object({
     email: string().email('Invalid email').required('Required'),
@@ -182,5 +183,4 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 .dark-mode .ant-form-item-control-input-content {
     background-color: #e8f0fe !important;
 }
-
 </style>

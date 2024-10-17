@@ -1,3 +1,167 @@
 {
-    "browse" : "Duyệt"
+    "Browse": "Duyệt",
+    "Following": "Đang theo dõi     ",
+    "Log in": "Đăng nhập",
+    "Sign up": "Đăng ký",
+    "Login to Twicth": "Đăng nhập Twicth",
+    "Go Ad-Free for Free": "Gỡ quảng cáo miễn phí",
+    "IRL": "Người thực việc thực",
+    "Music & DJs": "Âm nhạc & DJs",
+    "Creative": "Sáng tạo",
+    "Categories": "Danh mục",
+    "Recommended Channels": "Kênh được giới thiệu",
+    "For you": "Dành cho bạn",
+    "Followed channels": " Các kênh đã theo dõi",
+    "Live channels": "Kênh trực tiếp",
+    "LIVE": "TRỰC TIẾP",
+    "Viewer": "{count} Người xem | {count} Người xem",
+    "viewer": "{count} người xem  | {count} người xem",
+    "Show more": "Hiển thị thêm",
+    "Games": "Các trò chơi",
+    "Language": "Ngôn ngữ",
+    "Videos": "Các video",
+    "Home": {
+        "Slider": {
+            "desc1": " {count} người xem | {count} người xem"
+        },
+        "SuggestedChannels": {
+            "desc1": "Kênh trực tiếp",
+            "desc2": "chúng tôi nghĩ bạn sẽ thích"
+        },
+        "SuggestedCategories": {
+            "desc1": "Danh mục",
+            "desc2": "chúng tôi nghĩ bạn sẽ thích"
+        }
+    },
+    "Directory": {
+        "Following": {
+            "desc1": "Tổng quan",
+            "desc2": "Theo dõi",
+            "desc3": "Danh mục",
+            "desc4": "Kênh",
+            "desc5": "Thích kênh này? Hãy theo dõi ngay!",
+            "desc6": "Nhận thông báo",
+            "desc7": "Chúng tôi sẽ thông báo khi kênh bắt đầu phát trực tiếp.",
+            "desc8": "Xem",
+            "desc9": "Quay lại và xem những khoảnh khắc trực tiếp.",
+            "desc10": "Các video mới nhất",
+            "desc11": "Không có video gần đây từ các kênh được theo dõi của bạn",
+            "desc12": "Giờ đây bạn có thể theo dõi những game mà bạn thích!",
+            "desc13": " Tìm hiểu thêm"
+        },
+        "Tab": {
+            "desc1": "Đề xuất cho bạn",
+            "desc2": "Lượt xem (Từ cao đến thấp)",
+            "desc3": "Lượt xem (Từ thấp đến cao)",
+            "desc4": "Gần đây"
+        },
+        "Header": {
+            "desc1": "Các chương trình truyền trực tiếp về tất cả game bạn yêu thích, từ game bắn súng đến game đi cảnh và mọi thể loại khác!",
+            "desc2": "Là danh mục chứa mọi nội dung từ tập thể dục cho đến khám phá thế giới cho đến trò chuyện, v.v!",
+            "desc3": "Các DJ yêu thích của bạn, các màn biểu diễn trực tiếp của các nghệ sĩ, sản xuất âm nhạc và các sự kiện đặc biệt",
+            "desc4": "Là nơi để chia sẻ khả năng sáng tạo thông qua vẽ, nấu ăn, lập trình, v.v!",
+            "desc5": "Tất cả các nội dung về giải đấu trực tiếp, nội dung nổi bật của trận đấu và game thủ chuyên nghiệp yêu thích của bạn đều có tại một chỗ!"
+        },
+        "Game": {
+            "desc1": "Các chương trình truyền trực tiếp chơi game được đề xuất",
+            "desc2": "FPS đồng đội & Battle Royales"
+        },
+        "IRL": {
+            "desc1": "Danh mục IRL được đề xuất",
+            "desc2": "Chỉ trò chuyện",
+            "desc3": "Thể thao"
+        },
+        "Creative": {
+            "desc1": "Danh mục sáng tạo được đề xuất",
+            "desc2": "Nghệ thuật",
+            "desc3": "Sáng tạo và thủ công",
+            "desc4": "Phần mềm và phát triển game"
+        },
+        "Esports": {
+            "desc1": "Các game thủ chuyên nghiệp"
+        }
+    },
+    "LoginModal": {
+        "desc1": "Gặp vấn đề khi đăng nhập?",
+        "desc2": "Chưa có tài khoản? Đăng ký ngay",
+        "desc3": "Lên kế hoạch trước cho sự kiện hấp dẫn",
+        "desc4": "Nhận thông báo về các buổi stream sắp tới để bạn\ncó thể chuẩn bị snack chu đáo 😏",
+        "desc5": "Tên người dùng",
+        "desc6": "Mật khẩu",
+        "desc7": " Đăng nhập Twicth"
+    },
+    "RegisterModal": {
+        "desc1": "Tham gia Twitch hôm nay",
+        "desc2": "Đăng ký ngay",
+        "desc3": "Đã có tài khoản? Đăng nhập",
+        "desc4": "Lên kế hoạch trước cho sự kiện hấp dẫn",
+        "desc5": "Nhận thông báo về các buổi stream sắp tới để bạn\ncó thể chuẩn bị snack chu đáo 😏",
+        "desc6": "Tên người dùng",
+        "desc7": "Mật khẩu",
+        "desc8": "Ngày sinh",
+        "desc9": "Email",
+        "desc10": "Ngày",
+        "desc11": "Năm",
+        "desc12": "Tháng 1",
+        "desc13": "Tháng 2",
+        "desc14": "Tháng 3",
+        "desc15": "Tháng 4",
+        "desc16": "Tháng 5",
+        "desc17": "Tháng 6",
+        "desc18": "Tháng 7",
+        "desc19": "Tháng 8",
+        "desc20": "Tháng 9",
+        "desc21": "Tháng 10",
+        "desc22": "Tháng 11",
+        "desc23": "Tháng 12",
+        "desc24": "Tháng",
+        "desc25": "Số điện thoại",
+        "desc26": "Sử dụng email thay vì",
+        "desc27": "Twitch có thể sử dụng số điện thoại của bạn để gọi hoặc gửi\ntin nhắn với thông tin liên quan đến\ntài khoản của bạn.",
+        "desc28": "Bằng cách nhấp vào Đăng ký, bạn đồng ý với",
+        "desc29": "Điều khoản Dịch vụ của Twitch",
+        "desc30": "và bạn xác nhận rằng bạn đã đọc",
+        "desc31": "Thông báo quyền riêng tư ",
+        "desc32": "được áp dụng.",
+        "desc33": "Sử dụng số điện thoại thay vì",
+        "desc34": "Đây là tên mà mọi người sẽ biết đến bạn trên\nTwitch. Bạn luôn có thể thay đổi nó sau."
+    },
+    "SignUpBanner": {
+        "desc1": "Tham gia cộng đồng Twitch!",
+        "desc2": "Khám phá những chương trình truyền trực tiếp tốt nhất mọi nơi."
+    },
+    "Header": {
+        "desc1": "Giới thiệu",
+        "desc2": "Nhà quảng cáo",
+        "desc3": "Blog",
+        "desc4": "Nhà phát triển",
+        "desc5": "Tải ứng dụng",
+        "desc6": "Tuyên bố về quyền truy cập",
+        "desc7": "Lựa chọn quảng cáo",
+        "desc8": "Nhà sản xuất video",
+        "desc9": "Bảng điều khiển người sáng tạo",
+        "desc10": "Ngôn ngữ",
+        "desc11": "Tiếng Anh",
+        "desc12": "Tiếng Việt",
+        "desc13": "Chế độ tối",
+        "desc14": "Chế độ sáng",
+        "desc15": "Phân loại",
+        "desc16": "Đăng xuất",
+        "desc17": "Đăng nhập",
+        "desc18": "Kênh",
+        "desc19": "Nhà sản xuất video",
+        "desc20": "Bảng điều khiển sáng tạo",
+        "desc21": "Trung tâm quyền riêng tư",
+        "desc22": "An toàn",
+        "desc23": "Cấp phép biểu tượng cảm xúc",
+        "desc24": "Đăng ký",
+        "desc25": "Phần thưởng & Giải thưởng",
+        "desc26": "Ví",
+        "desc27": "Cài đặt",
+        "desc28": "Tùy chỉnh nội dung"
+    },
+    "Pages": {
+        "desc1": "Các kênh Fortnite được đề xuất",
+        "desc2": "Các kênh MineCraft được đề xuất"
+    }
 }
