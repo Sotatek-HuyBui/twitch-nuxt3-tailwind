@@ -108,7 +108,7 @@
 import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from 'ant-design-vue';
 import { v4 as uuidv4 } from 'uuid';
-const { t} = useI18n();
+const { t } = useI18n();
 
 const schema = object({
     email: string().email('Invalid email').required('Required'),
@@ -131,7 +131,6 @@ const state = reactive({
 const onTogglePassword = () => (showPassword.value = !showPassword.value);
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-    // Do something with event.data
     try {
         localStorage.setItem('token', uuidv4());
         localStorage.setItem('username', state.email);

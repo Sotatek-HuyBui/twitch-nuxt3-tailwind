@@ -106,7 +106,8 @@
                             <component :is="item.icon" class="fill-red w-2 sm:w-5 sm:h-5 cursor-pointer"
                                 :fontControlled="false" v-if="item.icon && item.icon !== 'avatar'" />
 
-                            <component :is="item.addIcon2" class=" w-2 sm:w-3 sm:h-3 cursor-pointer text-black"
+                            <component :is="item.addIcon2"  
+                            :class="[colorMode.value ? 'w-2 sm:w-3 sm:h-3 cursor-pointer' : 'w-2 sm:w-3 sm:h-3 cursor-pointer text-black']"
                                 :fontControlled="false" v-if="item.addIcon2 && item.addIcon2 !== 'avatar'" />
 
 
@@ -180,7 +181,6 @@ const router = useRouter();
 
 const onToggleLanguage = (lang: string) => {
     setLocale(lang);
-    locale.value = lang;
 };
 
 

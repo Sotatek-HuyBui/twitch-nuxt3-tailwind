@@ -41,7 +41,6 @@
 
 <script setup>
 import { dummyCategories, dummySuggestedChannels } from '@/data/index.ts';
-import { ref, computed } from 'vue';
 const route = useRoute();
 const activeKey = ref(route.params?.directory === 'all' ? '2' : '1');
 const categories = ref(dummyCategories);

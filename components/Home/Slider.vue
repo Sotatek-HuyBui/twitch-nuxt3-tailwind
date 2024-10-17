@@ -120,6 +120,7 @@ import { Carousel, Slide } from 'vue3-carousel';
 import { dummySliders } from '@/data/index';
 import 'vue3-carousel/dist/carousel.css';
 
+
 const currentSlide = ref(0);
 const colorMode = useColorMode();
 const loading = ref(true);
@@ -140,13 +141,6 @@ onMounted(() => {
 const item = {
   viewers: 3.6,  
 };
-
-function reformatNumber(number: number): string {
-  if (number >= 1000) {
-    return parseFloat((number / 1000).toFixed(1)).toString() + 'K'; 
-  }
-  return number.toString(); 
-}
 </script>
 
 <style scoped>

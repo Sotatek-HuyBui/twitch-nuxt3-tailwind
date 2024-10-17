@@ -30,13 +30,6 @@
 <script setup lang="ts">
 const props = defineProps(['item']);
 
-function reformatNumber(number: number): string {
-  if (number >= 1000) {
-    return parseFloat((number / 1000).toFixed(1)).toString() + 'K'; 
-  }
-  return number.toString(); 
-}
-
 </script>
 
 <style scoped>
